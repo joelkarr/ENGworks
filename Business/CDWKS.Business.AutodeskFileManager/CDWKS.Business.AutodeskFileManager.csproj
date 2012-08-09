@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{49144A43-19E2-4DFE-BE31-5D3BED80064A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CDWKS.Business.AutodeskFileManager</RootNamespace>
+    <AssemblyName>CDWKS.Business.AutodeskFileManager</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net">
+      <HintPath>..\..\Shared\CDWKS.Shared.ThirdParty\Log4Net\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject">
+      <HintPath>..\CDWKS.Shared.ThirdParty\Ninject\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AutodeskFileManager.cs" />
+    <Compile Include="IAutodeskFileManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Model\CDWKS.Model.EF.Content\CDWKS.Model.EF.Content.csproj">
+      <Project>{386444F8-A1B2-4EFC-83BC-B4316BE870F0}</Project>
+      <Name>CDWKS.Model.EF.Content</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Model\CDWKS.Model.EF.FileQueue\CDWKS.Model.EF.FileQueue.csproj">
+      <Project>{5558FD74-3768-45BF-96D2-15FA81720C64}</Project>
+      <Name>CDWKS.Model.EF.FileQueue</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Model\CDWKS.Model.Poco.Content\CDWKS.Model.Poco.Content.csproj">
+      <Project>{B212B384-F6EF-4E98-B3C8-D58A7D2A520A}</Project>
+      <Name>CDWKS.Model.Poco.Content</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Repository\CDWKS.Repository.Content\CDWKS.Repository.Content.csproj">
+      <Project>{540607F5-91BC-4890-987B-1E6F2E5FEF3D}</Project>
+      <Name>CDWKS.Repository.Content</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Shared\CDWKS.Shared.ObjectFactory\CDWKS.Shared.ObjectFactory.csproj">
+      <Project>{DC13A374-5C96-4F36-915B-776380B75313}</Project>
+      <Name>CDWKS.Shared.ObjectFactory</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
