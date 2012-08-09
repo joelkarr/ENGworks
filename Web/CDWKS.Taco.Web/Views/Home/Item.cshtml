@@ -1,0 +1,66 @@
+﻿@model CDWKS.BXC.Taco.Web.Models.ItemViewModel
+@{
+    ViewBag.Title = "Content";
+    ViewBag.Pump = Model.Pump;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="itemMain">
+    <div class="itemCurveImage">
+<img src="http://www.taco-hvac.com/wizard_pumps.html?opt=curve_image&id=@(Model.Pump.curve_id)&flow=@(Model.Pump.flow)&head=@(Model.Pump.head)&showthumb=0" alt="curve" />
+    </div>
+    <div class="itemColumn">
+        <div class="loadButton">
+            @if (@Model.Pump.isENGworksAvailable)
+            {
+                <input id="download" type="image" class="ItemButonImage" src="@Url.Content("../Content/images/LoadContentButton.png")" alt="Search"/>
+            }
+            else
+            {
+                <input id="request" type="image" class="ItemButonImage" src="@Url.Content("../Content/images/RequestContentButton.png")" alt="Search"/>
+            }
+        </div>
+        <div class="itemInfo">
+            <div class="header green2">Pump</div>
+            <ul>
+            <li>@Html.LabelFor(model => model.Pump.model_no):   @Model.Pump.model_no</li>
+            <li>@Html.LabelFor(model => model.Pump.suct_disch):   @Model.Pump.suct_disch</li>   
+            <li>@Html.LabelFor(model => model.Pump.imp_dia):   @Model.Pump.imp_dia</li> 
+            <li>@Html.LabelFor(model => model.Pump.rpm):  @Model.Pump.rpm</li>
+            </ul>
+
+
+        </div>
+        <div class="itemPreviewImage">
+           <img class='preview' src="http://bxc.mepcontent.com/Images/FileImages/@(Model.Pump.PreviewImage).gif" alt='@(Model.Pump.PreviewImage)'></img>
+        </div>
+    </div>
+</div>
+<div class="ItemInfoTable">
+    <div class="ItemInfoContainer center BorderRight">
+        <div class="header green2">Flow</div>
+        @Model.Pump.flow
+    </div>
+    <div class="ItemInfoContainer center BorderRight">
+        <div class="header green2">Head</div>
+        @Model.Pump.head
+    </div>
+    <div class="ItemInfoContainer center BorderRight">
+        <div class="header green2">Eff</div>
+        @Model.Pump.eff
+    </div>
+    <div class="ItemInfoContainer center BorderRight">
+        <div class="header green2">NPSHr</div>
+        @Model.Pump.npsh
+    </div>
+    <div class="ItemInfoContainer center BorderRight">
+        <div class="header green2">Power</div>
+        @Model.Pump.nol_hp
+    </div>
+    <div class="ItemInfoContainer center" style="width:128px;">
+        <div class="header green2">Motor</div>
+        @Model.Pump.hp
+    </div>
+</div>
+
+@section Scripts{}

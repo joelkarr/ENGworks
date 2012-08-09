@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/CDWKS.Model.Poco.Content" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/CDWKS.Model.Poco.Content" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="AutodeskFile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AutodeskFileTreeNodes" nillable="true" type="tns:ArrayOfAutodeskFileTreeNode" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Images" nillable="true" type="tns:ArrayOfImage" />
+      <xs:element minOccurs="0" name="Items" nillable="true" type="tns:ArrayOfItem" />
+      <xs:element minOccurs="0" name="MC_OwnerId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TypeCatalogHeader" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Version" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AutodeskFile" nillable="true" type="tns:AutodeskFile" />
+  <xs:complexType name="ArrayOfAutodeskFileTreeNode">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AutodeskFileTreeNode" nillable="true" type="tns:AutodeskFileTreeNode" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAutodeskFileTreeNode" nillable="true" type="tns:ArrayOfAutodeskFileTreeNode" />
+  <xs:complexType name="AutodeskFileTreeNode">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AutodeskFile" nillable="true" type="tns:AutodeskFile" />
+      <xs:element minOccurs="0" name="AutodeskFileIESFiles" nillable="true" type="tns:ArrayOfAutodeskFileIESFile" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="TreeNode" nillable="true" type="tns:TreeNode" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AutodeskFileTreeNode" nillable="true" type="tns:AutodeskFileTreeNode" />
+  <xs:complexType name="ArrayOfAutodeskFileIESFile">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AutodeskFileIESFile" nillable="true" type="tns:AutodeskFileIESFile" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAutodeskFileIESFile" nillable="true" type="tns:ArrayOfAutodeskFileIESFile" />
+  <xs:complexType name="AutodeskFileIESFile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AutodeskFileTreeNode" nillable="true" type="tns:AutodeskFileTreeNode" />
+      <xs:element minOccurs="0" name="IESFile" nillable="true" type="tns:IESFile" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AutodeskFileIESFile" nillable="true" type="tns:AutodeskFileIESFile" />
+  <xs:complexType name="IESFile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AutodeskFileIESFiles" nillable="true" type="tns:ArrayOfAutodeskFileIESFile" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="IESFile" nillable="true" type="tns:IESFile" />
+  <xs:complexType name="TreeNode">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AutodeskFileTreeNodes" nillable="true" type="tns:ArrayOfAutodeskFileTreeNode" />
+      <xs:element minOccurs="0" name="ContentLibrary" nillable="true" type="tns:ContentLibrary" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TreeNode1" nillable="true" type="tns:TreeNode" />
+      <xs:element minOccurs="0" name="TreeNodes1" nillable="true" type="tns:ArrayOfTreeNode" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TreeNode" nillable="true" type="tns:TreeNode" />
+  <xs:complexType name="ContentLibrary">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TreeNodes" nillable="true" type="tns:ArrayOfTreeNode" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ContentLibrary" nillable="true" type="tns:ContentLibrary" />
+  <xs:complexType name="ArrayOfTreeNode">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TreeNode" nillable="true" type="tns:TreeNode" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTreeNode" nillable="true" type="tns:ArrayOfTreeNode" />
+  <xs:complexType name="ArrayOfImage">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Image" nillable="true" type="tns:Image" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfImage" nillable="true" type="tns:ArrayOfImage" />
+  <xs:complexType name="Image">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AutodeskFile" nillable="true" type="tns:AutodeskFile" />
+      <xs:element minOccurs="0" name="FileType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Location" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Image" nillable="true" type="tns:Image" />
+  <xs:complexType name="ArrayOfItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Item" nillable="true" type="tns:Item" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfItem" nillable="true" type="tns:ArrayOfItem" />
+  <xs:complexType name="Item">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AutodeskFile" nillable="true" type="tns:AutodeskFile" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Parameters" nillable="true" type="tns:ArrayOfParameter" />
+      <xs:element minOccurs="0" name="TypeCatalogEntry" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Item" nillable="true" type="tns:Item" />
+  <xs:complexType name="ArrayOfParameter">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Parameter" nillable="true" type="tns:Parameter" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfParameter" nillable="true" type="tns:ArrayOfParameter" />
+  <xs:complexType name="Parameter">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Featured" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Hidden" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Item" nillable="true" type="tns:Item" />
+      <xs:element minOccurs="0" name="SearchName" nillable="true" type="tns:SearchName" />
+      <xs:element minOccurs="0" name="SearchValue" nillable="true" type="tns:SearchValue" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Parameter" nillable="true" type="tns:Parameter" />
+  <xs:complexType name="SearchName">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Parameters" nillable="true" type="tns:ArrayOfParameter" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SearchName" nillable="true" type="tns:SearchName" />
+  <xs:complexType name="SearchValue">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Parameters" nillable="true" type="tns:ArrayOfParameter" />
+      <xs:element minOccurs="0" name="Value" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SearchValue" nillable="true" type="tns:SearchValue" />
+</xs:schema>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="6ac24ae0-8953-4baa-a5ea-0a34aa77cbe3" xmlns="urn:schemas-microsoft-com:xml-dataservicemap">
+  <MetadataSources>
+    <MetadataSource Address="http://odata.bxc.mepcontent.com/userservice.svc/" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.edmx" MetadataType="Edmx" ID="e8f17c1c-1252-4b0b-9cb1-34c2c55a86b0" SourceId="1" SourceUrl="http://odata.bxc.mepcontent.com/userservice.svc/" />
+  </Metadata>
+  <Extensions />
+</ReferenceGroup>

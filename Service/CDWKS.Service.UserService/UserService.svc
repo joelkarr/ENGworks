@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="CDWKS.BXC.UserService.UserService" CodeBehind="UserService.svc.cs" %>

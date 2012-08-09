@@ -1,0 +1,261 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{719BCFBC-6F29-41C0-8943-FAB7F7AE6E02}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CDWKS.CMS.Web</RootNamespace>
+    <AssemblyName>CDWKS.CMS.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <UseIISExpress>false</UseIISExpress>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DesktopBuildPackageLocation>\Package\CDWKS.CMS.Web.zip</DesktopBuildPackageLocation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxControlToolkit">
+      <HintPath>..\..\Shared\CDWKS.Shared.ThirdParty\AjaxControlToolkit\AjaxControlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="Ionic.Zip">
+      <HintPath>..\..\Shared\CDWKS.Shared.ThirdParty\IonicZip\Ionic.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Services.Client" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Telerik.Web.UI">
+      <HintPath>..\..\Shared\CDWKS.Shared.ThirdParty\Telerik\Telerik.Web.UI.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Default.aspx" />
+    <Content Include="Error.aspx" />
+    <Content Include="Eula.aspx" />
+    <Content Include="Images\BIMXchange-logo.png" />
+    <Content Include="Images\btnAddFilter.png" />
+    <Content Include="Images\btnChangeLibrary.png" />
+    <Content Include="Images\btnFilterPage.png" />
+    <Content Include="Images\btnRemoveAll.png" />
+    <Content Include="Images\btnTreePage.png" />
+    <Content Include="Images\ByCadworksLogo.png" />
+    <Content Include="Images\HelpButton.png" />
+    <Content Include="Images\Libraries\A.O. Smith.png" />
+    <Content Include="Images\Libraries\AOSmith.png" />
+    <Content Include="Images\Libraries\Armstrong.png" />
+    <Content Include="Images\Libraries\Autodesk Imperial.png" />
+    <Content Include="Images\Libraries\Autodesk Metric.gif" />
+    <Content Include="Images\Libraries\Autodesk Metric.png" />
+    <Content Include="Images\Libraries\BAC.png" />
+    <Content Include="Images\Libraries\Bell Gossett.png" />
+    <Content Include="Images\Libraries\BellGossett.png" />
+    <Content Include="Images\Libraries\Bradley.png" />
+    <Content Include="Images\Libraries\Brady.png" />
+    <Content Include="Images\Libraries\CADworks Electrical.png" />
+    <Content Include="Images\Libraries\CADworks Fire Suppresion.png" />
+    <Content Include="Images\Libraries\CADworks Fire Suppression.png" />
+    <Content Include="Images\Libraries\CADworks Generic Imperial.png" />
+    <Content Include="Images\Libraries\CADworks Generic Metric.png" />
+    <Content Include="Images\Libraries\CADworks Mechanical.png" />
+    <Content Include="Images\Libraries\CADworks Metric.png" />
+    <Content Include="Images\Libraries\CADworks Non-Certified.png" />
+    <Content Include="Images\Libraries\CADworks Plumbing.png" />
+    <Content Include="Images\Libraries\Cooper.png" />
+    <Content Include="Images\Libraries\Default.png" />
+    <Content Include="Images\Libraries\Crane.png" />
+    <Content Include="Images\Libraries\Delta.png" />
+    <Content Include="Images\Libraries\Krueger.png" />
+    <Content Include="Images\Libraries\Lutron.png" />
+    <Content Include="Images\Libraries\Nibco.png" />
+    <Content Include="Images\Libraries\Non CADworks.png" />
+    <Content Include="Images\Libraries\PennBarry.png" />
+    <Content Include="Images\Libraries\Schott.png" />
+    <Content Include="Images\Libraries\Sloan.png" />
+    <Content Include="Images\Libraries\Taco.png" />
+    <Content Include="Images\Libraries\Titus.gif" />
+    <Content Include="Images\Libraries\Titus.png" />
+    <Content Include="Images\Libraries\Toto.png" />
+    <Content Include="Images\Libraries\Tuttle Bailey.png" />
+    <Content Include="Images\Libraries\Victaulic.png" />
+    <Content Include="Images\Libraries\Waterless.png" />
+    <Content Include="Images\Libraries\Your Company.png" />
+    <Content Include="Images\Libraries\Your Project.png" />
+    <Content Include="Images\LoadFileButton.png" />
+    <Content Include="Images\LoginButton.png" />
+    <Content Include="Images\RegisterButton.png" />
+    <Content Include="Images\remove.png" />
+    <Content Include="Images\Sub-header.png" />
+    <Content Include="Images\TreeTab.png" />
+    <Content Include="Images\TypeCatalogButton.png" />
+    <Content Include="Library.aspx" />
+    <Content Include="Login.aspx" />
+    <Content Include="NotRevit.aspx" />
+    <Content Include="Registration.aspx" />
+    <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.4.1.js" />
+    <Content Include="Scripts\jquery-1.4.1.min.js" />
+    <Content Include="Styles\jQuery.css" />
+    <Content Include="TypeCatalog.aspx" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Error.aspx.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Error.aspx.designer.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Eula.aspx.cs">
+      <DependentUpon>Eula.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Eula.aspx.designer.cs">
+      <DependentUpon>Eula.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Library.aspx.cs">
+      <DependentUpon>Library.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Library.aspx.designer.cs">
+      <DependentUpon>Library.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NotRevit.aspx.cs">
+      <DependentUpon>NotRevit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NotRevit.aspx.designer.cs">
+      <DependentUpon>NotRevit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Registration.aspx.cs">
+      <DependentUpon>Registration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registration.aspx.designer.cs">
+      <DependentUpon>Registration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TypeCatalog.aspx.cs">
+      <DependentUpon>TypeCatalog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TypeCatalog.aspx.designer.cs">
+      <DependentUpon>TypeCatalog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Xchange.Master.cs">
+      <DependentUpon>Xchange.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Xchange.Master.designer.cs">
+      <DependentUpon>Xchange.Master</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Images\FileImages\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Styles\contentstyle.css" />
+    <Content Include="Xchange.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Model\CDWKS.Model.EF.Content\CDWKS.Model.EF.Content.csproj">
+      <Project>{386444F8-A1B2-4EFC-83BC-B4316BE870F0}</Project>
+      <Name>CDWKS.Model.EF.Content</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Model\CDWKS.Model.EF.MasterControl\CDWKS.Model.EF.MasterControl.csproj">
+      <Project>{5C1AEC8D-1AAA-4587-8AE0-9CD6A179DFAB}</Project>
+      <Name>CDWKS.Model.EF.MasterControl</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>51897</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost/CDWKS.CMS.Web</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

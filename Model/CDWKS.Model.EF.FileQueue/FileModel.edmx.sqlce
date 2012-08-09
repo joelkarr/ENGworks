@@ -1,0 +1,91 @@
+
+-- --------------------------------------------------
+-- Entity Designer DDL Script for SQL Server Compact Edition
+-- --------------------------------------------------
+-- Date Created: 02/15/2012 19:15:42
+-- Generated from EDMX file: C:\Dev\CADworks\CDWKS.Model.EF.FileQueue\FileModel.edmx
+-- --------------------------------------------------
+
+
+-- --------------------------------------------------
+-- Dropping existing FOREIGN KEY constraints
+-- NOTE: if the constraint does not exist, an ignorable error will be reported.
+-- --------------------------------------------------
+
+
+-- --------------------------------------------------
+-- Dropping existing tables
+-- NOTE: if the table does not exist, an ignorable error will be reported.
+-- --------------------------------------------------
+
+    DROP TABLE [FileQueues];
+GO
+    DROP TABLE [IndexerTasks];
+GO
+    DROP TABLE [IndexerInstances];
+GO
+
+-- --------------------------------------------------
+-- Creating all tables
+-- --------------------------------------------------
+
+-- Creating table 'FileQueues'
+CREATE TABLE [FileQueues] (
+    [Id] uniqueidentifier  NOT NULL,
+    [FilePath] nvarchar(256)  NULL,
+    [Status] nvarchar(100)  NULL,
+    [Attempts] int  NULL,
+    [RevitVersion] nvarchar(100)  NULL,
+    [Library] nvarchar(4000)  NOT NULL,
+    [IndexType] nvarchar(4000)  NOT NULL,
+    [FileName] nvarchar(4000)  NOT NULL,
+    [AddedDateTime] datetime  NOT NULL,
+    [InstanceId] uniqueidentifier  NOT NULL
+);
+GO
+
+-- Creating table 'IndexerTasks'
+CREATE TABLE [IndexerTasks] (
+    [Id] uniqueidentifier  NOT NULL,
+    [Action] nvarchar(4000)  NOT NULL,
+    [DateTime] datetime  NOT NULL,
+    [InstanceId] uniqueidentifier  NOT NULL
+);
+GO
+
+-- Creating table 'IndexerInstances'
+CREATE TABLE [IndexerInstances] (
+    [Id] uniqueidentifier  NOT NULL,
+    [DateTime] datetime  NOT NULL
+);
+GO
+
+-- --------------------------------------------------
+-- Creating all PRIMARY KEY constraints
+-- --------------------------------------------------
+
+-- Creating primary key on [Id] in table 'FileQueues'
+ALTER TABLE [FileQueues]
+ADD CONSTRAINT [PK_FileQueues]
+    PRIMARY KEY ([Id] );
+GO
+
+-- Creating primary key on [Id] in table 'IndexerTasks'
+ALTER TABLE [IndexerTasks]
+ADD CONSTRAINT [PK_IndexerTasks]
+    PRIMARY KEY ([Id] );
+GO
+
+-- Creating primary key on [Id] in table 'IndexerInstances'
+ALTER TABLE [IndexerInstances]
+ADD CONSTRAINT [PK_IndexerInstances]
+    PRIMARY KEY ([Id] );
+GO
+
+-- --------------------------------------------------
+-- Creating all FOREIGN KEY constraints
+-- --------------------------------------------------
+
+-- --------------------------------------------------
+-- Script has ended
+-- --------------------------------------------------

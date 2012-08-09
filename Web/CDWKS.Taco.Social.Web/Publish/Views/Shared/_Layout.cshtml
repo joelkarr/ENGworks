@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <title>Taco Revit MEP Content Feedback Site - Home</title>
+        <link href="@Url.Content("~/Common/Styles/Site.css")" rel="stylesheet" type="text/css" />
+        <script src="@Url.Content("~/Common/Javascript/jQuery/jquery-1.7.1.min.js")" type="text/javascript"></script>
+        @RenderSection("Head")
+    </head>
+    <body>
+        <div id="SiteWrapper">
+            <div id="Header">
+                <a id="Logo" href="/">Taco</a>
+                <div id="TopBar"></div>
+                <div id="MiddleBar"></div>
+                <div id="BottomBar"></div>
+                <div id="Seperator"></div>
+            </div>
+            
+            @RenderBody()
+        </div>
+        @RenderSection("Javascript")
+    </body>
+</html>

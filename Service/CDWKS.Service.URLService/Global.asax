@@ -1,0 +1,1 @@
+<%@ Application Codebehind="Global.asax.cs" Inherits="CDWKS.Service.URLService.Global" Language="C#" %>

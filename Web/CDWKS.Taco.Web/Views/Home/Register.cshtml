@@ -1,0 +1,58 @@
+﻿@using CDWKS.BXC.Taco.Web.Models
+@model User
+@{
+    ViewBag.Title = "Register";
+}
+
+
+<div style="height:430px;">
+@using (Html.BeginForm("Register", "Home", FormMethod.Post, new { id = "RegisterForm" }))
+{
+    <h2>Register</h2>
+    @Html.ValidationSummary(false, "Please update the following:")
+        <div class="tallrow" style="border-bottom:1px black solid; height:175px;">
+            <div class="twocolumn">
+                <div class="header green2">Account Info</div>
+                <div class="inputrow">
+                    @Html.LabelFor(model => model.Email)
+                    @Html.TextBoxFor(model => model.Email)
+                </div>
+                <div class="inputrow">
+                    @Html.LabelFor(model => model.Password)
+                    @Html.PasswordFor(model => model.Password)
+                </div>
+                <div class="inputrow">
+                    @Html.LabelFor(model => model.ConfirmPassword)
+                    @Html.PasswordFor(model => model.ConfirmPassword)
+                </div>
+            </div>
+            <div class="twocolumn">
+                <div class="header green2">Personal Info</div>
+                <div class="inputrow">
+                    @Html.LabelFor(model => model.FirstName)
+                    @Html.TextBoxFor(model => model.FirstName)
+                </div>
+                <div class="inputrow">
+                    @Html.LabelFor(model => model.LastName)
+                    @Html.TextBoxFor(model => model.LastName)
+                </div>
+                <div class="inputrow">
+                    @Html.LabelFor(model => model.Company)
+                    @Html.TextBoxFor(model => model.Company)
+                </div>
+                                <div class="inputrow">
+                    @Html.LabelFor(model => model.PhoneNumber)
+                    @Html.TextBoxFor(model => model.PhoneNumber)
+                </div>
+            </div>
+            <input type="image" class="right marginstandard standardButton" src="@Url.Content("Content/images/RegisterButton.png")" alt="Search"/>
+
+            @Html.ActionLink("Back To Login", "Login", "Home", null, new { @class = "actionlink" })
+        </div>
+}
+</div>
+@section Scripts
+{
+    
+}
+

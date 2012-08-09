@@ -1,0 +1,562 @@
+﻿/*--------------Global Styles---------------*/
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+body
+{
+    font-family: Arial;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+}
+
+.clear
+{
+    clear: both;
+}
+
+h1
+{
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+p
+{
+    margin-bottom: 15px;
+}
+
+label
+{
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+a, a:hover, a:link, a:active
+{
+    color: #5bb949;
+    text-decoration: underline;
+}
+
+img
+{
+    border: none;
+    outline: none;
+}
+
+.alignRight 
+{
+    text-align: right;
+}
+
+/*--------------SiteWrapper---------------*/
+#SiteWrapper
+{
+    margin-left: auto;
+    margin-right: auto;
+    width: 1241px;
+    margin-top: 10px;
+    text-align: left;
+}
+
+
+/*--------------Header---------------*/
+#Header
+{
+    margin-bottom: 10px;
+}
+
+#Header #Logo
+{
+    background-image: url(/Common/Images/maintacologo.png);
+    background-repeat: no-repeat;
+    background-position: left top;
+    width: 277px;
+    height: 91px;
+    display: block;
+    position: relative;
+    text-indent: -99999px;
+    margin-bottom: 5px;
+}
+
+#Header #TopBar
+{
+    background-color: #bddeb4;
+    height: 24px;
+}
+
+#Header #MiddleBar
+{
+    background-color: #1fa54a;
+    height: 16px;
+}
+
+#Header #BottomBar
+{
+    background-color: #5bb949;
+    height: 16px;
+    margin-bottom: 5px;
+}
+
+#Header #Seperator
+{
+    background-image: url(/Common/Images/greydivider.png);
+    background-repeat: no-repeat;
+    background-position: left top;
+    width: 1241px;
+    height: 8px;
+}
+
+/*--------------MainContentWrapper---------------*/
+#MainContentWrapper
+{
+    text-align: left;
+}
+
+/*--------------TwoCol---------------*/
+#TwoCol #LeftCol
+{
+    float: left;
+    width: 48%;
+    margin-right: 4%;
+}
+
+#TwoCol #LeftCol #MainImage
+{
+    background-image: url(/Common/Images/mainimage.png);
+    background-repeat: no-repeat;
+    background-position: left top;
+    width: 587px;
+    height: 374px;
+    margin-bottom: 15px;
+}
+
+#TwoCol #RightCol
+{
+    float: right;
+    width: 48%;
+}
+
+#TwoCol #RightCol table
+{
+    width: 400px;
+}
+
+#TwoCol #RightCol table td
+{
+    padding: 2px;
+}
+
+#TwoCol #RightCol table label
+{
+    padding-right: 25px;
+}
+
+
+/*--------------textbox---------------*/
+.textbox
+{
+    display: block;
+    height: 20px;
+    width: 200px;
+    border: solid 1px #BEBEBE;
+    padding: 4px 8px;
+}
+
+/*--------------textarea---------------*/
+.textarea
+{
+    display: block;
+    height: 75px;
+    width: 95%;
+    border: solid 1px #BEBEBE;
+    padding: 4px 8px;
+}
+
+/*--------------dropdown---------------*/
+.dropdown
+{
+    height: 20px;
+    border: solid 1px #BEBEBE;
+    display: block;
+    width: 150px;
+}
+
+/*--------------floatLeft---------------*/
+.floatLeft
+{
+    float: left;
+}
+
+/*--------------floatRight---------------*/
+.floatRight
+{
+    float: right;
+}
+
+/*--------------width48Percent---------------*/
+.width48Percent
+{
+    width: 48%;
+}
+
+/*--------------Like---------------*/
+#Like
+{
+    line-height: 15px;
+}
+
+#Like input
+{
+    vertical-align: bottom;
+}
+
+#Like img
+{
+    vertical-align: top;
+}
+
+#Like label
+{
+    vertical-align: bottom;
+}
+
+/*--------------Dislike---------------*/
+#Dislike
+{
+    line-height: 15px;
+    padding-top: 15px;
+}
+
+#Dislike input
+{
+    vertical-align: top;
+}
+
+#Dislike img
+{
+    vertical-align: middle;
+}
+
+#Dislike label
+{
+    vertical-align: top;
+}
+
+/*--------------AskQuestion---------------*/
+#AskQuestion
+{
+    margin: 15px 0px 15px 70px;
+}
+
+/*--------------SocialMedia---------------*/
+#SocialMedia
+{
+    margin-left: 95px;
+}
+
+#SocialMedia img
+{
+    vertical-align: bottom;
+    height: 50px;
+}
+
+
+/*--------------button---------------*/
+.button
+{
+    -webkit-box-shadow: rgba(0, 0, 0, 0.0.97) 0px 1px 0px 0px;
+    background-color: #EEE;
+    border: 1px solid #BEBEBE;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 2px 6px;
+    height: 28px;
+    width: 75px;
+    color: #666;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+/*--------------CommentWrapper---------------*/
+#CommentWrapper  
+{
+    position: relative;
+}
+
+#CommentWrapper .counter
+{
+	font-size:20px;
+	font-weight:bold;
+	color:#BEBEBE;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+#CommentWrapper .warning
+{
+    color:#600;
+ }	
+ 
+#CommentWrapper .exceeded 
+{
+    color:#e00;
+}
+
+
+/*--------------copyright---------------*/
+.copyright
+{
+    font-size: 11px;
+}
+
+
+/*--------------ApprovalTable---------------*/
+#ApprovalTable 
+{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#ApprovalTable th
+{
+    background-color: #cecece;
+    padding: 10px;
+    font-weight: bold;
+    text-align: center;
+    border: solid 2px #cecece;
+    border-right: solid 2px #fff;
+    border-collapse: collapse;
+}
+
+#ApprovalTable .lastTH
+{
+    border-right: solid 2px #cecece;
+}
+
+#ApprovalTable td
+{
+    padding: 3px;
+    border: solid 2px #cecece;
+    border-collapse: collapse;
+}
+
+
+/*--------------jQuery Simple Modal---------------*/
+#simplemodal-overlay
+ {
+    background-color:#000; 
+    cursor:wait;
+}
+
+#Login 
+{
+    display:none;
+    width: 425px;
+    height: 350px;
+    background-image: url(/Common/Images/loginbackground.png);
+    background-repeat: no-repeat;
+    background-position: left top;
+    color: #FFF;
+    border: solid 2px #FFF;
+}
+
+#Login #LoginContent
+{
+    padding: 30px;
+    text-align: left;
+}
+
+#LoginContent h1
+{
+    font-size: 40px;
+    margin-bottom: 5px;
+}
+
+#LoginContent p
+{
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+
+#LoginContent td
+{
+    padding: 3px;
+}
+
+#LoginContent .loginTextbox
+{
+    display: block;
+    height: 20px;
+    width: 200px;
+    border: solid 1px #BEBEBE;
+    padding: 4px 8px;
+}
+
+#LoginContent #LoginButton
+{
+    border: none;
+    background-image: url(/Common/Images/loginbutton.png);
+    background-repeat: no-repeat;
+    background-position: left top;
+    display: block;
+    cursor: pointer;
+    width: 104px;
+    height: 43px;
+}
+
+
+/*--------------jQuery Validation Engine---------------*/
+.inputContainer {
+	position: relative;
+	float: left;
+}
+
+.formError {
+	position: absolute;
+	top: 300px;
+	left: 300px;
+	display: block;
+	z-index: 5000;
+	cursor: pointer;
+}
+
+.ajaxSubmit {
+	padding: 20px;
+	background: #55ea55;
+	border: 1px solid #999;
+	display: none
+}
+
+.formError .formErrorContent {
+	width: 100%;
+	background: #fff;
+	position:relative;
+	z-index:5001;
+	color: #ee0101;
+	width: 150px;
+	font-family: tahoma;
+	font-size: 11px;
+	border: 2px solid #ee0101;
+	box-shadow: 0 0 6px #000;
+	-moz-box-shadow: 0 0 6px #000;
+	-webkit-box-shadow: 0 0 6px #000;
+	padding: 4px 10px 4px 10px;
+	border-radius: 6px;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+}
+
+.greenPopup .formErrorContent {
+	background: #33be40;
+}
+
+.blackPopup .formErrorContent {
+	background: #393939;
+	color: #FFF;
+}
+
+.formError .formErrorArrow {
+	width: 15px;
+	margin: -2px 0 0 13px;
+  position:relative;
+  z-index: 5006;
+}
+body[dir='rtl'] .formError .formErrorArrow,
+body.rtl .formError .formErrorArrow {
+	margin: -2px 13px 0 0;
+}
+
+.formError .formErrorArrowBottom {
+  box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+	margin: 0px 0 0 12px;
+  top:2px;
+}
+
+.formError .formErrorArrow div {
+	border-left: 2px solid #ee0101;
+	border-right: 2px solid #ee0101;
+	box-shadow: 0 2px 3px #444;
+	-moz-box-shadow: 0 2px 3px #444;
+	-webkit-box-shadow: 0 2px 3px #444;
+	font-size: 0px;
+	height: 1px;
+	background: #fff;
+	margin: 0 auto;
+	line-height: 0;
+	font-size: 0;
+	display: block;
+}
+
+.formError .formErrorArrowBottom div {
+  box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+}
+
+.greenPopup .formErrorArrow div {
+	background: #33be40;
+}
+
+.blackPopup .formErrorArrow div {
+	background: #393939;
+	color: #FFF;
+}
+
+.formError .formErrorArrow .line10 {
+	width: 15px;
+	border: none;
+}
+
+.formError .formErrorArrow .line9 {
+	width: 13px;
+	border: none;
+}
+
+.formError .formErrorArrow .line8 {
+	width: 11px;
+}
+
+.formError .formErrorArrow .line7 {
+	width: 9px;
+}
+
+.formError .formErrorArrow .line6 {
+	width: 7px;
+}
+
+.formError .formErrorArrow .line5 {
+	width: 5px;
+}
+
+.formError .formErrorArrow .line4 {
+	width: 3px;
+}
+
+.formError .formErrorArrow .line3 {
+	width: 1px;
+	border-left: 2px solid #ee0101;
+	border-right: 2px solid #ee0101;
+	border-bottom: 0 solid #ee0101;
+}
+
+.formError .formErrorArrow .line2 {
+	width: 3px;
+	border: none;
+	background: #ee0101;
+}
+
+.formError .formErrorArrow .line1 {
+	width: 1px;
+	border: none;
+	background: #ee0101;
+}

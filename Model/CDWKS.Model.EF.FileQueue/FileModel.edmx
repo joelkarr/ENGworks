@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="FileQueueDBModel.Store" Alias="Self" Provider="System.Data.SqlServerCe.3.5" ProviderManifestToken="3.5" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2006/04/edm/ssdl">
+  <EntityContainer Name="FileQueueDBModelStoreContainer">
+    <EntitySet Name="FileQueues" EntityType="FileQueueDBModel.Store.FileQueues" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="IndexerTasks" EntityType="FileQueueDBModel.Store.IndexerTasks" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="IndexerInstances" EntityType="FileQueueDBModel.Store.IndexerInstances" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="FileQueues">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="FilePath" Type="nvarchar" Nullable="true" MaxLength="256" />
+    <Property Name="Status" Type="nvarchar" Nullable="true" MaxLength="100" />
+    <Property Name="Attempts" Type="int" Nullable="true" />
+    <Property Name="RevitVersion" Type="nvarchar" Nullable="true" MaxLength="100" />
+    <Property Name="Library" Type="nvarchar" Nullable="false" />
+    <Property Name="IndexType" Type="nvarchar" Nullable="false" />
+    <Property Name="FileName" Type="nvarchar" Nullable="false" />
+    <Property Name="AddedDateTime" Type="datetime" Nullable="false" />
+    <Property Name="InstanceId" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="IndexerTasks">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Action" Type="nvarchar" Nullable="false" />
+    <Property Name="DateTime" Type="datetime" Nullable="false" />
+    <Property Name="InstanceId" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="IndexerInstances">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="DateTime" Type="datetime" Nullable="false" />
+  </EntityType>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="FileQueueDBModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2006/04/edm">
+        <EntityContainer Name="FileQueueEntities">
+          <EntitySet Name="FileQueues" EntityType="FileQueueDBModel.FileQueue" />
+          <EntitySet Name="IndexerTasks" EntityType="FileQueueDBModel.IndexerTask" />
+          <EntitySet Name="IndexerInstances" EntityType="FileQueueDBModel.IndexerInstance" />
+        </EntityContainer>
+        <EntityType Name="FileQueue">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Name="FilePath" Type="String" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="Status" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Attempts" Type="Int32" />
+          <Property Type="String" Name="RevitVersion" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Library" Nullable="false" />
+          <Property Type="String" Name="IndexType" Nullable="false" />
+          <Property Type="String" Name="FileName" Nullable="false" />
+          <Property Type="DateTime" Name="AddedDateTime" Nullable="false" />
+          <Property Type="Guid" Name="InstanceId" Nullable="false" />
+        </EntityType>
+        <EntityType Name="IndexerTask">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Guid" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Type="String" Name="Action" Nullable="false" />
+          <Property Type="DateTime" Name="DateTime" Nullable="false" />
+          <Property Type="Guid" Name="InstanceId" Nullable="false" />
+        </EntityType>
+        <EntityType Name="IndexerInstance">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Guid" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Type="DateTime" Name="DateTime" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="urn:schemas-microsoft-com:windows:storage:mapping:CS">
+  <EntityContainerMapping StorageEntityContainer="FileQueueDBModelStoreContainer" CdmEntityContainer="FileQueueEntities">
+    <EntitySetMapping Name="FileQueues">
+      <EntityTypeMapping TypeName="IsTypeOf(FileQueueDBModel.FileQueue)">
+        <MappingFragment StoreEntitySet="FileQueues">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Attempts" ColumnName="Attempts" />
+          <ScalarProperty Name="RevitVersion" ColumnName="RevitVersion" />
+          <ScalarProperty Name="Library" ColumnName="Library" />
+          <ScalarProperty Name="IndexType" ColumnName="IndexType" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="AddedDateTime" ColumnName="AddedDateTime" />
+          <ScalarProperty Name="InstanceId" ColumnName="InstanceId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IndexerTasks">
+      <EntityTypeMapping TypeName="IsTypeOf(FileQueueDBModel.IndexerTask)">
+        <MappingFragment StoreEntitySet="IndexerTasks">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Action" ColumnName="Action" />
+          <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+          <ScalarProperty Name="InstanceId" ColumnName="InstanceId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IndexerInstances">
+      <EntityTypeMapping TypeName="IsTypeOf(FileQueueDBModel.IndexerInstance)">
+        <MappingFragment StoreEntitySet="IndexerInstances">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2007/06/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="False" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="FileModel" ZoomLevel="88">
+        <EntityTypeShape EntityType="FileQueueDBModel.FileQueue" Width="1.5" PointX="0.75" PointY="0.75" Height="2.9417936197916665" IsExpanded="true" />
+        <EntityTypeShape EntityType="FileQueueDBModel.IndexerTask" Width="3.125" PointX="3.875" PointY="1.125" Height="1.787985026041667" />
+        <EntityTypeShape EntityType="FileQueueDBModel.IndexerInstance" Width="1.5" PointX="7.875" PointY="1.375" Height="1.4033821614583331" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

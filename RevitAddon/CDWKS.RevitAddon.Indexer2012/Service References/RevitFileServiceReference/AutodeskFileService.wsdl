@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="AutodeskFileService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:56866/AutodeskFileService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:56866/AutodeskFileService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:56866/AutodeskFileService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/CDWKS.Model.Poco.Content" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IAutodeskFileService_IndexAutodeskFile_InputMessage">
+    <wsdl:part name="parameters" element="tns:IndexAutodeskFile" />
+  </wsdl:message>
+  <wsdl:message name="IAutodeskFileService_IndexAutodeskFile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IndexAutodeskFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAutodeskFileService_AddTypeToFile_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddTypeToFile" />
+  </wsdl:message>
+  <wsdl:message name="IAutodeskFileService_AddTypeToFile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddTypeToFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAutodeskFileService_UpdateLibraryTreeView_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateLibraryTreeView" />
+  </wsdl:message>
+  <wsdl:message name="IAutodeskFileService_UpdateLibraryTreeView_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateLibraryTreeViewResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAutodeskFileService_GetAutodeskFile_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAutodeskFile" />
+  </wsdl:message>
+  <wsdl:message name="IAutodeskFileService_GetAutodeskFile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAutodeskFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAutodeskFileService_GetContentLibrary_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetContentLibrary" />
+  </wsdl:message>
+  <wsdl:message name="IAutodeskFileService_GetContentLibrary_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetContentLibraryResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IAutodeskFileService">
+    <wsdl:operation name="IndexAutodeskFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAutodeskFileService/IndexAutodeskFile" message="tns:IAutodeskFileService_IndexAutodeskFile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAutodeskFileService/IndexAutodeskFileResponse" message="tns:IAutodeskFileService_IndexAutodeskFile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddTypeToFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAutodeskFileService/AddTypeToFile" message="tns:IAutodeskFileService_AddTypeToFile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAutodeskFileService/AddTypeToFileResponse" message="tns:IAutodeskFileService_AddTypeToFile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLibraryTreeView">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAutodeskFileService/UpdateLibraryTreeView" message="tns:IAutodeskFileService_UpdateLibraryTreeView_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAutodeskFileService/UpdateLibraryTreeViewResponse" message="tns:IAutodeskFileService_UpdateLibraryTreeView_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAutodeskFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAutodeskFileService/GetAutodeskFile" message="tns:IAutodeskFileService_GetAutodeskFile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAutodeskFileService/GetAutodeskFileResponse" message="tns:IAutodeskFileService_GetAutodeskFile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetContentLibrary">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAutodeskFileService/GetContentLibrary" message="tns:IAutodeskFileService_GetContentLibrary_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAutodeskFileService/GetContentLibraryResponse" message="tns:IAutodeskFileService_GetContentLibrary_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IAutodeskFileService" type="tns:IAutodeskFileService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="IndexAutodeskFile">
+      <soap:operation soapAction="http://tempuri.org/IAutodeskFileService/IndexAutodeskFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddTypeToFile">
+      <soap:operation soapAction="http://tempuri.org/IAutodeskFileService/AddTypeToFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLibraryTreeView">
+      <soap:operation soapAction="http://tempuri.org/IAutodeskFileService/UpdateLibraryTreeView" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAutodeskFile">
+      <soap:operation soapAction="http://tempuri.org/IAutodeskFileService/GetAutodeskFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContentLibrary">
+      <soap:operation soapAction="http://tempuri.org/IAutodeskFileService/GetContentLibrary" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AutodeskFileService">
+    <wsdl:port name="BasicHttpBinding_IAutodeskFileService" binding="tns:BasicHttpBinding_IAutodeskFileService">
+      <soap:address location="http://localhost:56866/AutodeskFileService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

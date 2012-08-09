@@ -1,0 +1,238 @@
+﻿<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx">
+  <edmx:DataServices xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" m:DataServiceVersion="1.0">
+    <Schema Namespace="BXC_MasterControlModel" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+      <EntityType Name="Download">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" p8:StoreGeneratedPattern="Identity" xmlns:p8="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        <Property Name="Content_Id" Type="Edm.String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+        <Property Name="DateTime" Type="Edm.DateTime" Nullable="false" />
+        <Property Name="User_Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Library_Id" Type="Edm.Int32" Nullable="false" />
+        <NavigationProperty Name="Library" Relationship="BXC_MasterControlModel.FK_LibraryDownload" FromRole="Downloads" ToRole="Libraries" />
+        <NavigationProperty Name="User" Relationship="BXC_MasterControlModel.FK_UserDownload" FromRole="Downloads" ToRole="Users" />
+      </EntityType>
+      <EntityType Name="ExtendedProperty">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" p8:StoreGeneratedPattern="Identity" xmlns:p8="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        <Property Name="User_Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="PropertyNames_Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="PropertyValues_Id" Type="Edm.Int32" Nullable="false" />
+        <NavigationProperty Name="PropertyName" Relationship="BXC_MasterControlModel.FK_ExtendedPropertyPropertyName" FromRole="ExtendedProperties" ToRole="PropertyNames" />
+        <NavigationProperty Name="PropertyValue" Relationship="BXC_MasterControlModel.FK_ExtendedPropertyPropertyValue" FromRole="ExtendedProperties" ToRole="PropertyValues" />
+        <NavigationProperty Name="User" Relationship="BXC_MasterControlModel.FK_UserExtendedProperty" FromRole="ExtendedProperties" ToRole="Users" />
+      </EntityType>
+      <EntityType Name="Library">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" p8:StoreGeneratedPattern="Identity" xmlns:p8="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        <Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+        <NavigationProperty Name="Downloads" Relationship="BXC_MasterControlModel.FK_LibraryDownload" FromRole="Libraries" ToRole="Downloads" />
+        <NavigationProperty Name="Licenses" Relationship="BXC_MasterControlModel.LicenseLibrary" FromRole="Libraries" ToRole="Licenses" />
+      </EntityType>
+      <EntityType Name="License">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" p8:StoreGeneratedPattern="Identity" xmlns:p8="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        <Property Name="AuthCode" Type="Edm.String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+        <Property Name="MaxUsers" Type="Edm.Int64" Nullable="false" />
+        <Property Name="Owners_Id" Type="Edm.Int32" Nullable="false" />
+        <Property Name="LicenseType_Id" Type="Edm.Int32" Nullable="false" />
+        <NavigationProperty Name="Owner" Relationship="BXC_MasterControlModel.FK_LicenseOwner" FromRole="Licenses" ToRole="Owners" />
+        <NavigationProperty Name="LicenseType" Relationship="BXC_MasterControlModel.FK_LicenseTypeLicense" FromRole="Licenses" ToRole="LicenseTypes" />
+        <NavigationProperty Name="Libraries" Relationship="BXC_MasterControlModel.LicenseLibrary" FromRole="Licenses" ToRole="Libraries" />
+      </EntityType>
+      <EntityType Name="LicenseType">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" p8:StoreGeneratedPattern="Identity" xmlns:p8="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        <Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+        <NavigationProperty Name="Licenses" Relationship="BXC_MasterControlModel.FK_LicenseTypeLicense" FromRole="LicenseTypes" ToRole="Licenses" />
+      </EntityType>
+      <EntityType Name="Owner">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" p8:StoreGeneratedPattern="Identity" xmlns:p8="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        <Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+        <Property Name="CreatedDate" Type="Edm.DateTime" Nullable="false" />
+        <NavigationProperty Name="Licenses" Relationship="BXC_MasterControlModel.FK_LicenseOwner" FromRole="Owners" ToRole="Licenses" />
+      </EntityType>
+      <EntityType Name="PropertyName">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" p8:StoreGeneratedPattern="Identity" xmlns:p8="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        <Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+        <NavigationProperty Name="ExtendedProperties" Relationship="BXC_MasterControlModel.FK_ExtendedPropertyPropertyName" FromRole="PropertyNames" ToRole="ExtendedProperties" />
+      </EntityType>
+      <EntityType Name="PropertyValue">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" p8:StoreGeneratedPattern="Identity" xmlns:p8="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        <Property Name="Value" Type="Edm.String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+        <Property Name="ExtendedProperty_Id" Type="Edm.Int32" Nullable="false" />
+        <NavigationProperty Name="ExtendedProperties" Relationship="BXC_MasterControlModel.FK_ExtendedPropertyPropertyValue" FromRole="PropertyValues" ToRole="ExtendedProperties" />
+      </EntityType>
+      <EntityType Name="UserLibrary">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" p8:StoreGeneratedPattern="Identity" xmlns:p8="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        <Property Name="UserId" Type="Edm.Int32" Nullable="false" />
+        <Property Name="LibraryId" Type="Edm.Int32" Nullable="false" />
+      </EntityType>
+      <EntityType Name="User">
+        <Key>
+          <PropertyRef Name="Id" />
+        </Key>
+        <Property Name="Id" Type="Edm.Int32" Nullable="false" p8:StoreGeneratedPattern="Identity" xmlns:p8="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        <Property Name="UserName" Type="Edm.String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+        <Property Name="Password" Type="Edm.String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+        <NavigationProperty Name="Downloads" Relationship="BXC_MasterControlModel.FK_UserDownload" FromRole="Users" ToRole="Downloads" />
+        <NavigationProperty Name="ExtendedProperties" Relationship="BXC_MasterControlModel.FK_UserExtendedProperty" FromRole="Users" ToRole="ExtendedProperties" />
+      </EntityType>
+      <Association Name="FK_LibraryDownload">
+        <End Role="Libraries" Type="BXC_MasterControlModel.Library" Multiplicity="1" />
+        <End Role="Downloads" Type="BXC_MasterControlModel.Download" Multiplicity="*" />
+        <ReferentialConstraint>
+          <Principal Role="Libraries">
+            <PropertyRef Name="Id" />
+          </Principal>
+          <Dependent Role="Downloads">
+            <PropertyRef Name="Library_Id" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="FK_UserDownload">
+        <End Role="Users" Type="BXC_MasterControlModel.User" Multiplicity="1" />
+        <End Role="Downloads" Type="BXC_MasterControlModel.Download" Multiplicity="*" />
+        <ReferentialConstraint>
+          <Principal Role="Users">
+            <PropertyRef Name="Id" />
+          </Principal>
+          <Dependent Role="Downloads">
+            <PropertyRef Name="User_Id" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="FK_ExtendedPropertyPropertyName">
+        <End Role="PropertyNames" Type="BXC_MasterControlModel.PropertyName" Multiplicity="1" />
+        <End Role="ExtendedProperties" Type="BXC_MasterControlModel.ExtendedProperty" Multiplicity="*" />
+        <ReferentialConstraint>
+          <Principal Role="PropertyNames">
+            <PropertyRef Name="Id" />
+          </Principal>
+          <Dependent Role="ExtendedProperties">
+            <PropertyRef Name="PropertyNames_Id" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="FK_ExtendedPropertyPropertyValue">
+        <End Role="PropertyValues" Type="BXC_MasterControlModel.PropertyValue" Multiplicity="1" />
+        <End Role="ExtendedProperties" Type="BXC_MasterControlModel.ExtendedProperty" Multiplicity="*" />
+        <ReferentialConstraint>
+          <Principal Role="PropertyValues">
+            <PropertyRef Name="Id" />
+          </Principal>
+          <Dependent Role="ExtendedProperties">
+            <PropertyRef Name="PropertyValues_Id" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="FK_UserExtendedProperty">
+        <End Role="Users" Type="BXC_MasterControlModel.User" Multiplicity="1" />
+        <End Role="ExtendedProperties" Type="BXC_MasterControlModel.ExtendedProperty" Multiplicity="*" />
+        <ReferentialConstraint>
+          <Principal Role="Users">
+            <PropertyRef Name="Id" />
+          </Principal>
+          <Dependent Role="ExtendedProperties">
+            <PropertyRef Name="User_Id" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="FK_LicenseOwner">
+        <End Role="Owners" Type="BXC_MasterControlModel.Owner" Multiplicity="1" />
+        <End Role="Licenses" Type="BXC_MasterControlModel.License" Multiplicity="*" />
+        <ReferentialConstraint>
+          <Principal Role="Owners">
+            <PropertyRef Name="Id" />
+          </Principal>
+          <Dependent Role="Licenses">
+            <PropertyRef Name="Owners_Id" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="FK_LicenseTypeLicense">
+        <End Role="LicenseTypes" Type="BXC_MasterControlModel.LicenseType" Multiplicity="1" />
+        <End Role="Licenses" Type="BXC_MasterControlModel.License" Multiplicity="*" />
+        <ReferentialConstraint>
+          <Principal Role="LicenseTypes">
+            <PropertyRef Name="Id" />
+          </Principal>
+          <Dependent Role="Licenses">
+            <PropertyRef Name="LicenseType_Id" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="LicenseLibrary">
+        <End Role="Libraries" Type="BXC_MasterControlModel.Library" Multiplicity="*" />
+        <End Role="Licenses" Type="BXC_MasterControlModel.License" Multiplicity="*" />
+      </Association>
+    </Schema>
+    <Schema Namespace="CDWKS.BXC.Entities" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+      <EntityContainer Name="BXC_MasterControlEntities" p7:LazyLoadingEnabled="true" m:IsDefaultEntityContainer="true" xmlns:p7="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+        <EntitySet Name="Downloads" EntityType="BXC_MasterControlModel.Download" />
+        <EntitySet Name="ExtendedProperties" EntityType="BXC_MasterControlModel.ExtendedProperty" />
+        <EntitySet Name="Libraries" EntityType="BXC_MasterControlModel.Library" />
+        <EntitySet Name="Licenses" EntityType="BXC_MasterControlModel.License" />
+        <EntitySet Name="LicenseTypes" EntityType="BXC_MasterControlModel.LicenseType" />
+        <EntitySet Name="Owners" EntityType="BXC_MasterControlModel.Owner" />
+        <EntitySet Name="PropertyNames" EntityType="BXC_MasterControlModel.PropertyName" />
+        <EntitySet Name="PropertyValues" EntityType="BXC_MasterControlModel.PropertyValue" />
+        <EntitySet Name="UserLibraries" EntityType="BXC_MasterControlModel.UserLibrary" />
+        <EntitySet Name="Users" EntityType="BXC_MasterControlModel.User" />
+        <AssociationSet Name="FK_LibraryDownload" Association="BXC_MasterControlModel.FK_LibraryDownload">
+          <End Role="Libraries" EntitySet="Libraries" />
+          <End Role="Downloads" EntitySet="Downloads" />
+        </AssociationSet>
+        <AssociationSet Name="FK_UserDownload" Association="BXC_MasterControlModel.FK_UserDownload">
+          <End Role="Users" EntitySet="Users" />
+          <End Role="Downloads" EntitySet="Downloads" />
+        </AssociationSet>
+        <AssociationSet Name="FK_ExtendedPropertyPropertyName" Association="BXC_MasterControlModel.FK_ExtendedPropertyPropertyName">
+          <End Role="PropertyNames" EntitySet="PropertyNames" />
+          <End Role="ExtendedProperties" EntitySet="ExtendedProperties" />
+        </AssociationSet>
+        <AssociationSet Name="FK_ExtendedPropertyPropertyValue" Association="BXC_MasterControlModel.FK_ExtendedPropertyPropertyValue">
+          <End Role="PropertyValues" EntitySet="PropertyValues" />
+          <End Role="ExtendedProperties" EntitySet="ExtendedProperties" />
+        </AssociationSet>
+        <AssociationSet Name="FK_UserExtendedProperty" Association="BXC_MasterControlModel.FK_UserExtendedProperty">
+          <End Role="Users" EntitySet="Users" />
+          <End Role="ExtendedProperties" EntitySet="ExtendedProperties" />
+        </AssociationSet>
+        <AssociationSet Name="FK_LicenseOwner" Association="BXC_MasterControlModel.FK_LicenseOwner">
+          <End Role="Owners" EntitySet="Owners" />
+          <End Role="Licenses" EntitySet="Licenses" />
+        </AssociationSet>
+        <AssociationSet Name="FK_LicenseTypeLicense" Association="BXC_MasterControlModel.FK_LicenseTypeLicense">
+          <End Role="LicenseTypes" EntitySet="LicenseTypes" />
+          <End Role="Licenses" EntitySet="Licenses" />
+        </AssociationSet>
+        <AssociationSet Name="LicenseLibrary" Association="BXC_MasterControlModel.LicenseLibrary">
+          <End Role="Libraries" EntitySet="Libraries" />
+          <End Role="Licenses" EntitySet="Licenses" />
+        </AssociationSet>
+      </EntityContainer>
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>

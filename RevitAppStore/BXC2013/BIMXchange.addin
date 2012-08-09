@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  <AddIn Type="Application">
+    <Name>ENGworks BIMXChange</Name>
+    <Assembly>.\BIMXchange.bundle\CDWKS.RevitAddon.BXC2013.dll</Assembly>
+    <AddInId>6dfc2aaa-3d41-4f80-bfac-a4b3498a73af</AddInId>
+    <FullClassName>CDWKS.RevitAddon.BXC2013.Startup</FullClassName>
+    <VendorId>ENGWorks</VendorId>
+  </AddIn>
+</RevitAddIns>

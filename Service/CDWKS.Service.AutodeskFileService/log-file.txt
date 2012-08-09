@@ -1,0 +1,98 @@
+2012-05-21 23:50:41,718 [130] INFO  CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - AutodeskFileService Started:5/22/2012 4:50:41 AM
+2012-05-21 23:52:48,425 [133] INFO  CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - AutodeskFileService Started:5/22/2012 4:52:48 AM
+2012-05-21 23:53:19,026 [5] INFO  CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - AutodeskFileService Started:5/22/2012 4:53:19 AM
+2012-05-21 23:53:28,558 [11] ERROR CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - Could not Index File
+System.Data.ConstraintException: This property cannot be set to a null value.
+   at System.Data.Objects.DataClasses.StructuralObject.SetValidValue(String value, Boolean isNullable)
+   at CDWKS.Model.EF.Content.AutodeskFile.set_Name(String value) in C:\Dev\CADworks\Model\CDWKS.Model.EF.Content\BXCContentEntityModel.Designer.cs:line 454
+   at CDWKS.BXC.AutodeskFileService.AutodeskFileService.GetAutodeskFileFromPoco(AutodeskFile revitFamily) in C:\Dev\CADworks\Service\CDWKS.Service.AutodeskFileService\AutodeskFileService.svc.cs:line 194
+   at CDWKS.BXC.AutodeskFileService.AutodeskFileService.IndexAutodeskFile(AutodeskFile file, Boolean overwrite) in C:\Dev\CADworks\Service\CDWKS.Service.AutodeskFileService\AutodeskFileService.svc.cs:line 40
+2012-05-21 23:53:36,712 [8] ERROR CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - Could not Index File
+System.Data.ConstraintException: This property cannot be set to a null value.
+   at System.Data.Objects.DataClasses.StructuralObject.SetValidValue(String value, Boolean isNullable)
+   at CDWKS.Model.EF.Content.AutodeskFile.set_Name(String value) in C:\Dev\CADworks\Model\CDWKS.Model.EF.Content\BXCContentEntityModel.Designer.cs:line 454
+   at CDWKS.BXC.AutodeskFileService.AutodeskFileService.GetAutodeskFileFromPoco(AutodeskFile revitFamily) in C:\Dev\CADworks\Service\CDWKS.Service.AutodeskFileService\AutodeskFileService.svc.cs:line 194
+   at CDWKS.BXC.AutodeskFileService.AutodeskFileService.IndexAutodeskFile(AutodeskFile file, Boolean overwrite) in C:\Dev\CADworks\Service\CDWKS.Service.AutodeskFileService\AutodeskFileService.svc.cs:line 40
+2012-05-22 00:14:42,933 [90] INFO  CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - AutodeskFileService Started:5/22/2012 5:14:42 AM
+2012-05-22 20:26:34,691 [90] INFO  CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - AutodeskFileService Started:5/23/2012 1:26:34 AM
+2012-05-22 20:35:30,835 [136] INFO  CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - AutodeskFileService Started:5/23/2012 1:35:30 AM
+2012-05-22 20:38:38,472 [142] INFO  CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - AutodeskFileService Started:5/23/2012 1:38:38 AM
+2012-05-22 20:52:09,050 [136] INFO  CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - AutodeskFileService Started:5/23/2012 1:52:09 AM
+2012-05-22 20:57:03,631 [5] INFO  CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - AutodeskFileService Started:5/23/2012 1:57:03 AM
+2012-05-22 21:56:58,306 [170] INFO  CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - AutodeskFileService Started:5/23/2012 2:56:58 AM
+2012-05-22 23:30:36,790 [170] INFO  CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - AutodeskFileService Started:5/23/2012 4:30:36 AM
+2012-05-23 21:02:09,647 [90] INFO  CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - AutodeskFileService Started:5/24/2012 2:02:09 AM
+2012-05-23 21:02:11,216 [96] INFO  CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - DataSynced
+2012-05-23 21:03:19,246 [96] INFO  CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - DataSynced
+2012-05-23 21:03:58,152 [96] INFO  CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - DataSynced
+2012-05-23 21:04:02,032 [96] INFO  CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - DataSynced
+2012-05-23 21:04:06,743 [96] INFO  CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - DataSynced
+2012-05-23 21:04:43,049 [96] INFO  CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - DataSynced
+2012-05-23 21:05:00,088 [96] INFO  CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - DataSynced
+2012-05-23 21:05:15,445 [96] INFO  CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - DataSynced
+2012-05-23 21:05:37,233 [96] INFO  CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - DataSynced
+2012-05-23 21:05:41,301 [96] INFO  CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - DataSynced
+2012-05-23 21:05:47,300 [96] INFO  CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - DataSynced
+2012-05-23 21:05:49,202 [96] INFO  CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - DataSynced
+2012-05-23 21:05:50,785 [96] INFO  CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - DataSynced
+2012-05-23 21:05:53,102 [96] INFO  CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - DataSynced
+2012-05-23 21:05:54,671 [96] INFO  CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - DataSynced
+2012-05-23 21:05:58,527 [96] INFO  CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - DataSynced
+2012-05-23 21:06:02,168 [96] INFO  CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - DataSynced
+2012-05-23 21:06:30,832 [96] INFO  CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - DataSynced
+2012-05-23 21:06:44,997 [96] INFO  CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - DataSynced
+2012-05-23 21:07:22,496 [96] INFO  CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - DataSynced
+2012-05-23 21:08:02,808 [96] INFO  CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - DataSynced
+2012-05-23 21:08:04,937 [96] INFO  CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - DataSynced
+2012-05-23 21:08:06,551 [96] INFO  CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - DataSynced
+2012-05-23 21:08:08,097 [96] INFO  CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - DataSynced
+2012-05-23 21:08:09,734 [96] INFO  CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - DataSynced
+2012-05-23 21:08:11,152 [96] INFO  CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - DataSynced
+2012-05-23 21:08:12,281 [96] INFO  CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - DataSynced
+2012-05-23 21:08:13,593 [96] INFO  CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - DataSynced
+2012-05-23 21:08:15,497 [96] INFO  CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - DataSynced
+2012-05-23 21:08:19,519 [96] INFO  CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - DataSynced
+2012-05-23 21:08:21,391 [96] INFO  CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - DataSynced
+2012-05-23 21:08:23,372 [96] INFO  CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - DataSynced
+2012-05-23 21:08:26,299 [96] INFO  CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - DataSynced
+2012-05-23 21:08:30,145 [96] INFO  CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - DataSynced
+2012-05-23 21:08:40,603 [96] INFO  CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - DataSynced
+2012-05-23 21:08:42,711 [96] INFO  CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - DataSynced
+2012-05-23 21:08:45,480 [96] INFO  CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - DataSynced
+2012-05-23 21:08:56,297 [96] INFO  CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - DataSynced
+2012-05-23 21:09:01,585 [96] INFO  CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - DataSynced
+2012-05-23 21:09:07,677 [96] INFO  CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - DataSynced
+2012-05-23 21:09:09,941 [96] INFO  CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - DataSynced
+2012-05-23 21:09:11,505 [96] INFO  CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - DataSynced
+2012-05-23 21:09:13,975 [96] INFO  CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - DataSynced
+2012-05-23 21:09:16,198 [96] INFO  CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - DataSynced
+2012-05-23 21:09:18,485 [96] INFO  CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - DataSynced
+2012-05-23 21:09:21,217 [96] INFO  CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - DataSynced
+2012-05-23 21:09:24,233 [96] INFO  CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - DataSynced
+2012-05-23 21:09:27,406 [96] INFO  CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - DataSynced
+2012-05-23 21:09:30,887 [96] INFO  CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - DataSynced
+2012-05-23 21:09:33,921 [96] INFO  CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - DataSynced
+2012-05-23 21:09:35,652 [96] INFO  CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - DataSynced
+2012-05-23 21:09:37,535 [96] INFO  CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - DataSynced
+2012-05-23 21:09:40,054 [96] INFO  CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - DataSynced
+2012-05-23 21:09:42,407 [96] INFO  CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - DataSynced
+2012-05-23 21:09:44,156 [96] INFO  CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - DataSynced
+2012-05-23 21:09:46,012 [96] INFO  CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - DataSynced
+2012-05-23 21:09:48,441 [96] INFO  CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - DataSynced
+2012-05-23 21:09:50,303 [96] INFO  CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - DataSynced
+2012-05-23 21:09:52,213 [96] INFO  CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - DataSynced
+2012-05-23 21:09:55,674 [96] INFO  CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - DataSynced
+2012-05-23 21:09:57,834 [96] INFO  CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - DataSynced
+2012-05-23 21:09:58,869 [96] INFO  CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - DataSynced
+2012-05-23 21:10:00,018 [96] INFO  CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - DataSynced
+2012-05-23 21:10:01,935 [96] INFO  CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - DataSynced
+2012-05-23 21:10:04,175 [96] INFO  CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - DataSynced
+2012-05-23 21:10:09,644 [96] INFO  CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - DataSynced
+2012-05-23 21:10:14,970 [96] INFO  CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - DataSynced
+2012-05-23 21:10:20,048 [96] INFO  CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - DataSynced
+2012-05-23 21:10:27,752 [96] INFO  CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - DataSynced
+2012-05-23 21:10:34,644 [96] INFO  CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - DataSynced
+2012-05-23 21:10:36,680 [96] INFO  CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - DataSynced
+2012-05-23 21:10:41,307 [96] INFO  CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - DataSynced
+2012-05-29 20:43:09,395 [5] INFO  CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - AutodeskFileService Started:5/30/2012 1:43:09 AM
+2012-05-29 20:43:34,068 [7] INFO  CDWKS.BXC.AutodeskFileService.IAutodeskFileService [(null)] - DataSynced

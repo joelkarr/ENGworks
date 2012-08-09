@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<publishData>
+  <publishProfile publishUrl="C:\deploy" deleteExistingFiles="True" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="Profile1" publishMethod="FileSystem" replaceMatchingFiles="False" userName="" savePWD="False" userPWD="" SelectedForPublish="True">
+    <file relUrl="Web.config" publishTime="05/21/2012 23:54:17" />
+    <file relUrl="bin/CDWKS.Model.EF.Content.dll" publishTime="05/29/2012 19:55:38" />
+    <file relUrl="bin/CDWKS.Service.AutodeskFileService.dll" publishTime="06/19/2012 22:16:41" />
+    <file relUrl="packages.config" publishTime="02/22/2012 19:25:10" />
+    <file relUrl="bin/CDWKS.Shared.ObjectFactory.pdb" publishTime="05/29/2012 19:55:40" />
+    <file relUrl="AutodeskFileService.svc" publishTime="12/06/2011 21:53:11" />
+    <file relUrl="bin/CDWKS.Model.EF.Content.pdb" publishTime="05/29/2012 19:55:37" />
+    <file relUrl="bin/CDWKS.Model.EF.FileQueue.dll" publishTime="05/29/2012 19:55:43" />
+    <file relUrl="bin/CDWKS.Shared.ObjectFactory.dll" publishTime="05/29/2012 19:55:40" />
+    <file relUrl="bin/CDWKS.Model.Poco.Content.dll" publishTime="05/29/2012 19:55:39" />
+    <file relUrl="bin/log4net.xml" publishTime="05/21/2012 23:05:20" />
+    <file relUrl="bin/log4net.config" publishTime="05/21/2012 23:40:58" />
+    <file relUrl="bin/CDWKS.Business.AutodeskFileManager.pdb" publishTime="06/19/2012 22:16:37" />
+    <file relUrl="bin/Ninject.dll" publishTime="03/18/2012 23:42:52" />
+    <file relUrl="bin/CDWKS.Model.Poco.Content.pdb" publishTime="05/29/2012 19:55:39" />
+    <file relUrl="bin/CDWKS.Repository.Content.pdb" publishTime="06/19/2012 22:16:36" />
+    <file relUrl="bin/CDWKS.Service.AutodeskFileService.pdb" publishTime="06/19/2012 22:16:41" />
+    <file relUrl="Global.asax" publishTime="02/22/2012 20:22:02" />
+    <file relUrl="bin/CDWKS.Business.AutodeskFileManager.dll" publishTime="06/19/2012 22:16:37" />
+    <file relUrl="bin/log4net.dll" publishTime="05/21/2012 23:05:20" />
+    <file relUrl="bin/CDWKS.Model.EF.FileQueue.pdb" publishTime="05/29/2012 19:55:43" />
+    <file relUrl="bin/CDWKS.Repository.Content.dll" publishTime="06/19/2012 22:16:36" />
+  </publishProfile>
+</publishData>

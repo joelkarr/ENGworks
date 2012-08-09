@@ -1,0 +1,56 @@
+﻿@using CDWKS.BXC.Taco.Web.Models
+@model ResultsViewModel
+@{
+    ViewBag.Title = "Results";
+    ViewBag.Model = Model;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="whitebackground">
+    <div class="tableContainer">
+        <table id="resultTable" class="tablesorter" > 
+            <thead>
+                <tr> 
+                    <th class="headernosort">Curve</th> 
+                    <th class="headernosort">Preview</th> 
+                    <th>Model</th> 
+                    <th>HP</th> 
+                    <th>NPSH (ft)</th> 
+                    <th>RPM</th>
+                    <th>Imp. Dia.</th>
+                    <th>Eff</th>
+                </tr> 
+            </thead> 
+            <tbody>
+               @if (Model.Pumps == null)
+               {
+                   <div >No Pumps found.</div>
+               }
+               else
+               {
+                   foreach (var pump in Model.Pumps)
+                   {
+                       @Html.ActionTableRow("Item", pump,new[]
+                       {
+                           @pump.curve_id != null ?
+                           "<img src='http://www.taco-hvac.com/wizard_pumps.html?opt=curve_image&id=" + @pump.curve_id + "&flow=" + @pump.flow + "&head=" + @pump.head + "&showthumb=1' alt='@pump.curve_id' />"
+                           : "<img class='thumbnail' src='http://bxc.mepcontent.com/Images/FileImages/curvenotfound.gif' alt='curvenotfound'></img>",
+                           "<img class='thumbnail' src='http://bxc.mepcontent.com/Images/FileImages/" + @pump.PreviewImage + ".gif' alt=" + @pump.PreviewImage + "></img>",
+                           @pump.model_no,
+                           @pump.hp,
+                           @pump.npsh,
+                           @pump.rpm,
+                           @pump.imp_dia,
+                           @pump.eff,
+                       }, "tableCell")
+                   }
+               }
+            </tbody>
+        </table>
+      
+    </div>
+</div>
+@section Scripts
+{
+   <script src="@Url.Content("~/Scripts/jquery.tablesorter.min.js")" type="text/javascript"></script>
+   <script src="@Url.Content("~/Scripts/Results.js")" type="text/javascript"></script>
+}

@@ -1,0 +1,250 @@
+﻿@using CDWKS.BXC.Taco.Web.Models
+@model IndexViewModel
+@{
+    ViewBag.Title = "Index";
+    ViewBag.Model = Model;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+           
+@section Scripts
+{
+
+    @if (!Model.IsLoggedIn)
+    {
+        if(Model.Register)
+        {
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    $("#Register").modal(
+            {
+                closeHTML: '',
+                containerCss: {
+                    backgroundColor: "#fff",
+                    borderColor: "#fff",
+                    height: "554px",
+                    padding: 0,
+                    width: "429px"
+                },
+                overlayClose: false
+            });
+                });
+        </script>
+        }
+        else
+        {
+  <script type="text/javascript">
+      $(document).ready(function () {
+          $("#Login").modal(
+            {
+                closeHTML: '',
+                containerCss: {
+                    backgroundColor: "#fff",
+                    borderColor: "#fff",
+                    height: "354px",
+                    padding: 0,
+                    width: "429px"
+                },
+                overlayClose: false
+            });
+      });
+        </script>
+        }
+
+    }
+}
+
+
+@using (Html.BeginForm("Results", "Home", FormMethod.Post, new { id = "InputForm" }))
+{
+    @Html.ValidationSummary(false, "Please update the following:")
+    <div style="vertical-align:top; background:white;">
+
+        <div class="tallrow">
+            <div class="twocolumn">
+                <div class="header green2">Rated Design Point</div>
+                <div class="inputrow">
+                    @Html.LabelFor(model => model.UserInput.FlowRate)
+                    @Html.TextBoxFor(model => model.UserInput.FlowRate) 
+                    
+                </div>
+                <div class="inputrow">
+                    @Html.LabelFor(model => model.UserInput.TotalHead)
+                    @Html.TextBoxFor(model => model.UserInput.TotalHead)  
+                </div>
+                <div class="inputrow">
+                    @Html.LabelFor(model => model.UserInput.MinEff)
+                    @Html.TextBoxFor(model => model.UserInput.MinEff) 
+                </div>
+                <div class="inputrow">
+                    @Html.LabelFor(model => model.UserInput.PumpSpeeds) 
+                    @Html.DropDownListFor(model => model.UserInput.PumpSpeeds, Enum.GetValues(typeof(PumpSpeeds)).Cast<PumpSpeeds>().Select(v => new SelectListItem
+               {
+                   Text = v.GetDescription(),
+                   Value = v.ToString()
+               }))
+                </div>
+                <div class="inputrow">
+                    <br/>
+                    <br/>
+                    &nbsp;&nbsp;&nbsp; *Water at 60°F
+                </div>
+            </div>
+            <div class="twocolumn">
+                <div class="header green2">Pump Types</div>
+                <p style="margin-left: 30px;">Ctrl+ or Shift+ to Multi Select</p>
+                <div class="listbox  marginListBox">
+                    @Html.ListBoxFor(model => model.UserInput.PumpTypes, Enum.GetValues(typeof(PumpTypes)).Cast<PumpTypes>().Select(v => new SelectListItem
+               {
+                   Text = v.GetDescription(),
+                   Value = v.ToString()
+               }), new {id="typeList"})
+                    <img id="selectAlltypes" class="selectallbutton" src="@Url.Content("Content/images/Select-All.png")" alt="Select All"/>
+                </div>
+            </div>
+        </div>
+      
+        <div class="standardrow">
+            <div class="singlecolumn">
+                <div class="header green2">Change Units</div>
+                <div class="inputrow">
+                    @Html.LabelFor(model => model.UserInput.EngineeringUnits)
+                    @Html.RadioButtonForEnum(model => model.UserInput.EngineeringUnits)  
+                </div>
+                <div class="inputrow">
+                    @Html.LabelFor(model => model.UserInput.Motor)
+                    @Html.RadioButtonForEnum(model => model.UserInput.Motor)
+                    <input type="image" class="right marginstandard" src="@Url.Content("Content/images/SearchButton.png")" alt="Search"/>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+}
+
+@*---------------------Login----------*@
+<div id="Login">
+    <div id="LoginContent">
+        <h1>Login</h1>
+        @Html.ActionLink("Need to Register?","Index", new {input = "register"})
+       
+        @using (Html.BeginForm("Index", "Home"))
+        {
+            @Html.ValidationSummary(false, "Please update the following:")
+            <table>
+                @if (Model.LoginFail)
+                {
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>
+                            <span>Login failed.  Please try again.</span>
+                        </td>
+                    </tr>
+                }
+                <tr>
+                    <td class="alignRight">
+                        <label>Email:</label>
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(m => m.Email, new { @class = "loginTextbox" })
+                    </td>
+                </tr>
+                <tr>
+                    <td class="alignRight">
+                        <label>Password:</label>
+                    </td>
+                    <td>
+                        @Html.PasswordFor(m => m.Password, new { @class = "loginTextbox" })
+                    </td>
+                </tr>
+                <tr style="height: 30px;"></tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>
+                        <input id="LoginButton" name="LoginButton" class="loginButton" type="submit" value=""/>
+                    </td>
+                </tr>
+            </table>
+        }
+    </div>
+</div>
+
+
+@*--------------Register-----------------*@
+<div id="Register">
+    <div id="RegisterContent">
+        <h1>Register</h1>
+         @Html.ActionLink("Back to Login","Index", new {input = "login"})
+@using (Html.BeginForm("Index", "Home", FormMethod.Post, new { id = "RegisterForm" }))
+{
+    @Html.HiddenFor(m => m.Register);
+    @Html.ValidationSummary(false, "Please update the following:")
+    <table>
+         <tr>
+            <td class="alignRight">
+                <label>@Html.LabelFor(model => model.Email)</label>
+            </td>
+            <td>
+                @Html.TextBoxFor(m => m.Email, new { @class = "loginTextbox" })
+            </td>
+        </tr>
+        <tr>
+            <td class="alignRight">
+                <label>@Html.LabelFor(model => model.Password)</label>
+            </td>
+            <td>
+                @Html.PasswordFor(m => m.Password, new { @class = "loginTextbox" })
+            </td>
+        </tr>
+        <tr>
+            <td class="alignRight">
+                <label>@Html.LabelFor(model => model.ConfirmPassword)</label>
+            </td>
+            <td>
+                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "loginTextbox" })
+            </td>
+        </tr>
+        <tr>
+            <td class="alignRight">
+                <label>@Html.LabelFor(model => model.FirstName)</label>
+            </td>
+            <td>
+                @Html.TextBoxFor(m => m.FirstName, new { @class = "loginTextbox" })
+            </td>
+        </tr>
+        <tr>
+            <td class="alignRight">
+                <label>@Html.LabelFor(model => model.LastName)</label>
+            </td>
+            <td>
+                @Html.TextBoxFor(m => m.LastName, new { @class = "loginTextbox" })
+            </td>
+        </tr>
+        <tr>
+            <td class="alignRight">
+                <label>@Html.LabelFor(model => model.Company)</label>
+            </td>
+            <td>
+                @Html.TextBoxFor(m => m.Company, new { @class = "loginTextbox" })
+            </td>
+        </tr>
+        <tr>
+            <td class="alignRight">
+                <label>@Html.LabelFor(model => model.PhoneNumber)</label>
+            </td>
+            <td>
+                @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "loginTextbox" })
+            </td>
+        </tr>
+        <tr style="height: 30px;"></tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>
+                <input id="RegisterButton" name="RegisterButton" class="RegisterButton" type="submit" value=""/>
+            </td>
+        </tr>
+    </table>
+            
+}
+    </div>
+</div>

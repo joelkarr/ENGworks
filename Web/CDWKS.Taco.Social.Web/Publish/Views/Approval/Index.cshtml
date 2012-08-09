@@ -1,0 +1,135 @@
+﻿@model CDWKS.Social.Taco.Models.ApprovalViewModel
+           
+@section Head
+{
+    <script src="@Url.Content("~/Common/Javascript/jQuery/Plugins/jquery.simplemodal.1.4.2.min.js")" type="text/javascript"></script>
+}
+
+@section Javascript
+{
+    @if (!Model.IsLoggedIn)
+    {
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('#Login').modal();
+            });
+        </script>
+    }
+}
+
+<!-- modal content -->
+<div id="Login">
+    <div id="LoginContent">
+        <h1>Login</h1>
+        <p>Taco Revit Content Feedback Administration</p>
+       
+        @using (Html.BeginForm())
+        {
+            <table>
+                 @if (Model.LoginFail)
+                 {
+                     <tr>
+                         <td>&nbsp;</td>
+                         <td>
+                             <span>Login failed.  Please try again.</span>
+                         </td>
+                     </tr>
+                 }
+                <tr>
+                    <td class="alignRight">
+                        <label>Email:</label>
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(m => m.Username,new{@class="loginTextbox"})
+                    </td>
+                </tr>
+                <tr>
+                    <td class="alignRight">
+                        <label>Password:</label>
+                    </td>
+                    <td>
+                        @Html.PasswordFor(m => m.Password,new{@class="loginTextbox"})
+                    </td>
+                </tr>
+                <tr style="height: 30px;"></tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>
+                        <input id="LoginButton" name="LoginButton" class="loginButton" type="submit" value=""/>
+                    </td>
+                </tr>
+            </table>
+        }
+    </div>
+</div>
+
+@if (Model.IsLoggedIn)
+{
+    <table id="ApprovalTable">
+        <tr>
+            <th>
+                Product
+            </th>
+            <th>
+                Family
+            </th>
+            <th>
+                Like/Dislike
+            </th>
+            <th style="width: 30%">
+                Comments
+            </th>
+            <th>
+                Name/<br />Company
+            </th>
+            <th>
+                Username
+            </th>
+            <th>
+                Email
+            </th>
+            <th class="lastTH">
+                Timestamp
+            </th>
+        </tr>
+        @foreach (var row in Model.SocialFeedbackFormList)
+        {
+            <tr>
+                <td>
+                    @row.Product
+                </td>
+                <td>
+                    @row.Family
+                </td>
+                <td>
+                    @if (row.Like)
+                    {
+                        @:Like
+                    }
+                    else
+                    {
+                        @:Dislike
+                    }
+                </td>
+                <td>
+                    @row.Comments
+                </td>
+                <td>
+                    @row.FirstName, @row.LastName
+                    <br />
+                    @row.Company
+                </td>
+                <td>
+                    @row.Username
+                </td>
+                <td>
+                    @row.Email
+                </td>
+                <td>
+                    @row.Timestamp.ToString("MM/dd/yyyy hh:mm tt")
+                </td>
+            </tr>
+        }
+    </table>
+}
+

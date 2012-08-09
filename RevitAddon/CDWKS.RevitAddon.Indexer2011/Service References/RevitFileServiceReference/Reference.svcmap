@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="d31f9038-2823-43d3-b090-429408f62c7d" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>true</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies>
+      <ReferencedAssembly AssemblyName="CDWKS.Model.Poco.Content" />
+    </ReferencedAssemblies>
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:56866/AutodeskFileService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="AutodeskFileService.wsdl" MetadataType="Wsdl" ID="69787e7a-1bf8-479a-a6a1-20be9785986f" SourceId="1" SourceUrl="http://localhost:56866/AutodeskFileService.svc?wsdl" />
+    <MetadataFile FileName="AutodeskFileService.xsd" MetadataType="Schema" ID="cc7f3e11-38ba-4403-86ec-43b2425c9c09" SourceId="1" SourceUrl="http://localhost:56866/AutodeskFileService.svc?xsd=xsd0" />
+    <MetadataFile FileName="AutodeskFileService1.xsd" MetadataType="Schema" ID="2c4d01fc-4037-4e04-8d77-0b3c0ade102c" SourceId="1" SourceUrl="http://localhost:56866/AutodeskFileService.svc?xsd=xsd2" />
+    <MetadataFile FileName="AutodeskFileService2.xsd" MetadataType="Schema" ID="caf413e8-7449-4f20-b585-ccd650c2dd35" SourceId="1" SourceUrl="http://localhost:56866/AutodeskFileService.svc?xsd=xsd1" />
+    <MetadataFile FileName="AutodeskFileService.disco" MetadataType="Disco" ID="3ea4be0c-c79e-4c61-9127-73174f70888f" SourceId="1" SourceUrl="http://localhost:56866/AutodeskFileService.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

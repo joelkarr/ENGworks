@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+
+  <configSections>
+    <section name="log4net" type="log4net.Config.Log4NetConfigurationSectionHandler, log4net" />
+  </configSections>
+
+  <log4net>
+    <!-- Define output appenders -->
+    <appender name="RollingLogFileAppender" type="log4net.Appender.RollingFileAppender">
+      <file value="logs/log.txt" />
+      <appendToFile value="true" />
+      <rollingStyle value="Once" />
+      <!-- new log file on restart -->
+      <maxSizeRollBackups value="10"/>
+      <!-- renames rolled files on startup 1-10, no more than 10 -->
+      <datePattern value="yyyyMMdd" />
+      <layout type="log4net.Layout.PatternLayout">
+        <param name="Header" value="[START LOG]&#13;&#10;" />
+        <param name="Footer" value="[END LOG]&#13;&#10;" />
+        <conversionPattern value="%d [%t] %-5p %c [%x] - %m%n" />
+      </layout>
+    </appender>
+
+    <!-- Setup the root category, add the appenders and set the default level -->
+    <root>
+      <level value="DEBUG" />
+      <appender-ref ref="RollingLogFileAppender" />
+    </root>
+
+  </log4net>
+</configuration>

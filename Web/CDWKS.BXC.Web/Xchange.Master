@@ -1,0 +1,43 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Xchange.master.cs" Inherits="CDWKS.BXC.Web.Xchange" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head runat="server">
+        <title>ENGworks Content Browser</title>
+        <link rel = "Stylesheet" type = "text/css" href="styles/contentstyle.css" />
+        <link rel = "Stylesheet" type = "text/css" href="styles/jQuery.css" />
+        <asp:ContentPlaceHolder ID="head" runat="server">
+   
+
+        </asp:ContentPlaceHolder>
+    </head>
+    <body>
+        <form id="form1" runat="server">
+            <asp:ScriptManager ID="scriptmanager" EnablePageMethods="True" runat="server"></asp:ScriptManager>
+            <telerik:RadAjaxManager ID="RadAjaxManager1" runat="server">
+        
+            </telerik:RadAjaxManager>
+            <div id="body_area" >
+                <div id="TopBox">
+                    <asp:Image ID="imgBIMXchangeLogo" ImageUrl="~/Images/BIMXchange-logo.png" runat="server" />
+                </div>
+                <div id="LowerBox">
+                    <span style="float: left;">
+                        <asp:Image ID="imgENGworksLogo" ImageUrl="~/Images/ByENGworksLogo.png" runat="server" /></span>
+                    <span style="float: right;"><asp:ImageButton id="btnHelp" ImageUrl="~/Images/HelpButton.png" 
+                                                                 OnClientClick="ShowHelp(); return false;" runat="server"/></span>
+                </div>
+                <asp:ContentPlaceHolder ID="Main" runat="server"></asp:ContentPlaceHolder>
+           
+                <div id="Footer2" style="color: white; width: 100; border: 1px solid white;">
+                    <span style="width: inherit;">
+                        <span style="float: left; font-size: small;"><asp:Literal ID="litCopy" Text="©2011 ENGworks. All Rights Reserved." runat="server"></asp:Literal></span>
+                        <span style="float: right; font-size: small;"><asp:HyperLink ID="Eula" ForeColor="White" Font-Underline="false" Text="EULA" Target="_blank" href="#" onclick="ShowEula(); return false;" runat="server"></asp:HyperLink> | <asp:HyperLink ID="Help" ForeColor="White" Font-Underline="false" Text="Help" href="#" onclick="ShowHelp(); return false;"  runat="server"></asp:HyperLink>
+                        </span>
+                    </span>
+                </div>
+            </div>
+        </form>
+    </body>
+</html>
