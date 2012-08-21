@@ -1,0 +1,344 @@
+﻿    body
+    {
+        background-color:Black;
+        font-family:Arial;
+    }
+    p
+    {
+       color:white;
+       font-family:Arial;
+    }
+    d
+    {
+        font-family:Arial;
+    }
+    #TopBox
+    {
+        background-color:Black;
+        height:80px;
+        font-family:Arial;
+    }
+    #LowerBox
+    {
+        background-image:url('../Images/sub-header.png');
+        height:70px;
+        font-family:Arial;
+    }
+    #footer
+    {
+        width:800px;
+        height:30px;
+        padding-top:20px;
+        font-family:Arial;
+        font-size:xx-large;
+    }
+    .marginminus
+    {
+        margin-left:-5px;
+        font-family:Arial;
+    }
+    .leftMargin
+    {
+        margin-left:5px;
+        margin-bottom:3px;
+        font-family:Arial;
+    }
+    .TextInput
+    {
+        margin:10px;
+        font-family:Arial;
+    }
+    #CopyRightBox
+    {
+        background-color:Black;
+        color:White;
+        font-family:Arial;
+    }
+    #EulaHelpBox
+    {
+        float:right;
+        color:White;
+        
+    }
+    .rtsLevel1
+    {
+        background-image: none;
+        background-color: transparent;
+        background-repeat: no-repeat;
+        font-family:Arial;
+    }
+    .rtsLI
+    {
+        background-image:none;
+        font-family:Arial;
+    }
+
+    .RightTab
+    {
+        background-image:url('../Images/Filter-Tab.png');
+        font-family:Arial;
+    }
+    .rtsIn 
+    {
+        background-image:none;
+        font-family:Arial;
+    }
+    .rtsOut
+    {
+        background-image:none;
+        font-family:Arial;
+    }
+    .LeftTab
+    {
+        background-image:none;
+        font-family:Arial;
+    }
+    .rtsFirst
+    {
+        background-image:url('../Images/Filter-Tab.png');
+        font-family:Arial;
+    }
+    .rtsLast
+    {
+        background-image:url('../Images/Filter-Tab.png');
+        font-family:Arial;
+    }
+    .rtsLink
+    {
+        background-image:none;
+    }
+    .RadTabStripBottom_Default
+    .RadTabStripTop_Default
+    .RadTabStripTop_Default_Baseline
+    .RadTabStripBottom_Default_Baseline
+    {
+        background-image:none;
+        font-family:Arial;
+    } 
+    .rtsLevel .rtsLink, .RadTabStripTop_Default .rtsLevel .rtsOut, .RadTabStripBottom_Default .rtsLevel .rtsLink, .RadTabStripBottom_Default .rtsLevel .rtsOut, .RadTabStripTop_Default_Baseline .rtsLevel, .RadTabStripBottom_Default_Baseline .rtsLevel
+    {
+        background-image:none;
+        font-family:Arial;
+    }
+    .page
+     {
+         height: 850;
+         margin-left:auto;
+         margin-right:auto;
+         overflow:hidden;
+         background-color:black;
+         width:850px;
+         font-family:Arial;
+      }
+     #leftcolumn
+     {
+          width:249px;
+          background-color: White;
+          height:650px;
+          overflow: hidden;
+          float:left;
+          border-right:1px solid grey;
+          font-family:Arial;
+          font-family:Arial;
+     }
+     #maincolumn
+     {
+          width:600px;
+          background-color: White;
+          height:650px;
+          overflow: hidden;
+          float:left;
+          font-family:Arial;
+     }
+     #rightcolumn
+     {
+          width:250px;
+          background-color: white;
+          height:550px;
+          overflow: hidden;
+          float:right;
+          visibility:hidden;
+          font-family:Arial;
+     }
+     #LibraryImage
+     {
+         height: 85px;
+         background-color:White;
+         overflow:hidden;
+         font-family:Arial;
+     }
+     #imgCadworksLogo
+     {
+         height:30px;
+         padding-top:20px;
+         padding-left:10px;
+         font-family:Arial;
+     }
+     .padright
+     {
+         padding:5px;
+         font-family:Arial;
+     }
+     .padleft6
+     {
+         padding-left:6px;
+         font-family:Arial;
+     }
+     #btnHelp
+     {
+
+         padding:10px;
+         height:50px;
+         width:115px;
+     }
+     #btnShowTC
+     {
+         float:right;
+         padding:10px;
+         height:25px;
+     }
+     #btnDownload
+     {
+         float:right;
+         padding:10px;
+         height:25px;
+     }
+     #imgBIMXchangeLogo
+     {
+         height:60px;
+         padding:10px;
+     }
+     .tab-page
+     {
+         width:295px;
+         height:640px;
+     }
+
+     .tree-page
+     {
+         padding:8px;
+         background-color:#9757a3;
+         width:250px;
+         font-family:Arial;
+     }
+     .filter-page
+     {
+         padding: 8px;
+         background-color:#0099cc;
+         width:250px;
+         font-family:Arial;
+     }
+     #cbFields
+     {
+         padding:5px;
+         font-family:Arial;
+     }
+     #ddOperators
+     {
+         padding:5px;
+         float:left;
+         font-family:Arial;
+     }
+     #btnRemove
+     {
+         padding:5px;
+     }
+     #txtValue
+     {
+         padding:5px;
+         float:left;
+         font-family:Arial;
+     }
+     .FilterBox
+     {
+         width:250px;
+         height:28px;
+         background-color:#0099cc;
+          display:inline;
+          font-family:Arial;
+     }
+     .FilterBoxleft
+     {
+         background-color:#0099cc;
+         border-top:1px solid white;
+         border-left:1px solid white;
+         border-bottom:1px solid white;
+         width: 25px;
+         height:35px;
+         float:left;
+         padding:5px;
+         
+     }
+
+     .RemoveImage
+     {
+         margin-top:5px;
+         font-family:Arial;
+     }
+     .FilterBoxright
+     {
+         color: White;
+         font-weight:bold;
+         background-color:#0099cc;
+         border:1px solid white;
+         float: left;
+         width:160px;
+         height:35px;
+         padding: 5px;
+         font-family:Arial;
+     }
+
+     .rlbItem
+     {
+         background-color:#0099cc;
+     }
+     .rlbSelected
+     {
+         background-color:#0099cc;
+     }
+     .rlbHovered
+     {
+         background-color:#0099cc;
+     }
+     .rlbActive
+     {
+         background-color:#0099cc;
+     }
+     /* Log In */
+    .field {width: 118px; float: left; clear: none;}
+    .field .text {padding-top:5px;padding-left:4px;width: 102px; margin: 0px 0px 5px 0px; border:0; font:1.1em  Verdana, Arial, Helvetica, sans-serif ; padding-left:px }
+    .field .button {margin: 14px 0px 5px 0px;}
+    .button {margin: 14px 0px 5px 0px;}
+    .hyperlink {color:Blue; text-decoration:underline;}
+     /* Common Layout Classes */
+     .image {margin:5px;}
+    .on {display: block; visibility: visible;}
+    .off {display: none; visibility: hidden;}
+    .ErrorOn {display: block; visibility: visible; color:Red}
+    .ErrorOff {display: none; visibility: hidden;}
+    .left {float: left;}
+    .right {float: right;}
+    .text-left {text-align: left;}
+    .half {width: 50%; _width: 48%; height: auto; float: left; clear: none;}
+.halfwithtip {width: 50%; _width: 48%}
+.form-fields {width: 798px; height: auto; min-height: 700px; margin: 0px 0px 10px 0px; padding: 20px; border: 1px solid #bbbbbb; -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px; background-color: #ffffff; float: left;}
+    .text-right {text-align: right;}
+
+     /* Modals */
+    .modal {text-align: left; background-color: #000000; filter: alpha(opacity=80); opacity: 0.8;}
+    .modal-window {width: 600px; height: auto; margin: 0px; padding: 6px; border: 1px solid #c2c2c2; background-color: #ffffff; color: #979797; text-align: left; position: relative;}
+    .modal-window h3 {width: 570px; margin: 0px 0px 10px 0px; padding: 8px 15px 8px 15px; border: 1px solid #f59716; background-color: Blue; color: #ffffff;}
+    .modal-window a {}
+    .modal-close {}
+    .ui-dialog .ui-dialog-titlebar-close {position: absolute; right: .3em; top: 50%; width: 19px; margin: -10px 0 0 0; padding: 1px; height: 18px;}
+    .ui-dialog {text-align: left;}
+    .ui-dialog input {margin: 5px 5px 5px 0px;}
+    .ui-dialog ul, .ui-dialog ol {color: #979797;}
+
+ /*Register and Createn New User */
+
+
+#register-fields{   min-height :350px; height:auto!important;height:338px !important; 
+background-color:White;font-family:Arial;
+}
+

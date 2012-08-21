@@ -214,9 +214,7 @@
       <DependentUpon>Xchange.Master</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Images\FileImages\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Styles\contentstyle.css" />
     <Content Include="Xchange.Master" />
