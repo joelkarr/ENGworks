@@ -1,0 +1,14 @@
+﻿ <asp:Image ID="Image1" Style="float: left; padding: 10px; margin-top: 10px;" Width="80px" ImageUrl='<%#"Images/FileImages/" + Eval("AutodeskFile.Name") + ".gif"%>'
+                                       runat="server" AlternateText="Stock Image" />
+                            <div><div style="overflow: hidden; height: 14px; width: 430px;"><span style="color: Blue; height: 16px; font-weight: bold;">
+                                                                                               AutodeskFileName</span></div>
+                                <br />
+                                <span style="font-weight: bold;">Type:</span>
+                                Name
+                                <br />
+                                <div id="divProps">
+                                            <span style="font-weight: bold;">ParamName:</span>Value<br />
+                                </div>
+                                <input type="button" id="btnShowTC" src="@Url.Content("Images/TypeCatalogButton.png")"  />
+                                <input type="button" id="btnDownload" src="@Url.Content("Images/LoadFileButton.png")"   />
+                            </div>

@@ -34,6 +34,42 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Contrib.Regex">
+      <HintPath>..\..\packages\Lucene.Net.Contrib.2.9.4.1\lib\net40\Contrib.Regex.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>..\..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net">
+      <HintPath>..\..\packages\Lucene.Net.2.9.4.1\lib\net40\Lucene.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net.Contrib.Analyzers">
+      <HintPath>..\..\packages\Lucene.Net.Contrib.2.9.4.1\lib\net40\Lucene.Net.Contrib.Analyzers.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net.Contrib.Core">
+      <HintPath>..\..\packages\Lucene.Net.Contrib.2.9.4.1\lib\net40\Lucene.Net.Contrib.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net.Contrib.Highlighter">
+      <HintPath>..\..\packages\Lucene.Net.Contrib.2.9.4.1\lib\net40\Lucene.Net.Contrib.Highlighter.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net.Contrib.Queries">
+      <HintPath>..\..\packages\Lucene.Net.Contrib.2.9.4.1\lib\net40\Lucene.Net.Contrib.Queries.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net.Contrib.Snowball">
+      <HintPath>..\..\packages\Lucene.Net.Contrib.2.9.4.1\lib\net40\Lucene.Net.Contrib.Snowball.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net.Contrib.Spatial">
+      <HintPath>..\..\packages\Lucene.Net.Contrib.2.9.4.1\lib\net40\Lucene.Net.Contrib.Spatial.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net.Contrib.SpellChecker">
+      <HintPath>..\..\packages\Lucene.Net.Contrib.2.9.4.1\lib\net40\Lucene.Net.Contrib.SpellChecker.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net.FastVectorHighlighter">
+      <HintPath>..\..\packages\Lucene.Net.Contrib.2.9.4.1\lib\net40\Lucene.Net.FastVectorHighlighter.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net.Search.SimpleFacetedSearch">
+      <HintPath>..\..\packages\Lucene.Net.Contrib.2.9.4.1\lib\net40\Lucene.Net.Search.SimpleFacetedSearch.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -46,6 +82,15 @@
     <Compile Include="ISearchManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SearchManager.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Model\CDWKS.Model.Poco.Content\CDWKS.Model.Poco.Content.csproj">
+      <Project>{B212B384-F6EF-4E98-B3C8-D58A7D2A520A}</Project>
+      <Name>CDWKS.Model.Poco.Content</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
