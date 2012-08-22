@@ -36,7 +36,7 @@
       <HintPath>..\..\Shared\CDWKS.Shared.ThirdParty\Ninject\Ninject.dll</HintPath>
     </Reference>
     <Reference Include="RevitAPI">
-      <HintPath>..\..\..\..\Program Files\Autodesk\Revit MEP 2011\Program\RevitAPI.dll</HintPath>
+      <HintPath>..\..\Shared\CDWKS.Shared.ThirdParty\Revit2011\RevitAPI.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
