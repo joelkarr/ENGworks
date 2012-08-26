@@ -8,12 +8,13 @@
 //------------------------------------------------------------------------------
 
 using System;
+using System.ComponentModel;
+using System.Data.EntityClient;
 using System.Data.Objects;
 using System.Data.Objects.DataClasses;
-using System.Data.EntityClient;
-using System.ComponentModel;
-using System.Xml.Serialization;
+using System.Linq;
 using System.Runtime.Serialization;
+using System.Xml.Serialization;
 
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
@@ -29,6 +30,7 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("BXC_ContentModel", "FK_ItemParameterSearchNames", "SearchNames", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CDWKS.Model.EF.Content.SearchName), "Parameters", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CDWKS.Model.EF.Content.Parameter), true)]
 [assembly: EdmRelationshipAttribute("BXC_ContentModel", "FK_ItemParameterSearchValues", "SearchValues", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CDWKS.Model.EF.Content.SearchValue), "Parameters", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CDWKS.Model.EF.Content.Parameter), true)]
 [assembly: EdmRelationshipAttribute("BXC_ContentModel", "FK_TreeNodeTreeNode", "TreeNodes", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(CDWKS.Model.EF.Content.TreeNode), "TreeNodes1", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CDWKS.Model.EF.Content.TreeNode), true)]
+[assembly: EdmRelationshipAttribute("BXC_ContentModel", "FK_AutodeskFileRevitVersion", "AutodeskFile", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CDWKS.Model.EF.Content.AutodeskFile), "RevitVersion", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CDWKS.Model.EF.Content.RevitVersion), true)]
 
 #endregion
 
@@ -271,8 +273,25 @@ namespace CDWKS.Model.EF.Content
             }
         }
         private ObjectSet<TreeNode> _TreeNodes;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<RevitVersion> RevitVersions
+        {
+            get
+            {
+                if ((_RevitVersions == null))
+                {
+                    _RevitVersions = base.CreateObjectSet<RevitVersion>("RevitVersions");
+                }
+                return _RevitVersions;
+            }
+        }
+        private ObjectSet<RevitVersion> _RevitVersions;
 
         #endregion
+
         #region AddTo Methods
     
         /// <summary>
@@ -370,13 +389,21 @@ namespace CDWKS.Model.EF.Content
         {
             base.AddObject("TreeNodes", treeNode);
         }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the RevitVersions EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToRevitVersions(RevitVersion revitVersion)
+        {
+            base.AddObject("RevitVersions", revitVersion);
+        }
 
         #endregion
+
     }
-    
 
     #endregion
-    
+
     #region Entities
     
     /// <summary>
@@ -407,6 +434,7 @@ namespace CDWKS.Model.EF.Content
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -533,6 +561,7 @@ namespace CDWKS.Model.EF.Content
         partial void OnTypeCatalogHeaderChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -601,8 +630,31 @@ namespace CDWKS.Model.EF.Content
                 }
             }
         }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("BXC_ContentModel", "FK_AutodeskFileRevitVersion", "RevitVersion")]
+        public EntityCollection<RevitVersion> RevitVersions
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<RevitVersion>("BXC_ContentModel.FK_AutodeskFileRevitVersion", "RevitVersion");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<RevitVersion>("BXC_ContentModel.FK_AutodeskFileRevitVersion", "RevitVersion", value);
+                }
+            }
+        }
 
         #endregion
+
     }
     
     /// <summary>
@@ -631,6 +683,7 @@ namespace CDWKS.Model.EF.Content
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -709,6 +762,7 @@ namespace CDWKS.Model.EF.Content
         partial void OnIESFile_IdChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -789,6 +843,7 @@ namespace CDWKS.Model.EF.Content
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -817,6 +872,7 @@ namespace CDWKS.Model.EF.Content
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -895,6 +951,7 @@ namespace CDWKS.Model.EF.Content
         partial void OnTreeNodes_IdChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -997,6 +1054,7 @@ namespace CDWKS.Model.EF.Content
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -1029,6 +1087,7 @@ namespace CDWKS.Model.EF.Content
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -1179,6 +1238,7 @@ namespace CDWKS.Model.EF.Content
         partial void OnUrlChanged();
 
         #endregion
+
     
     }
     
@@ -1206,6 +1266,7 @@ namespace CDWKS.Model.EF.Content
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -1260,6 +1321,7 @@ namespace CDWKS.Model.EF.Content
         partial void OnNameChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -1286,6 +1348,7 @@ namespace CDWKS.Model.EF.Content
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -1312,6 +1375,7 @@ namespace CDWKS.Model.EF.Content
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -1366,6 +1430,7 @@ namespace CDWKS.Model.EF.Content
         partial void OnNameChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -1392,6 +1457,7 @@ namespace CDWKS.Model.EF.Content
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -1422,6 +1488,7 @@ namespace CDWKS.Model.EF.Content
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -1548,6 +1615,7 @@ namespace CDWKS.Model.EF.Content
         partial void OnAutodeskFile_IdChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -1590,6 +1658,7 @@ namespace CDWKS.Model.EF.Content
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -1618,6 +1687,7 @@ namespace CDWKS.Model.EF.Content
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -1720,6 +1790,7 @@ namespace CDWKS.Model.EF.Content
         partial void OnTypeCatalogEntryChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -1784,6 +1855,7 @@ namespace CDWKS.Model.EF.Content
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -1818,6 +1890,7 @@ namespace CDWKS.Model.EF.Content
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -1968,6 +2041,7 @@ namespace CDWKS.Model.EF.Content
         partial void OnItem_IdChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -2086,6 +2160,158 @@ namespace CDWKS.Model.EF.Content
         }
 
         #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="BXC_ContentModel", Name="RevitVersion")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class RevitVersion : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new RevitVersion object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="version">Initial value of the Version property.</param>
+        /// <param name="autodeskFile_Id">Initial value of the AutodeskFile_Id property.</param>
+        public static RevitVersion CreateRevitVersion(global::System.Int32 id, global::System.String version, global::System.Int32 autodeskFile_Id)
+        {
+            RevitVersion revitVersion = new RevitVersion();
+            revitVersion.Id = id;
+            revitVersion.Version = version;
+            revitVersion.AutodeskFile_Id = autodeskFile_Id;
+            return revitVersion;
+        }
+
+        #endregion
+
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _Id;
+        partial void OnIdChanging(global::System.Int32 value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Version
+        {
+            get
+            {
+                return _Version;
+            }
+            set
+            {
+                OnVersionChanging(value);
+                ReportPropertyChanging("Version");
+                _Version = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Version");
+                OnVersionChanged();
+            }
+        }
+        private global::System.String _Version;
+        partial void OnVersionChanging(global::System.String value);
+        partial void OnVersionChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 AutodeskFile_Id
+        {
+            get
+            {
+                return _AutodeskFile_Id;
+            }
+            set
+            {
+                OnAutodeskFile_IdChanging(value);
+                ReportPropertyChanging("AutodeskFile_Id");
+                _AutodeskFile_Id = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("AutodeskFile_Id");
+                OnAutodeskFile_IdChanged();
+            }
+        }
+        private global::System.Int32 _AutodeskFile_Id;
+        partial void OnAutodeskFile_IdChanging(global::System.Int32 value);
+        partial void OnAutodeskFile_IdChanged();
+
+        #endregion
+
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("BXC_ContentModel", "FK_AutodeskFileRevitVersion", "AutodeskFile")]
+        public AutodeskFile AutodeskFile
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<AutodeskFile>("BXC_ContentModel.FK_AutodeskFileRevitVersion", "AutodeskFile").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<AutodeskFile>("BXC_ContentModel.FK_AutodeskFileRevitVersion", "AutodeskFile").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<AutodeskFile> AutodeskFileReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<AutodeskFile>("BXC_ContentModel.FK_AutodeskFileRevitVersion", "AutodeskFile");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<AutodeskFile>("BXC_ContentModel.FK_AutodeskFileRevitVersion", "AutodeskFile", value);
+                }
+            }
+        }
+
+        #endregion
+
     }
     
     /// <summary>
@@ -2112,6 +2338,7 @@ namespace CDWKS.Model.EF.Content
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -2166,6 +2393,7 @@ namespace CDWKS.Model.EF.Content
         partial void OnNameChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -2192,6 +2420,7 @@ namespace CDWKS.Model.EF.Content
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -2218,6 +2447,7 @@ namespace CDWKS.Model.EF.Content
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -2272,6 +2502,7 @@ namespace CDWKS.Model.EF.Content
         partial void OnValueChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -2298,6 +2529,7 @@ namespace CDWKS.Model.EF.Content
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -2326,6 +2558,7 @@ namespace CDWKS.Model.EF.Content
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -2428,6 +2661,7 @@ namespace CDWKS.Model.EF.Content
         partial void OnContentLibrary_IdChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -2552,8 +2786,10 @@ namespace CDWKS.Model.EF.Content
         }
 
         #endregion
+
     }
 
     #endregion
+
     
 }

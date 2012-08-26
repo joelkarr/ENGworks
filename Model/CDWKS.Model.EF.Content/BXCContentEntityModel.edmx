@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="BXC_ContentModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+    <Schema Namespace="BXC_ContentModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="BXC_ContentModelStoreContainer">
           <EntitySet Name="AutodeskFileIESFiles" EntityType="BXC_ContentModel.Store.AutodeskFileIESFiles" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="AutodeskFiles" EntityType="BXC_ContentModel.Store.AutodeskFiles" store:Type="Tables" Schema="dbo" />
@@ -15,12 +15,17 @@
           <EntitySet Name="Images" EntityType="BXC_ContentModel.Store.Images" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Items" EntityType="BXC_ContentModel.Store.Items" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Parameters" EntityType="BXC_ContentModel.Store.Parameters" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="RevitVersions" EntityType="BXC_ContentModel.Store.RevitVersions" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="SearchNames" EntityType="BXC_ContentModel.Store.SearchNames" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="SearchValues" EntityType="BXC_ContentModel.Store.SearchValues" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="TreeNodes" EntityType="BXC_ContentModel.Store.TreeNodes" store:Type="Tables" Schema="dbo" />
           <AssociationSet Name="FK_AutodeskFileImage" Association="BXC_ContentModel.Store.FK_AutodeskFileImage">
             <End Role="AutodeskFiles" EntitySet="AutodeskFiles" />
             <End Role="Images" EntitySet="Images" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AutodeskFileRevitVersion" Association="BXC_ContentModel.Store.FK_AutodeskFileRevitVersion">
+            <End Role="AutodeskFiles" EntitySet="AutodeskFiles" />
+            <End Role="RevitVersions" EntitySet="RevitVersions" />
           </AssociationSet>
           <AssociationSet Name="FK_AutodeskFileTreeNode_AutodeskFile" Association="BXC_ContentModel.Store.FK_AutodeskFileTreeNode_AutodeskFile">
             <End Role="AutodeskFiles" EntitySet="AutodeskFiles" />
@@ -144,6 +149,14 @@
           <Property Name="Hidden" Type="bit" Nullable="false" />
           <Property Name="Item_Id" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="RevitVersions">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Version" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="AutodeskFile_Id" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="SearchNames">
           <Key>
             <PropertyRef Name="Id" />
@@ -175,6 +188,18 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Images">
+              <PropertyRef Name="AutodeskFile_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AutodeskFileRevitVersion">
+          <End Role="AutodeskFiles" Type="BXC_ContentModel.Store.AutodeskFiles" Multiplicity="1" />
+          <End Role="RevitVersions" Type="BXC_ContentModel.Store.RevitVersions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AutodeskFiles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RevitVersions">
               <PropertyRef Name="AutodeskFile_Id" />
             </Dependent>
           </ReferentialConstraint>
@@ -299,8 +324,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="BXC_ContentModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
@@ -361,6 +385,11 @@
             <End Role="TreeNodes" EntitySet="TreeNodes" />
             <End Role="TreeNodes1" EntitySet="TreeNodes" />
           </AssociationSet>
+          <EntitySet Name="RevitVersions" EntityType="BXC_ContentModel.RevitVersion" />
+          <AssociationSet Name="FK_AutodeskFileRevitVersion" Association="BXC_ContentModel.FK_AutodeskFileRevitVersion">
+            <End Role="AutodeskFile" EntitySet="AutodeskFiles" />
+            <End Role="RevitVersion" EntitySet="RevitVersions" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="AutodeskFileIESFile">
           <Key>
@@ -384,6 +413,7 @@
           <NavigationProperty Name="Images" Relationship="BXC_ContentModel.FK_AutodeskFileImage" FromRole="AutodeskFiles" ToRole="Images" />
           <NavigationProperty Name="AutodeskFileTreeNodes" Relationship="BXC_ContentModel.FK_AutodeskFileTreeNode_AutodeskFile" FromRole="AutodeskFiles" ToRole="AutodeskFileTreeNodes" />
           <NavigationProperty Name="Items" Relationship="BXC_ContentModel.FK_ItemAutodeskFile" FromRole="AutodeskFiles" ToRole="Items" />
+          <NavigationProperty Name="RevitVersions" Relationship="BXC_ContentModel.FK_AutodeskFileRevitVersion" FromRole="AutodeskFile" ToRole="RevitVersion" />
         </EntityType>
         <EntityType Name="AutodeskFileTreeNode">
           <Key>
@@ -620,83 +650,160 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="RevitVersion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Version" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="AutodeskFile_Id" Nullable="false" />
+          <NavigationProperty Name="AutodeskFile" Relationship="BXC_ContentModel.FK_AutodeskFileRevitVersion" FromRole="RevitVersion" ToRole="AutodeskFile" />
+        </EntityType>
+        <Association Name="FK_AutodeskFileRevitVersion">
+          <End Type="BXC_ContentModel.AutodeskFile" Role="AutodeskFile" Multiplicity="1" />
+          <End Type="BXC_ContentModel.RevitVersion" Role="RevitVersion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AutodeskFile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RevitVersion">
+              <PropertyRef Name="AutodeskFile_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
-      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="BXC_ContentModelStoreContainer" CdmEntityContainer="BXC_ContentModelEntities">
-          <EntitySetMapping Name="AutodeskFileIESFiles"><EntityTypeMapping TypeName="BXC_ContentModel.AutodeskFileIESFile"><MappingFragment StoreEntitySet="AutodeskFileIESFiles">
-            <ScalarProperty Name="Id" ColumnName="Id" />
-            <ScalarProperty Name="AutodeskFileTreeNode_Id" ColumnName="AutodeskFileTreeNode_Id" />
-            <ScalarProperty Name="IESFile_Id" ColumnName="IESFile_Id" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="AutodeskFiles"><EntityTypeMapping TypeName="BXC_ContentModel.AutodeskFile"><MappingFragment StoreEntitySet="AutodeskFiles">
-            <ScalarProperty Name="Id" ColumnName="Id" />
-            <ScalarProperty Name="Name" ColumnName="Name" />
-            <ScalarProperty Name="MC_OwnerId" ColumnName="MC_OwnerId" />
-            <ScalarProperty Name="Version" ColumnName="Version" />
-            <ScalarProperty Name="TypeCatalogHeader" ColumnName="TypeCatalogHeader" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="AutodeskFileTreeNodes"><EntityTypeMapping TypeName="BXC_ContentModel.AutodeskFileTreeNode"><MappingFragment StoreEntitySet="AutodeskFileTreeNodes">
-            <ScalarProperty Name="Id" ColumnName="Id" />
-            <ScalarProperty Name="AutodeskFile_Id" ColumnName="AutodeskFile_Id" />
-            <ScalarProperty Name="TreeNodes_Id" ColumnName="TreeNodes_Id" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="CDSLinks"><EntityTypeMapping TypeName="BXC_ContentModel.CDSLink"><MappingFragment StoreEntitySet="CDSLinks">
-            <ScalarProperty Name="Id" ColumnName="Id" />
-            <ScalarProperty Name="Family" ColumnName="Family" />
-            <ScalarProperty Name="ItemType" ColumnName="ItemType" />
-            <ScalarProperty Name="CDSManufacturer" ColumnName="CDSManufacturer" />
-            <ScalarProperty Name="CDSProdNum" ColumnName="CDSProdNum" />
-            <ScalarProperty Name="Url" ColumnName="Url" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="ContentLibraries"><EntityTypeMapping TypeName="BXC_ContentModel.ContentLibrary"><MappingFragment StoreEntitySet="ContentLibraries">
-            <ScalarProperty Name="Id" ColumnName="Id" />
-            <ScalarProperty Name="Name" ColumnName="Name" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="IESFiles"><EntityTypeMapping TypeName="BXC_ContentModel.IESFile"><MappingFragment StoreEntitySet="IESFiles">
-            <ScalarProperty Name="Id" ColumnName="Id" />
-            <ScalarProperty Name="Name" ColumnName="Name" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="Images"><EntityTypeMapping TypeName="BXC_ContentModel.Image"><MappingFragment StoreEntitySet="Images">
-            <ScalarProperty Name="Id" ColumnName="Id" />
-            <ScalarProperty Name="Name" ColumnName="Name" />
-            <ScalarProperty Name="Location" ColumnName="Location" />
-            <ScalarProperty Name="FileType" ColumnName="FileType" />
-            <ScalarProperty Name="AutodeskFile_Id" ColumnName="AutodeskFile_Id" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="Items"><EntityTypeMapping TypeName="BXC_ContentModel.Item"><MappingFragment StoreEntitySet="Items">
-            <ScalarProperty Name="Id" ColumnName="Id" />
-            <ScalarProperty Name="Name" ColumnName="Name" />
-            <ScalarProperty Name="AutodeskFile_Id" ColumnName="AutodeskFile_Id" />
-            <ScalarProperty Name="TypeCatalogEntry" ColumnName="TypeCatalogEntry" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="Parameters"><EntityTypeMapping TypeName="BXC_ContentModel.Parameter"><MappingFragment StoreEntitySet="Parameters">
-            <ScalarProperty Name="Id" ColumnName="Id" />
-            <ScalarProperty Name="SearchValues_Id" ColumnName="SearchValues_Id" />
-            <ScalarProperty Name="SearchNames_Id" ColumnName="SearchNames_Id" />
-            <ScalarProperty Name="Featured" ColumnName="Featured" />
-            <ScalarProperty Name="Hidden" ColumnName="Hidden" />
-            <ScalarProperty Name="Item_Id" ColumnName="Item_Id" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="SearchNames"><EntityTypeMapping TypeName="BXC_ContentModel.SearchName"><MappingFragment StoreEntitySet="SearchNames">
-            <ScalarProperty Name="Id" ColumnName="Id" />
-            <ScalarProperty Name="Name" ColumnName="Name" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="SearchValues"><EntityTypeMapping TypeName="BXC_ContentModel.SearchValue"><MappingFragment StoreEntitySet="SearchValues">
-            <ScalarProperty Name="Id" ColumnName="Id" />
-            <ScalarProperty Name="Value" ColumnName="Value" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="TreeNodes"><EntityTypeMapping TypeName="BXC_ContentModel.TreeNode"><MappingFragment StoreEntitySet="TreeNodes">
-            <ScalarProperty Name="Id" ColumnName="Id" />
-            <ScalarProperty Name="Name" ColumnName="Name" />
-            <ScalarProperty Name="Parent_Id" ColumnName="Parent_Id" />
-            <ScalarProperty Name="ContentLibrary_Id" ColumnName="ContentLibrary_Id" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
-        </EntityContainerMapping>
-      </Mapping>
-    </edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BXC_ContentModelStoreContainer" CdmEntityContainer="BXC_ContentModelEntities">
+    <EntitySetMapping Name="AutodeskFileIESFiles">
+      <EntityTypeMapping TypeName="IsTypeOf(BXC_ContentModel.AutodeskFileIESFile)">
+        <MappingFragment StoreEntitySet="AutodeskFileIESFiles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AutodeskFileTreeNode_Id" ColumnName="AutodeskFileTreeNode_Id" />
+          <ScalarProperty Name="IESFile_Id" ColumnName="IESFile_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AutodeskFiles">
+      <EntityTypeMapping TypeName="IsTypeOf(BXC_ContentModel.AutodeskFile)">
+        <MappingFragment StoreEntitySet="AutodeskFiles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="MC_OwnerId" ColumnName="MC_OwnerId" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="TypeCatalogHeader" ColumnName="TypeCatalogHeader" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AutodeskFileTreeNodes">
+      <EntityTypeMapping TypeName="IsTypeOf(BXC_ContentModel.AutodeskFileTreeNode)">
+        <MappingFragment StoreEntitySet="AutodeskFileTreeNodes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AutodeskFile_Id" ColumnName="AutodeskFile_Id" />
+          <ScalarProperty Name="TreeNodes_Id" ColumnName="TreeNodes_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CDSLinks">
+      <EntityTypeMapping TypeName="IsTypeOf(BXC_ContentModel.CDSLink)">
+        <MappingFragment StoreEntitySet="CDSLinks">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Family" ColumnName="Family" />
+          <ScalarProperty Name="ItemType" ColumnName="ItemType" />
+          <ScalarProperty Name="CDSManufacturer" ColumnName="CDSManufacturer" />
+          <ScalarProperty Name="CDSProdNum" ColumnName="CDSProdNum" />
+          <ScalarProperty Name="Url" ColumnName="Url" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ContentLibraries">
+      <EntityTypeMapping TypeName="IsTypeOf(BXC_ContentModel.ContentLibrary)">
+        <MappingFragment StoreEntitySet="ContentLibraries">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IESFiles">
+      <EntityTypeMapping TypeName="IsTypeOf(BXC_ContentModel.IESFile)">
+        <MappingFragment StoreEntitySet="IESFiles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Images">
+      <EntityTypeMapping TypeName="IsTypeOf(BXC_ContentModel.Image)">
+        <MappingFragment StoreEntitySet="Images">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="FileType" ColumnName="FileType" />
+          <ScalarProperty Name="AutodeskFile_Id" ColumnName="AutodeskFile_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Items">
+      <EntityTypeMapping TypeName="IsTypeOf(BXC_ContentModel.Item)">
+        <MappingFragment StoreEntitySet="Items">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="AutodeskFile_Id" ColumnName="AutodeskFile_Id" />
+          <ScalarProperty Name="TypeCatalogEntry" ColumnName="TypeCatalogEntry" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Parameters">
+      <EntityTypeMapping TypeName="IsTypeOf(BXC_ContentModel.Parameter)">
+        <MappingFragment StoreEntitySet="Parameters">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SearchValues_Id" ColumnName="SearchValues_Id" />
+          <ScalarProperty Name="SearchNames_Id" ColumnName="SearchNames_Id" />
+          <ScalarProperty Name="Featured" ColumnName="Featured" />
+          <ScalarProperty Name="Hidden" ColumnName="Hidden" />
+          <ScalarProperty Name="Item_Id" ColumnName="Item_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SearchNames">
+      <EntityTypeMapping TypeName="IsTypeOf(BXC_ContentModel.SearchName)">
+        <MappingFragment StoreEntitySet="SearchNames">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SearchValues">
+      <EntityTypeMapping TypeName="IsTypeOf(BXC_ContentModel.SearchValue)">
+        <MappingFragment StoreEntitySet="SearchValues">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TreeNodes">
+      <EntityTypeMapping TypeName="IsTypeOf(BXC_ContentModel.TreeNode)">
+        <MappingFragment StoreEntitySet="TreeNodes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Parent_Id" ColumnName="Parent_Id" />
+          <ScalarProperty Name="ContentLibrary_Id" ColumnName="ContentLibrary_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+          <EntitySetMapping Name="RevitVersions">
+            <EntityTypeMapping TypeName="BXC_ContentModel.RevitVersion">
+              <MappingFragment StoreEntitySet="RevitVersions">
+                <ScalarProperty Name="AutodeskFile_Id" ColumnName="AutodeskFile_Id" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
   <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
@@ -738,10 +845,10 @@
           <ConnectorPoint PointX="7.5" PointY="2.76646684375" />
         </AssociationConnector>
         <AssociationConnector Association="BXC_ContentModel.FK_AutodeskFileImage" ManuallyRouted="false">
-          <ConnectorPoint PointX="3.75" PointY="7.5571907552083335" />
-          <ConnectorPoint PointX="3.75" PointY="9.7112939453125" />
-          <ConnectorPoint PointX="4.0729191666666669" PointY="9.7112939453125" />
-          <ConnectorPoint PointX="4.2395858333333329" PointY="9.7112939453125" />
+          <ConnectorPoint PointX="3.516602578125" PointY="7.7494921875" />
+          <ConnectorPoint PointX="3.516602578125" PointY="9.7112939453125" />
+          <ConnectorPoint PointX="3.9562204557291669" PointY="9.7112939453125" />
+          <ConnectorPoint PointX="4.1228871223958334" PointY="9.7112939453125" />
           <ConnectorPoint PointX="5.25" PointY="9.7112939453125" />
         </AssociationConnector>
         <AssociationConnector Association="BXC_ContentModel.FK_AutodeskFileTreeNode_AutodeskFile" ManuallyRouted="false">
@@ -751,8 +858,8 @@
           <ConnectorPoint PointX="5.25" PointY="2.2112939453125" />
         </AssociationConnector>
         <AssociationConnector Association="BXC_ContentModel.FK_ItemAutodeskFile" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.1562525" PointY="7.5571907552083335" />
-          <ConnectorPoint PointX="4.1562525" PointY="12.7112939453125" />
+          <ConnectorPoint PointX="4.0395537890625" PointY="7.7494921875" />
+          <ConnectorPoint PointX="4.0395537890625" PointY="12.7112939453125" />
           <ConnectorPoint PointX="5.25" PointY="12.7112939453125" />
         </AssociationConnector>
         <AssociationConnector Association="BXC_ContentModel.FK_AutodeskFileTreeNode_TreeNode" ManuallyRouted="false">
@@ -784,6 +891,12 @@
           <ConnectorPoint PointX="3.5319230769230767" PointY="3.8071907552083317" />
           <ConnectorPoint PointX="3.9784615384615383" PointY="3.8071907552083317" />
           <ConnectorPoint PointX="3.9784615384615383" PointY="3.5571907552083317" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="BXC_ContentModel.RevitVersion" Width="1.5" PointX="5.25" PointY="19.5" Height="1.7879850260416674" />
+        <AssociationConnector Association="BXC_ContentModel.FK_AutodeskFileRevitVersion" >
+          <ConnectorPoint PointX="3.2270487890625" PointY="7.7494921875" />
+          <ConnectorPoint PointX="3.2270487890625" PointY="20.393992513020834" />
+          <ConnectorPoint PointX="5.25" PointY="20.393992513020834" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>
