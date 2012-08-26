@@ -64,12 +64,10 @@
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="RevitAPI">
-      <HintPath>..\..\..\..\..\Program Files\Autodesk\Revit MEP 2011\Program\RevitAPI.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>..\..\Shared\CDWKS.Shared.ThirdParty\Revit2011\RevitAPI.dll</HintPath>
     </Reference>
     <Reference Include="RevitAPIUI">
-      <HintPath>..\..\..\..\..\Program Files\Autodesk\Revit MEP 2011\Program\RevitAPIUI.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>..\..\Shared\CDWKS.Shared.ThirdParty\Revit2011\RevitAPIUI.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

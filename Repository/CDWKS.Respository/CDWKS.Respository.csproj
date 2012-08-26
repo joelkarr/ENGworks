@@ -5,14 +5,13 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{699178AE-24E2-4F3A-B154-5B8C28FBD347}</ProjectGuid>
+    <ProjectGuid>{DAE6406B-DABD-468A-9051-D6B6D3D59B37}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CDWKS.Utility.Revit.Common</RootNamespace>
-    <AssemblyName>CDWKS.Utility.Revit.Common</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <RootNamespace>CDWKS.Respository.Account</RootNamespace>
+    <AssemblyName>CDWKS.Respository.Account</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -32,34 +31,26 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Ninject">
-      <HintPath>..\..\Shared\CDWKS.Shared.ThirdParty\Ninject\Ninject.dll</HintPath>
-    </Reference>
-    <Reference Include="RevitAPI">
-      <HintPath>..\..\Shared\CDWKS.Shared.ThirdParty\Revit2011\RevitAPI.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AutodeskFileRepositoryRevit.cs" />
-    <Compile Include="IAutodeskFileRepositoryRevit.cs" />
-    <Compile Include="IRevitFamilyIndexer.cs" />
+    <Compile Include="EFRepository.cs" />
+    <Compile Include="EFUnitOfWork.cs" />
+    <Compile Include="IRepository.cs" />
+    <Compile Include="IUnitOfWork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Model\CDWKS.Model.Poco.Content\CDWKS.Model.Poco.Content.csproj">
-      <Project>{B212B384-F6EF-4E98-B3C8-D58A7D2A520A}</Project>
-      <Name>CDWKS.Model.Poco.Content</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Shared\CDWKS.Shared.ObjectFactory\CDWKS.Shared.ObjectFactory.csproj">
-      <Project>{DC13A374-5C96-4F36-915B-776380B75313}</Project>
-      <Name>CDWKS.Shared.ObjectFactory</Name>
+    <ProjectReference Include="..\..\Model\CDWKS.Model.EF.MasterControl\CDWKS.Model.EF.MasterControl.csproj">
+      <Project>{5C1AEC8D-1AAA-4587-8AE0-9CD6A179DFAB}</Project>
+      <Name>CDWKS.Model.EF.MasterControl</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
