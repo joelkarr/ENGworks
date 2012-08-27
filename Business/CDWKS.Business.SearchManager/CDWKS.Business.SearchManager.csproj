@@ -6,7 +6,7 @@
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{049BE1EF-5A91-4F0F-B7CD-F5278F93E220}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>CDWKS.Business.SearchManager</RootNamespace>
     <AssemblyName>CDWKS.Business.SearchManager</AssemblyName>
@@ -32,6 +32,9 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Contrib.Regex">
@@ -87,6 +90,10 @@
     <ProjectReference Include="..\..\Model\CDWKS.Model.Poco.Content\CDWKS.Model.Poco.Content.csproj">
       <Project>{B212B384-F6EF-4E98-B3C8-D58A7D2A520A}</Project>
       <Name>CDWKS.Model.Poco.Content</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Utility\CDWKS.Utility.Lucene.Index\CDWKS.Utility.Lucene.Index.csproj">
+      <Project>{C58D73FC-1C50-41A0-BFF8-C97BE95923C0}</Project>
+      <Name>CDWKS.Utility.Lucene.Index</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using CDWKS.Model.Poco.Content;
+using CDWKS.Utility.Lucene.Index;
 
 namespace CDWKS.Business.SearchManager
 {
@@ -9,28 +10,26 @@ namespace CDWKS.Business.SearchManager
     {
 
 
-        public List<Item> Search(string keyword)
+        public SearchResult Search(string keyword, int pageSize, int pageNumber)
         {
-            throw new NotImplementedException();
+            var searchResult = new SearchResult();
+            searchResult.Results = new List<ItemSummary>();
+           var luceneResult = Utility.Lucene.Index.Search.SearchBIMXchange("family", keyword, pageSize, pageNumber);
+            foreach(var doc in luceneResult.Results)
+            {
+                var itemSummary = new ItemSummary {FamilyName = doc.Get("family"),
+                                                        Name = doc.Get("name")};
+                var field = doc.fields_ForNUnit;
+                searchResult.Results.Add(itemSummary);
+
+            }
+            searchResult.TotalCount = luceneResult.TotalCount;
+            return searchResult;
         }
 
-        public List<Item> Search(Dictionary<string, string> criteria)
+        public SearchResult Search(Dictionary<string, string> criteria, int pageSize, int pageNumber)
         {
-            var file1 = new AutodeskFile {Name = "Test file", Version = 1, Id = 5};
-            var item1 = new Item {Name = "Test type 1", AutodeskFile = file1};
-            var parameters = new Collection<Parameter>();
-            var p = new Parameter
-                        {
-                            Hidden = false,
-                            Featured = true,
-                            SearchName = new SearchName {Name = "first"},
-                            SearchValue = new SearchValue {Value = "param"}
-                        };
-            parameters.Add(new Parameter());
-            item1.Parameters = parameters;
-
-            var items = new List<Item> {item1};
-            return items;
+           return new SearchResult();
         }
 
         public void Dispose()

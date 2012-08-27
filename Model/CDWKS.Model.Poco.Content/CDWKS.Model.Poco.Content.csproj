@@ -47,9 +47,11 @@
     <Compile Include="IESFile.cs" />
     <Compile Include="Image.cs" />
     <Compile Include="Item.cs" />
+    <Compile Include="ItemSummary.cs" />
     <Compile Include="Parameter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SearchName.cs" />
+    <Compile Include="SearchResult.cs" />
     <Compile Include="SearchValue.cs" />
     <Compile Include="TreeNode.cs" />
     <Compile Include="XmlTree.cs" />

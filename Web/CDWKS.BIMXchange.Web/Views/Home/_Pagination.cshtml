@@ -1,0 +1,29 @@
+﻿@model CDWKS.BIMXchange.Web.Models.Partial.PaginationViewModel
+<div class="pagination">
+    @{
+        var start = Model.CurrentPage > 5 ? Model.CurrentPage - 5 : 1;
+        var end = start + 10 > Model.TotalPages ? Model.TotalPages : start + 10;
+    }
+    @if (start > 1)
+    {
+        for (var i = 1; i < start - 5 && i < 3; i++)
+         {
+             <a href="?@(Model.CurrentQuery.Replace("page=" + Model.CurrentPage, "page=" + i))">@i</a>
+         }
+        <span>...</span>
+    }
+    @for (var i = start; i <= end; i++)
+    {
+            <a @(i == @Model.CurrentPage ? "class=current" : "") href="?@(Model.CurrentQuery.Replace("page=" + Model.CurrentPage, "page=" + i))">@i</a>
+    }
+    @if(end < Model.TotalPages)
+    {
+        <span>...</span>
+        for (var i = Model.TotalPages - 2 > end ? Model.TotalPages - 2 : end + 1; i <= Model.TotalPages; i++)
+        {
+             <a href="?@(Model.CurrentQuery.Replace("page=" + Model.CurrentPage, "page=" + i))">@i</a>
+         }
+        
+    }
+
+</div>

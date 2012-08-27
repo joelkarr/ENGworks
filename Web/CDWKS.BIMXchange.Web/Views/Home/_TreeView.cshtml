@@ -1,0 +1,26 @@
+﻿@model string
+<link href="@Url.Content("~/Content/Theme/apple/Style.css")" rel="stylesheet" type="text/css" />
+
+<div id="tree"></div>
+<script type="text/javascript">
+    $(function () {
+        $.jstree._themes = "/Content/theme/";
+        $("#tree").jstree({
+            "json_data": { "ajax": {
+                "url": "/data/tree/@(Model)",
+                "data": function (n) {
+                    return { id: n.attr ? n.attr("id") : 0 };
+                }
+            }
+            },
+            "themes": {
+                "theme": "default",
+                "dots": true,
+                "icons": true
+            },
+
+            "plugins": ["themes", "json_data", "ui"]
+        }).bind("select_node.jstree", function (e, data) { alert(data.rslt.obj.data("id")); });
+    });
+
+</script>

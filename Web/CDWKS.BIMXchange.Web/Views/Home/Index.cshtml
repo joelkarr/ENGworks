@@ -1,10 +1,11 @@
-﻿@{
-    ViewBag.Title = "Home Page";
+﻿@model CDWKS.BIMXchange.Web.Models.HomeViewModel
+@{
+    ViewBag.Title = "ENGworks BIMXchange";
 }
 <div id="leftcolumn">
     <div id="LibraryImage">
         <center>
-            <img id="Main_imgLibrary" class="image" src="@Url.Content("~/Content/Images/Libraries/Xylem.png")" style="height:75px;width:225px;">
+            <img id="Main_imgLibrary" class="image" src="@Url.Content("~/Content/Images/Libraries/@(Model.CurrentLibrary).png")" style="height:75px;width:225px;">
         </center>
     </div>
     <div  style="display: block; ">
@@ -17,20 +18,19 @@
 		<div id="Main_pgTree" class="tree-page tab-page">
 			
             <div id="Main_pnlTree" style="height:500px;width:235px;overflow:auto;">
-				
-
+				@Html.Partial("_TreeView", @Model.CurrentLibrary);
 			</div>
         
 		</div><div id="Main_pgFilter" class="filter-page tab-page rmpHiddenView">
 			
         <div id="divFilter" style="overflow:hidden; width:235px;">
             <div id="Main_pnlSelect">
-				
+
 
 			</div>
             
-            <input type="text" id="Main_txtValue" class="TextInput" style="width:160px;">
-            <input type="image" id="Main_btnAddFilter" class="TextInput" src="@Url.Content("~/content/images/btnAddFilter.png")" style="height:30px;">
+            <input type="text" id="Main_txtValue" class="TextInput" style="width:160px;"/>
+            <input type="image" id="Main_btnAddFilter" class="TextInput" src="@Url.Content("~/content/images/btnAddFilter.png")" style="height:30px;"/>
             
             <div  class="RadListBox RadListBox_Default" style="border-width:0px;width:225px;">
 			</div>
@@ -41,6 +41,10 @@
     </div>   
     </div>
 <div id="maincolumn">
-
+	@foreach(var item in Model.Items)
+    {
+        @Html.Partial("ItemListing", item);
+    }
+    @Html.Partial("_Pagination", @Model.Pagination)
 </div>     
 

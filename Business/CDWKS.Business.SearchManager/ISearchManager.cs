@@ -6,7 +6,7 @@ namespace CDWKS.Business.SearchManager
 {
     public interface ISearchManager : IDisposable
     {
-        List<Item> Search(string keyword);
-        List<Item> Search(Dictionary<string, string> criteria);
+        SearchResult Search(string keyword, int pageSize, int pageNumber);
+        SearchResult Search(Dictionary<string, string> criteria, int pageSize, int pageNumber);
     }
 }

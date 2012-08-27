@@ -1,14 +1,28 @@
-﻿ <asp:Image ID="Image1" Style="float: left; padding: 10px; margin-top: 10px;" Width="80px" ImageUrl='<%#"Images/FileImages/" + Eval("AutodeskFile.Name") + ".gif"%>'
-                                       runat="server" AlternateText="Stock Image" />
-                            <div><div style="overflow: hidden; height: 14px; width: 430px;"><span style="color: Blue; height: 16px; font-weight: bold;">
-                                                                                               AutodeskFileName</span></div>
-                                <br />
-                                <span style="font-weight: bold;">Type:</span>
-                                Name
-                                <br />
-                                <div id="divProps">
-                                            <span style="font-weight: bold;">ParamName:</span>Value<br />
-                                </div>
-                                <input type="button" id="btnShowTC" src="@Url.Content("Images/TypeCatalogButton.png")"  />
-                                <input type="button" id="btnDownload" src="@Url.Content("Images/LoadFileButton.png")"   />
-                            </div>
+﻿@model CDWKS.BIMXchange.Web.Models.Partial.ItemSummaryViewModel
+<div style="float:left; width:590px; border-top:1px solid black; padding: 5px; font: 12px 'segoe ui',arial,sans-serif;">
+    <img id="Image1" style="float: left; padding: 10px;" width="80px" src="http://bxc.mepcontent.com/Images/FileImages/@(Model.FamilyName).gif" alt="Stock Image" />                                                                                              
+        <div style="padding: 5px; width: 250px; float: left;">
+        <span style="color:Blue; font-size:14px; font-weight:bold;">@Model.FamilyName</span>
+        <br />
+        <span style="font-weight: bold; font-size:14px">@(Model.Name)</span>
+
+        <br />
+            <div id="divProps">
+                @foreach(var attribute in Model.FeaturedAttributes)
+                {
+                    <span style="font-weight: bold;">@(attribute.Key):</span>
+                    @(attribute.Value)<br/>
+                }
+            </div>
+        </div>
+    <div style="">
+        <div style="height:50px;">
+        @if (Model.HasTypeCatalog)
+        {
+            <input type="image" id="btnShowTC" src="@Url.Content("Content/Images/TypeCatalogButton.png")" style="height:30px;" />
+        }
+        </div>
+        <input type="image" id="btnDownload" src="@Url.Content("Content/Images/LoadFileButton.png")" style="height:30px;"   />
+    </div>
+    </div>
+                          

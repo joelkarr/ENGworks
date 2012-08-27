@@ -5,7 +5,7 @@
         static void Main()
         {
             Index.CreateBIMXchangeIndex();
-            Search.SearchBIMXchange("start");
+            Search.SearchBIMXchange("name","start", 5, 2);
         }
 
      

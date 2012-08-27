@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using CDWKS.Business.SearchManager;
+using CDWKS.Shared.ObjectFactory;
 
 namespace CDWKS.BIMXchange.Web
 {
@@ -31,6 +33,7 @@ namespace CDWKS.BIMXchange.Web
 
         protected void Application_Start()
         {
+            Construction.StandardKernel.Bind<ISearchManager>().To<SearchManager>();
             AreaRegistration.RegisterAllAreas();
 
             RegisterGlobalFilters(GlobalFilters.Filters);
