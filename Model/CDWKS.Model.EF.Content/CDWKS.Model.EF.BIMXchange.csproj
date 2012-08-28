@@ -8,8 +8,8 @@
     <ProjectGuid>{386444F8-A1B2-4EFC-83BC-B4316BE870F0}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CDWKS.Model.EF.Content</RootNamespace>
-    <AssemblyName>CDWKS.Model.EF.Content</AssemblyName>
+    <RootNamespace>CDWKS.Model.EF.BIMXchange</RootNamespace>
+    <AssemblyName>CDWKS.Model.EF.BIMXchange</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -43,10 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BXCContentEntityModel.Designer.cs">
+    <Compile Include="BXCEntityModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>BXCContentEntityModel.edmx</DependentUpon>
+      <DependentUpon>BXCEntityModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -57,13 +57,13 @@
     <None Include="App.Config">
       <SubType>Designer</SubType>
     </None>
-    <EntityDeploy Include="BXCContentEntityModel.edmx">
+    <EntityDeploy Include="BXCEntityModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>BXCContentEntityModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>BXCEntityModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="BXCContentEntityModel.edmx.sql" />
+    <Content Include="BXCXchangeEntityModel.edmx.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

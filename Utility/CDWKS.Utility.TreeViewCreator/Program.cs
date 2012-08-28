@@ -6,7 +6,7 @@ using System.Linq;
 using System.Xml;
 using System.Xml.Serialization;
 using CDWKS.Business.AutodeskFileManager;
-using CDWKS.Model.EF.Content;
+using CDWKS.Model.EF.BIMXchange;
 using CDWKS.Model.Poco.Content;
 using CDWKS.Shared.ObjectFactory;
 using Ninject;
@@ -63,7 +63,7 @@ namespace CDWKS.Utility.TreeViewCreator
                 var library = xmlTree.Root.Name;
 
                 #region Remove Autodesk File Tree Nodes
-                using (var context = new BXC_ContentModelEntities())
+                using (var context = new BXCModelEntities())
                 {
                     manager.RemoveAllAutodeskFileTreeNodesForLibrary(library, owner,context);
 
@@ -88,15 +88,15 @@ namespace CDWKS.Utility.TreeViewCreator
         {
             try
             {
-                using (var context = new BXC_ContentModelEntities())
+                using (var context = new BXCModelEntities())
                 {
-                    var nextNode = new Model.EF.Content.TreeNode();
+                    var nextNode = new Model.EF.BIMXchange.TreeNode();
                     if (parentId.HasValue)
                     {
                         nextNode.TreeNode1 = manager.GetTreeNode(parentId.Value, context);
                     }
                     nextNode.Name = xmlFolder.Name;
-                    nextNode.ContentLibrary = manager.GetContentLibrary(library, "1", context) ??
+                    nextNode.Library = manager.GetContentLibrary(library, "1", context) ??
                                               manager.AddContentLibrary(library,context);
                     var n = manager.AddTreeNode(nextNode, context);
 
@@ -109,7 +109,7 @@ namespace CDWKS.Utility.TreeViewCreator
                     var nextId = n == null ? 0 : n.Id;
                     foreach (var family in GetTreeNodeFamilyIds(xmlFolder, new List<int>(), manager, library))
                     {
-                        var newFileNode = new Model.EF.Content.AutodeskFileTreeNode
+                        var newFileNode = new Model.EF.BIMXchange.AutodeskFileTreeNode
                         {
                             AutodeskFile = manager.GetAutodeskFileById(family, context),
                             TreeNode = manager.GetTreeNode(nextId, context)
@@ -125,10 +125,9 @@ namespace CDWKS.Utility.TreeViewCreator
                 }
             }
 
-            catch (Exception ex)
+            catch (Exception)
             {
-                var cat = "";
-                //  Log.Error("CreateNode Failed", ex);
+               // Log.Error("CreateNode Failed", ex);
 
             }
 
@@ -150,7 +149,7 @@ namespace CDWKS.Utility.TreeViewCreator
             {
                 return FamilyIds[name];
             }
-            using (var context = new BXC_ContentModelEntities())
+            using (var context = new BXCModelEntities())
             {
                 var file = manager.GetAutodeskFile(name, "1",context);
                 if (file != null)
@@ -167,7 +166,7 @@ namespace CDWKS.Utility.TreeViewCreator
         {
             try
             {
-                using (var context = new BXC_ContentModelEntities())
+                using (var context = new BXCModelEntities())
                 {
                     Construction.StandardKernel.Rebind<IAutodeskFileManager>().To<AutodeskFileManager>();
 
@@ -190,25 +189,25 @@ namespace CDWKS.Utility.TreeViewCreator
 
         #region Poco Mappings
 
-        private Model.EF.Content.AutodeskFile GetAutodeskFileFromPoco(AutodeskFile revitFamily)
+        private Model.EF.BIMXchange.AutodeskFile GetAutodeskFileFromPoco(AutodeskFile revitFamily)
         {
             if (revitFamily == null) return null;
-            var file = new Model.EF.Content.AutodeskFile
+            var file = new Model.EF.BIMXchange.AutodeskFile
             {
                 Name = revitFamily.Name,
                 Version = revitFamily.Version,
                 TypeCatalogHeader = revitFamily.TypeCatalogHeader,
                 MC_OwnerId = revitFamily.MC_OwnerId,
-                Items = GetItemsFromPoco(revitFamily.Items) as EntityCollection<Model.EF.Content.Item>
+                Items = GetItemsFromPoco(revitFamily.Items) as EntityCollection<Model.EF.BIMXchange.Item>
             };
             return file;
         }
 
 
-        private ICollection<Model.EF.Content.Item> GetItemsFromPoco(ICollection<Item> items)
+        private ICollection<Model.EF.BIMXchange.Item> GetItemsFromPoco(ICollection<Item> items)
         {
             if (items == null) return null;
-            var serviceItems = new Model.EF.Content.Item[items.Count];
+            var serviceItems = new Model.EF.BIMXchange.Item[items.Count];
             var index = 0;
             foreach (var item in items)
             {
@@ -218,25 +217,25 @@ namespace CDWKS.Utility.TreeViewCreator
             return serviceItems;
         }
 
-        private Model.EF.Content.Item GetItemFromPoco(Item item)
+        private Model.EF.BIMXchange.Item GetItemFromPoco(Item item)
         {
             if (item == null) return null;
-            var serviceItem = new Model.EF.Content.Item
+            var serviceItem = new Model.EF.BIMXchange.Item
             {
                 Name = item.Name,
                 TypeCatalogEntry = item.TypeCatalogEntry,
                 Parameters =
                     (item.Parameters == null
-                         ? new Model.EF.Content.Parameter[0]
-                         : GetParametersFromPoco(item.Parameters)) as EntityCollection<Model.EF.Content.Parameter>
+                         ? new Model.EF.BIMXchange.Parameter[0]
+                         : GetParametersFromPoco(item.Parameters)) as EntityCollection<Model.EF.BIMXchange.Parameter>
             };
             return serviceItem;
         }
 
-        private ICollection<Model.EF.Content.Parameter> GetParametersFromPoco(ICollection<Parameter> parameters)
+        private ICollection<Model.EF.BIMXchange.Parameter> GetParametersFromPoco(ICollection<Parameter> parameters)
         {
             if (parameters == null) return null;
-            var serviceParameters = new Model.EF.Content.Parameter[parameters.Count];
+            var serviceParameters = new Model.EF.BIMXchange.Parameter[parameters.Count];
             var index = 0;
             foreach (var parameter in parameters)
             {
@@ -246,10 +245,10 @@ namespace CDWKS.Utility.TreeViewCreator
             return serviceParameters;
         }
 
-        private Model.EF.Content.Parameter GetParameterFromPoco(Parameter parameter)
+        private Model.EF.BIMXchange.Parameter GetParameterFromPoco(Parameter parameter)
         {
             if (parameter == null) return null;
-            var serviceParameter = new Model.EF.Content.Parameter
+            var serviceParameter = new Model.EF.BIMXchange.Parameter
             {
                 Featured = parameter.Featured,
                 Hidden = parameter.Hidden,
@@ -259,39 +258,39 @@ namespace CDWKS.Utility.TreeViewCreator
             return serviceParameter;
         }
 
-        private Model.EF.Content.SearchValue GetSearchValueFromPoco(SearchValue searchValue)
+        private Model.EF.BIMXchange.SearchValue GetSearchValueFromPoco(SearchValue searchValue)
         {
             if (searchValue == null) return null;
-            var serviceSearchValue = new Model.EF.Content.SearchValue { Value = searchValue.Value };
+            var serviceSearchValue = new Model.EF.BIMXchange.SearchValue { Value = searchValue.Value };
             return serviceSearchValue;
         }
 
-        private Model.EF.Content.SearchName GetSearchNameFromPoco(SearchName searchName)
+        private Model.EF.BIMXchange.SearchName GetSearchNameFromPoco(SearchName searchName)
         {
             if (searchName == null) return null;
-            var serviceSearchName = new Model.EF.Content.SearchName { Name = searchName.Name };
+            var serviceSearchName = new Model.EF.BIMXchange.SearchName { Name = searchName.Name };
             return serviceSearchName;
 
         }
-        private Model.EF.Content.TreeNode GetTreeNodeFromPoco(TreeNode treeNode)
+        private Model.EF.BIMXchange.TreeNode GetTreeNodeFromPoco(TreeNode treeNode)
         {
             if (treeNode == null) return null;
-            var tn = new Model.EF.Content.TreeNode
+            var tn = new Model.EF.BIMXchange.TreeNode
             {
                 Id = treeNode.Id,
                 Name = treeNode.Name,
-                ContentLibrary = GetContentLibraryFromPoco(treeNode.ContentLibrary),
-                AutodeskFileTreeNodes = GetAutodeskFileTreeNodesFromPoco(treeNode.AutodeskFileTreeNodes) as EntityCollection<Model.EF.Content.AutodeskFileTreeNode>,
+                Library = GetContentLibraryFromPoco(treeNode.ContentLibrary),
+                AutodeskFileTreeNodes = GetAutodeskFileTreeNodesFromPoco(treeNode.AutodeskFileTreeNodes) as EntityCollection<Model.EF.BIMXchange.AutodeskFileTreeNode>,
                 TreeNode1 = treeNode.TreeNode1 == null ? null : GetTreeNodeFromPoco(treeNode.TreeNode1),
-                TreeNodes1 = GetTreeNodesFromPoco(treeNode.TreeNodes1) as EntityCollection<Model.EF.Content.TreeNode>
+                TreeNodes1 = GetTreeNodesFromPoco(treeNode.TreeNodes1) as EntityCollection<Model.EF.BIMXchange.TreeNode>
             };
             return tn;
         }
 
-        private ICollection<Model.EF.Content.AutodeskFileTreeNode> GetAutodeskFileTreeNodesFromPoco(ICollection<AutodeskFileTreeNode> autodeskFileTreeNodes)
+        private ICollection<Model.EF.BIMXchange.AutodeskFileTreeNode> GetAutodeskFileTreeNodesFromPoco(ICollection<AutodeskFileTreeNode> autodeskFileTreeNodes)
         {
             if (autodeskFileTreeNodes == null) return null;
-            return autodeskFileTreeNodes.Select(pocoAftn => new Model.EF.Content.AutodeskFileTreeNode
+            return autodeskFileTreeNodes.Select(pocoAftn => new Model.EF.BIMXchange.AutodeskFileTreeNode
             {
                 Id = pocoAftn.Id,
                 TreeNode = GetTreeNodeFromPoco(pocoAftn.TreeNode),
@@ -299,19 +298,19 @@ namespace CDWKS.Utility.TreeViewCreator
             }).ToList();
         }
 
-        private ICollection<Model.EF.Content.TreeNode> GetTreeNodesFromPoco(ICollection<TreeNode> treeNodes1)
+        private ICollection<Model.EF.BIMXchange.TreeNode> GetTreeNodesFromPoco(ICollection<TreeNode> treeNodes1)
         {
             return treeNodes1 == null ? null : treeNodes1.Select(GetTreeNodeFromPoco).ToList();
         }
 
-        private Model.EF.Content.ContentLibrary GetContentLibraryFromPoco(ContentLibrary contentLibrary)
+        private Library GetContentLibraryFromPoco(ContentLibrary contentLibrary)
         {
             if (contentLibrary == null) return null;
-            var cl = new Model.EF.Content.ContentLibrary
+            var cl = new Library
             {
                 Id = contentLibrary.Id,
                 Name = contentLibrary.Name,
-                TreeNodes = GetTreeNodesFromPoco(contentLibrary.TreeNodes) as EntityCollection<Model.EF.Content.TreeNode>
+                TreeNodes = GetTreeNodesFromPoco(contentLibrary.TreeNodes) as EntityCollection<Model.EF.BIMXchange.TreeNode>
             };
             return cl;
         }
@@ -320,13 +319,13 @@ namespace CDWKS.Utility.TreeViewCreator
 
         #region Domain Mappings
         private ICollection<AutodeskFileTreeNode> GetAutodeskFileTreeNodesFromDomain(
-            ICollection<Model.EF.Content.AutodeskFileTreeNode> domainTreeNodes)
+            ICollection<Model.EF.BIMXchange.AutodeskFileTreeNode> domainTreeNodes)
         {
             return domainTreeNodes == null ? null : domainTreeNodes.Select(GetAutodeskFileTreeNodeFromDomain).ToList();
         }
 
         private AutodeskFileTreeNode GetAutodeskFileTreeNodeFromDomain(
-            Model.EF.Content.AutodeskFileTreeNode aftn)
+            Model.EF.BIMXchange.AutodeskFileTreeNode aftn)
         {
             if (aftn == null) return null;
             var afTreeNode = new AutodeskFileTreeNode
@@ -338,13 +337,12 @@ namespace CDWKS.Utility.TreeViewCreator
             return afTreeNode;
         }
 
-        private TreeNode GetTreeNodeFromDomain(Model.EF.Content.TreeNode treeNodeForLibary,
-                                               TreeNode parentNode = null)
+        private TreeNode GetTreeNodeFromDomain(Model.EF.BIMXchange.TreeNode treeNodeForLibary)
         {
             if (treeNodeForLibary == null) return null;
             var tree = new TreeNode
             {
-                ContentLibrary = null,// GetContentLibraryFromDomain(treeNodeForLibary.ContentLibrary),
+                ContentLibrary = null,// GetContentLibraryFromDomain(treeNodeForLibary.Library),
                 Id = treeNodeForLibary.Id,
                 Name = treeNodeForLibary.Name,
                 TreeNode1 = null,
@@ -356,7 +354,7 @@ namespace CDWKS.Utility.TreeViewCreator
             return tree;
         }
 
-        private ContentLibrary GetContentLibraryFromDomain(Model.EF.Content.ContentLibrary contentLibrary)
+        private ContentLibrary GetContentLibraryFromDomain(Library contentLibrary)
         {
             if (contentLibrary == null) return null;
             var contLib = new ContentLibrary
@@ -369,7 +367,7 @@ namespace CDWKS.Utility.TreeViewCreator
         }
 
         private ICollection<TreeNode> GetTreeNodesFromDomain(
-            ICollection<Model.EF.Content.TreeNode> treeNodes)
+            ICollection<Model.EF.BIMXchange.TreeNode> treeNodes)
         {
             if (treeNodes == null) return null;
             var nodes = treeNodes.Select(domainNode => new TreeNode
@@ -377,7 +375,7 @@ namespace CDWKS.Utility.TreeViewCreator
                 Id = domainNode.Id,
                 Name = domainNode.Name,
                 ContentLibrary =
-                    GetContentLibraryFromDomain(domainNode.ContentLibrary),
+                    GetContentLibraryFromDomain(domainNode.Library),
                 AutodeskFileTreeNodes =
                     GetAutodeskFileTreeNodesFromDomain(
                         domainNode.AutodeskFileTreeNodes)
@@ -386,7 +384,7 @@ namespace CDWKS.Utility.TreeViewCreator
             return nodes;
         }
 
-        private AutodeskFile GetAutodeskFileFromDomain(Model.EF.Content.AutodeskFile autodeskFile)
+        private AutodeskFile GetAutodeskFileFromDomain(Model.EF.BIMXchange.AutodeskFile autodeskFile)
         {
             if (autodeskFile == null) return null;
             var file = new AutodeskFile
@@ -400,12 +398,12 @@ namespace CDWKS.Utility.TreeViewCreator
             return file;
         }
 
-        private ICollection<Item> GetItemsFromDomain(ICollection<Model.EF.Content.Item> items)
+        private ICollection<Item> GetItemsFromDomain(ICollection<Model.EF.BIMXchange.Item> items)
         {
             return items == null ? null : items.Select(GetItemFromDomain).ToList();
         }
 
-        private Item GetItemFromDomain(Model.EF.Content.Item item)
+        private Item GetItemFromDomain(Model.EF.BIMXchange.Item item)
         {
             if (item == null) return null;
             var pocoItem = new Item
@@ -420,12 +418,12 @@ namespace CDWKS.Utility.TreeViewCreator
         }
 
         private ICollection<Parameter> GetParametersFromDomain(
-            ICollection<Model.EF.Content.Parameter> parameters)
+            ICollection<Model.EF.BIMXchange.Parameter> parameters)
         {
             return parameters == null ? null : parameters.Select(GetParameterFromDomain).ToList();
         }
 
-        private Parameter GetParameterFromDomain(Model.EF.Content.Parameter domainParam)
+        private Parameter GetParameterFromDomain(Model.EF.BIMXchange.Parameter domainParam)
         {
             if (domainParam == null) return null;
             var param = new Parameter
@@ -441,12 +439,12 @@ namespace CDWKS.Utility.TreeViewCreator
 
         }
 
-        private SearchValue GetSearchValueFromDomain(Model.EF.Content.SearchValue searchValue)
+        private SearchValue GetSearchValueFromDomain(Model.EF.BIMXchange.SearchValue searchValue)
         {
             return searchValue == null ? null : new SearchValue { Id = searchValue.Id, Value = searchValue.Value };
         }
 
-        private SearchName GetSearchNameFromDomain(Model.EF.Content.SearchName searchName)
+        private SearchName GetSearchNameFromDomain(Model.EF.BIMXchange.SearchName searchName)
         {
             return searchName == null ? null : new SearchName { Id = searchName.Id, Name = searchName.Name };
         }

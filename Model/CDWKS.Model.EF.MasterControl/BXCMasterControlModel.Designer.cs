@@ -8,27 +8,28 @@
 //------------------------------------------------------------------------------
 
 using System;
+using System.ComponentModel;
+using System.Data.EntityClient;
 using System.Data.Objects;
 using System.Data.Objects.DataClasses;
-using System.Data.EntityClient;
-using System.ComponentModel;
-using System.Xml.Serialization;
+using System.Linq;
 using System.Runtime.Serialization;
+using System.Xml.Serialization;
 
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
 
-[assembly: EdmRelationshipAttribute("BXCMasterControlModel", "FK_LibraryDownload", "Libraries", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CDWKS.Model.EF.MasterControl.Library), "Downloads", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CDWKS.Model.EF.MasterControl.Download))]
-[assembly: EdmRelationshipAttribute("BXCMasterControlModel", "FK_UserDownload", "Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CDWKS.Model.EF.MasterControl.User), "Downloads", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CDWKS.Model.EF.MasterControl.Download))]
-[assembly: EdmRelationshipAttribute("BXCMasterControlModel", "FK_ExtendedPropertyPropertyName", "PropertyNames", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CDWKS.Model.EF.MasterControl.PropertyName), "ExtendedProperties", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CDWKS.Model.EF.MasterControl.ExtendedProperty))]
-[assembly: EdmRelationshipAttribute("BXCMasterControlModel", "FK_ExtendedPropertyPropertyValue", "PropertyValues", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CDWKS.Model.EF.MasterControl.PropertyValue), "ExtendedProperties", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CDWKS.Model.EF.MasterControl.ExtendedProperty))]
-[assembly: EdmRelationshipAttribute("BXCMasterControlModel", "FK_UserExtendedProperty", "Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CDWKS.Model.EF.MasterControl.User), "ExtendedProperties", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CDWKS.Model.EF.MasterControl.ExtendedProperty))]
-[assembly: EdmRelationshipAttribute("BXCMasterControlModel", "FK_LicenseOwner", "Owners", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CDWKS.Model.EF.MasterControl.Owner), "Licenses", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CDWKS.Model.EF.MasterControl.License))]
-[assembly: EdmRelationshipAttribute("BXCMasterControlModel", "LicenseLibrary", "Libraries", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CDWKS.Model.EF.MasterControl.Library), "Licenses", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CDWKS.Model.EF.MasterControl.License))]
+[assembly: EdmRelationshipAttribute("BXCMasterControlModel", "FK_LibraryDownload", "Libraries", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CDWKS.BXC.Domain.MasterControl.Library), "Downloads", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CDWKS.BXC.Domain.MasterControl.Download))]
+[assembly: EdmRelationshipAttribute("BXCMasterControlModel", "FK_UserDownload", "Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CDWKS.BXC.Domain.MasterControl.User), "Downloads", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CDWKS.BXC.Domain.MasterControl.Download))]
+[assembly: EdmRelationshipAttribute("BXCMasterControlModel", "FK_ExtendedPropertyPropertyName", "PropertyNames", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CDWKS.BXC.Domain.MasterControl.PropertyName), "ExtendedProperties", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CDWKS.BXC.Domain.MasterControl.ExtendedProperty))]
+[assembly: EdmRelationshipAttribute("BXCMasterControlModel", "FK_ExtendedPropertyPropertyValue", "PropertyValues", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CDWKS.BXC.Domain.MasterControl.PropertyValue), "ExtendedProperties", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CDWKS.BXC.Domain.MasterControl.ExtendedProperty))]
+[assembly: EdmRelationshipAttribute("BXCMasterControlModel", "FK_UserExtendedProperty", "Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CDWKS.BXC.Domain.MasterControl.User), "ExtendedProperties", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CDWKS.BXC.Domain.MasterControl.ExtendedProperty))]
+[assembly: EdmRelationshipAttribute("BXCMasterControlModel", "FK_LicenseOwner", "Owners", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CDWKS.BXC.Domain.MasterControl.Owner), "Licenses", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CDWKS.BXC.Domain.MasterControl.License))]
+[assembly: EdmRelationshipAttribute("BXCMasterControlModel", "LicenseLibrary", "Libraries", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CDWKS.BXC.Domain.MasterControl.Library), "Licenses", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CDWKS.BXC.Domain.MasterControl.License))]
 
 #endregion
 
-namespace CDWKS.Model.EF.MasterControl
+namespace CDWKS.BXC.Domain.MasterControl
 {
     #region Contexts
     
@@ -218,6 +219,7 @@ namespace CDWKS.Model.EF.MasterControl
         private ObjectSet<User> _Users;
 
         #endregion
+
         #region AddTo Methods
     
         /// <summary>
@@ -293,11 +295,11 @@ namespace CDWKS.Model.EF.MasterControl
         }
 
         #endregion
+
     }
-    
 
     #endregion
-    
+
     #region Entities
     
     /// <summary>
@@ -326,6 +328,7 @@ namespace CDWKS.Model.EF.MasterControl
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -404,6 +407,7 @@ namespace CDWKS.Model.EF.MasterControl
         partial void OnDateTimeChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -484,6 +488,7 @@ namespace CDWKS.Model.EF.MasterControl
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -508,6 +513,7 @@ namespace CDWKS.Model.EF.MasterControl
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -538,6 +544,7 @@ namespace CDWKS.Model.EF.MasterControl
         partial void OnIdChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -656,6 +663,7 @@ namespace CDWKS.Model.EF.MasterControl
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -682,6 +690,7 @@ namespace CDWKS.Model.EF.MasterControl
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -736,6 +745,7 @@ namespace CDWKS.Model.EF.MasterControl
         partial void OnNameChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -784,6 +794,7 @@ namespace CDWKS.Model.EF.MasterControl
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -814,6 +825,7 @@ namespace CDWKS.Model.EF.MasterControl
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -916,6 +928,7 @@ namespace CDWKS.Model.EF.MasterControl
         partial void OnLicenseType_IdChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -980,6 +993,7 @@ namespace CDWKS.Model.EF.MasterControl
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -1008,6 +1022,7 @@ namespace CDWKS.Model.EF.MasterControl
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -1086,6 +1101,7 @@ namespace CDWKS.Model.EF.MasterControl
         partial void OnCreatedDateChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -1112,6 +1128,7 @@ namespace CDWKS.Model.EF.MasterControl
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -1138,6 +1155,7 @@ namespace CDWKS.Model.EF.MasterControl
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -1192,6 +1210,7 @@ namespace CDWKS.Model.EF.MasterControl
         partial void OnNameChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -1218,6 +1237,7 @@ namespace CDWKS.Model.EF.MasterControl
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -1246,6 +1266,7 @@ namespace CDWKS.Model.EF.MasterControl
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -1324,6 +1345,7 @@ namespace CDWKS.Model.EF.MasterControl
         partial void OnExtendedProperty_IdChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -1350,6 +1372,7 @@ namespace CDWKS.Model.EF.MasterControl
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -1378,6 +1401,7 @@ namespace CDWKS.Model.EF.MasterControl
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -1456,6 +1480,7 @@ namespace CDWKS.Model.EF.MasterControl
         partial void OnPasswordChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -1504,6 +1529,7 @@ namespace CDWKS.Model.EF.MasterControl
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -1532,6 +1558,7 @@ namespace CDWKS.Model.EF.MasterControl
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -1610,9 +1637,11 @@ namespace CDWKS.Model.EF.MasterControl
         partial void OnLibraryIdChanged();
 
         #endregion
+
     
     }
 
     #endregion
+
     
 }

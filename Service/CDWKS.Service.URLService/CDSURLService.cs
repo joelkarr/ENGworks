@@ -6,7 +6,7 @@ using System.Linq;
 using System.ServiceModel;
 using System.ServiceModel.Activation;
 using System.ServiceModel.Web;
-using CDWKS.Model.EF.Content;
+using CDWKS.Model.EF.BIMXchange;
 using CDWKS.Repository.Content;
 using CDWKS.Shared.ObjectFactory;
 using Ionic.Zip;
@@ -40,8 +40,7 @@ namespace CDWKS.Service.URLService
         [WebGet(UriTemplate = "?domain={Manufacturer}&pn={ProductNumber}", ResponseFormat = WebMessageFormat.Json)]
         public ResponseObject GetURL(string manufacturer, string productNumber)
         {
-            var response = new ResponseObject();
-            response.ModelNo = productNumber;
+            var response = new ResponseObject {ModelNo = productNumber};
             using (var model = new CDSModelContainer())
             {
                 var item =

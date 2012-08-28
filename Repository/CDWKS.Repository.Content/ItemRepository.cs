@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using CDWKS.Model.EF.Content;
+using CDWKS.Model.EF.BIMXchange;
+
 
 namespace CDWKS.Repository.Content
 {
@@ -15,9 +16,9 @@ namespace CDWKS.Repository.Content
 
     public class ItemRepository : IItemRepository
     {
-        private readonly BXC_ContentModelEntities _context;
+        private readonly BXCModelEntities _context;
 
-        public ItemRepository(BXC_ContentModelEntities context)
+        public ItemRepository(BXCModelEntities context)
         {
             _context = context;
         }

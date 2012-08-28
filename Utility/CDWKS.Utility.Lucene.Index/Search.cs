@@ -41,13 +41,11 @@ namespace CDWKS.Utility.Lucene.Index
 
             searcher.Close();
             directory.Close();
-            var result = new LuceneResult();
-            result.Results = docs;
-            result.TotalCount = topDocs.TotalHits;
+            var result = new LuceneResult {Results = docs, TotalCount = topDocs.TotalHits};
             return result;
         }
 
-        public static List<Document> MultiSearchBIMXchange(Dictionary<string,string> terms)
+        public static LuceneResult MultiSearchBIMXchange(Dictionary<string,string> terms, int pageSize, int pageNumber)
         {
             var directory = FSDirectory.Open(new DirectoryInfo("LuceneIndex"));
             var booleanQuery = new BooleanQuery();
@@ -60,10 +58,9 @@ namespace CDWKS.Utility.Lucene.Index
 
             var topDocs = searcher.Search(booleanQuery, 10);
 
-            var results = topDocs.ScoreDocs.Length;
-
             var docs = new List<Document>();
-            for (var i = 0; i < results; i++)
+            var start = (pageNumber - 1) * pageSize;
+            for (var i = start; i < start + pageSize && i < topDocs.TotalHits; i++)
             {
                 var scoreDoc = topDocs.ScoreDocs[i];
                 var docId = scoreDoc.doc;
@@ -73,7 +70,8 @@ namespace CDWKS.Utility.Lucene.Index
 
             searcher.Close();
             directory.Close();
-            return docs;
+            var result = new LuceneResult {Results = docs, TotalCount = topDocs.TotalHits};
+            return result;
         }
     }
 }

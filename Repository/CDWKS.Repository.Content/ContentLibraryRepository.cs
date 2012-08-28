@@ -1,41 +1,41 @@
 ﻿using System;
 using System.Linq;
 using System.Linq.Expressions;
-using CDWKS.Model.EF.Content;
+using CDWKS.Model.EF.BIMXchange;
 
 namespace CDWKS.Repository.Content
 {
-    public interface IContentLibraryRepository
+    public interface ILibraryRepository
     {
-        ContentLibrary GetByID(int id);
-        ContentLibrary GetByNameAndOwner(string libraryName, string ownerId);
-        ContentLibrary AddContentLibrary(string libraryName);
+        Library GetByID(int id);
+        Library GetByNameAndOwner(string libraryName, string ownerId);
+        Library AddLibrary(string libraryName);
     }
 
-    public class ContentLibraryRepository : IContentLibraryRepository
+    public class LibraryRepository : ILibraryRepository
     {
-        private readonly BXC_ContentModelEntities _context;
+        private readonly BXCModelEntities _context;
 
-        public ContentLibraryRepository(BXC_ContentModelEntities context)
+        public LibraryRepository(BXCModelEntities context)
         {
             _context = context;
         }
 
-        public ContentLibrary GetByID(int id)
+        public Library GetByID(int id)
         {
-            return _context.ContentLibraries.FirstOrDefault(l => l.Id == id);
+            return _context.Libraries.FirstOrDefault(l => l.Id == id);
         }
 
-        public ContentLibrary GetByNameAndOwner(string libraryName, string ownerId)
+        public Library GetByNameAndOwner(string libraryName, string ownerId)
         {
-            Expression<Func<ContentLibrary, bool>> expr = l => l.Name == libraryName;
-            return _context.ContentLibraries.Where(expr).FirstOrDefault();
+            Expression<Func<Library, bool>> expr = l => l.Name == libraryName;
+            return _context.Libraries.Where(expr).FirstOrDefault();
         }
 
-        public ContentLibrary AddContentLibrary(string libraryName)
+        public Library AddLibrary(string libraryName)
         {
-            var lib = new ContentLibrary { Name = libraryName };
-            _context.AddObject("ContentLibraries", lib);
+            var lib = new Library { Name = libraryName };
+            _context.AddObject("Libraries", lib);
             _context.SaveChanges();
             return lib;
         }

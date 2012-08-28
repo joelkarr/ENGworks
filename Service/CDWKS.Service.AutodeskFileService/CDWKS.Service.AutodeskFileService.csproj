@@ -96,9 +96,9 @@
       <Project>{49144A43-19E2-4DFE-BE31-5D3BED80064A}</Project>
       <Name>CDWKS.Business.AutodeskFileManager</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Model\CDWKS.Model.EF.Content\CDWKS.Model.EF.Content.csproj">
+    <ProjectReference Include="..\..\Model\CDWKS.Model.EF.Content\CDWKS.Model.EF.BIMXchange.csproj">
       <Project>{386444F8-A1B2-4EFC-83BC-B4316BE870F0}</Project>
-      <Name>CDWKS.Model.EF.Content</Name>
+      <Name>CDWKS.Model.EF.BIMXchange</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Model\CDWKS.Model.EF.FileQueue\CDWKS.Model.EF.FileQueue.csproj">
       <Project>{5558FD74-3768-45BF-96D2-15FA81720C64}</Project>

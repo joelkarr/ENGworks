@@ -1,6 +1,6 @@
 ﻿using System.IO;
 using System.Linq;
-using CDWKS.Model.EF.Content;
+using CDWKS.Model.EF.BIMXchange;
 using Lucene.Net.Analysis;
 using Lucene.Net.Analysis.Standard;
 using Lucene.Net.Documents;
@@ -16,14 +16,14 @@ namespace CDWKS.Utility.Lucene.Index
         {
 
             var directory = FSDirectory.Open(
-                                     new DirectoryInfo("LuceneIndex")
+                                     new DirectoryInfo("C:\\LuceneIndex")
                                   );
             Analyzer analyzer = new StandardAnalyzer(Version.LUCENE_29);
             var writer = new IndexWriter(directory, analyzer,
                                          IndexWriter.MaxFieldLength.UNLIMITED);
 
             //get all Revit Items
-            using (var context = new BXC_ContentModelEntities())
+            using (var context = new BXCModelEntities())
             {
                 var items = context.Items;
                 foreach (var item in items)
@@ -33,6 +33,9 @@ namespace CDWKS.Utility.Lucene.Index
                     doc.Add(new Field("family", item.AutodeskFile.Name, Field.Store.YES, Field.Index.ANALYZED));
                     doc.Add(new Field("version", item.AutodeskFile.Version.ToString(), Field.Store.YES, Field.Index.ANALYZED));
 
+                    var nodes = item.AutodeskFile.AutodeskFileTreeNodes;
+                    var nodeString = nodes.Aggregate(string.Empty, (current, node) => string.Format("{0}{1} ", current, node.TreeNodes_Id));
+                    doc.Add(new Field("nodes", nodeString, Field.Store.YES, Field.Index.ANALYZED));
 
                     var avaiableRevitVersions = item.AutodeskFile.RevitVersions
                                             .Aggregate(string.Empty, (current, version) =>

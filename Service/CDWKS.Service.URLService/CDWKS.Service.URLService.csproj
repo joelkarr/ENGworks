@@ -108,9 +108,9 @@
     </EntityDeploy>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Model\CDWKS.Model.EF.Content\CDWKS.Model.EF.Content.csproj">
+    <ProjectReference Include="..\..\Model\CDWKS.Model.EF.Content\CDWKS.Model.EF.BIMXchange.csproj">
       <Project>{386444F8-A1B2-4EFC-83BC-B4316BE870F0}</Project>
-      <Name>CDWKS.Model.EF.Content</Name>
+      <Name>CDWKS.Model.EF.BIMXchange</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Repository\CDWKS.Repository.Content\CDWKS.Repository.Content.csproj">
       <Project>{540607F5-91BC-4890-987B-1E6F2E5FEF3D}</Project>

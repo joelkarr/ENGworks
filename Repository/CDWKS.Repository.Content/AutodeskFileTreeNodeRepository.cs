@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using CDWKS.Model.EF.Content;
+using CDWKS.Model.EF.BIMXchange;
+
 
 namespace CDWKS.Repository.Content
 {
@@ -18,9 +19,9 @@ namespace CDWKS.Repository.Content
 
     public class AutodeskFileTreeNodeRepository : IAutodeskFileTreeNodeRepository
     {
-        private readonly BXC_ContentModelEntities _context;
+        private readonly BXCModelEntities _context;
 
-        public AutodeskFileTreeNodeRepository(BXC_ContentModelEntities context)
+        public AutodeskFileTreeNodeRepository(BXCModelEntities context)
         {
             _context = context;
         }
@@ -33,14 +34,14 @@ namespace CDWKS.Repository.Content
         public IEnumerable<AutodeskFileTreeNode> GetByLibraryAndFamilyName(string owner, string library, string filename)
         {
             Expression<Func<AutodeskFileTreeNode, bool>> expr =
-                t => t.AutodeskFile.Name == filename && t.TreeNode.ContentLibrary.Name == library;
+                t => t.AutodeskFile.Name == filename && t.TreeNode.Library.Name == library;
             return _context.AutodeskFileTreeNodes.Where(expr);
         }
 
         public IEnumerable<AutodeskFileTreeNode> GetAllByLibrary(string library, string owner)
         {
             Expression<Func<AutodeskFileTreeNode, bool>> expr =
-                t => t.TreeNode.ContentLibrary.Name == library;
+                t => t.TreeNode.Library.Name == library;
             return _context.AutodeskFileTreeNodes.Where(expr);
         }
 

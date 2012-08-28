@@ -5,7 +5,7 @@ using CDWKS.Business.AccountManager;
 
 namespace CDWKS.BIMXchange.Web.Providers
 {
-    public class BIMXMembershipProvider : MembershipProvider
+    public class BXCMembershipProvider : MembershipProvider
     {
         #region Overrides of MembershipProvider
 

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Linq.Expressions;
-using CDWKS.Model.EF.Content;
+using CDWKS.Model.EF.BIMXchange;
 
 namespace CDWKS.Repository.Content
 {
@@ -20,9 +20,9 @@ namespace CDWKS.Repository.Content
 
     public class AutodeskFileRepository : IAutodeskFileRepository
     {
-        private readonly BXC_ContentModelEntities _context;
+        private readonly BXCModelEntities _context;
 
-        public AutodeskFileRepository(BXC_ContentModelEntities context)
+        public AutodeskFileRepository(BXCModelEntities context)
         {
             _context = context;
         }
@@ -180,16 +180,16 @@ namespace CDWKS.Repository.Content
                 return existingNode;
             }
             var node = new TreeNode
-                           {Name = name, TreeNode1 = {Id = parent.Id}, ContentLibrary = GetContentLibrary(libraryName)};
+                           {Name = name, TreeNode1 = {Id = parent.Id}, Library = GetContentLibrary(libraryName)};
             _context.TreeNodes.AddObject(node);
             _context.SaveChanges();
             return node;
         }
 
-        private ContentLibrary GetContentLibrary(string libraryName)
+        private Library GetContentLibrary(string libraryName)
         {
-            Expression<Func<ContentLibrary, bool>> expr = a => a.Name == libraryName;
-            return _context.ContentLibraries.Where(expr).FirstOrDefault();
+            Expression<Func<Library, bool>> expr = a => a.Name == libraryName;
+            return _context.Libraries.Where(expr).FirstOrDefault();
         }
 
 
