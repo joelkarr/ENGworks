@@ -1,5 +1,6 @@
 ﻿using System;
-using CDWKS.Model.EF.BIMXchange;
+
+using CDWKS.BXC.Domain.MasterControl;
 
 namespace CDWKS.Business.AccountManager
 {

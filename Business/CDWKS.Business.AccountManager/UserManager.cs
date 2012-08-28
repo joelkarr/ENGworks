@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Linq;
+
 using CDWKS.Model.EF.BIMXchange;
 using CDWKS.Respository.Account;
+using User = CDWKS.BXC.Domain.MasterControl.User;
 
 namespace CDWKS.Business.AccountManager
 {

@@ -51,6 +51,10 @@
       <Project>{386444F8-A1B2-4EFC-83BC-B4316BE870F0}</Project>
       <Name>CDWKS.Model.EF.BIMXchange</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Model\CDWKS.Model.EF.MasterControl\CDWKS.Model.EF.MasterControl.csproj">
+      <Project>{5C1AEC8D-1AAA-4587-8AE0-9CD6A179DFAB}</Project>
+      <Name>CDWKS.Model.EF.MasterControl</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Repository\CDWKS.Respository\CDWKS.Respository.csproj">
       <Project>{DAE6406B-DABD-468A-9051-D6B6D3D59B37}</Project>
       <Name>CDWKS.Respository</Name>

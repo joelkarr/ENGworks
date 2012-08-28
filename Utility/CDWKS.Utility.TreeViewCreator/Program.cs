@@ -10,7 +10,6 @@ using CDWKS.Model.EF.BIMXchange;
 using CDWKS.Model.Poco.Content;
 using CDWKS.Shared.ObjectFactory;
 using Ninject;
-using log4net;
 using AutodeskFile = CDWKS.Model.Poco.Content.AutodeskFile;
 using AutodeskFileTreeNode = CDWKS.Model.Poco.Content.AutodeskFileTreeNode;
 using ContentLibrary = CDWKS.Model.Poco.Content.ContentLibrary;
