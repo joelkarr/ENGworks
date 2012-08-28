@@ -34,9 +34,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Ninject">
       <HintPath>..\..\Shared\CDWKS.Shared.ThirdParty\Ninject\Ninject.dll</HintPath>
@@ -66,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\Base\BaseController.cs" />
     <Compile Include="Controllers\DataController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -78,6 +76,7 @@
     <Compile Include="Models\Partial\PaginationViewModel.cs" />
     <Compile Include="Models\Partial\TreeViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Providers\BIMXAuthorize.cs" />
     <Compile Include="Providers\BIMXMembershipProvider.cs" />
   </ItemGroup>
   <ItemGroup>

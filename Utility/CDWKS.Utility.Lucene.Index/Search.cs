@@ -16,7 +16,10 @@ namespace CDWKS.Utility.Lucene.Index
     {
         public static LuceneResult SearchBIMXchange(string field, string key, int pageSize, int pageNumber)
         {
-            var directory = FSDirectory.Open(new DirectoryInfo("C:\\LuceneIndex"));
+            const string luceneIndexPath = "C:\\LuceneIndex";
+
+            var directory = FSDirectory.Open(new DirectoryInfo(luceneIndexPath));
+
             var analyzer = new StandardAnalyzer(Version.LUCENE_29);
 
             var parser = new QueryParser(Version.LUCENE_29, field, analyzer);
@@ -72,8 +75,5 @@ namespace CDWKS.Utility.Lucene.Index
             directory.Close();
             return docs;
         }
-        
-
-    
     }
 }

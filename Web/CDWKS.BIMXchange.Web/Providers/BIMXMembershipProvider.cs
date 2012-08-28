@@ -47,7 +47,7 @@ namespace CDWKS.BIMXchange.Web.Providers
 
                 if (user != null)
                 {
-                    return (string.Equals(user.Password, password, StringComparison.OrdinalIgnoreCase));
+                    return (string.Equals(user.Password, password, StringComparison.Ordinal));
                 }
             }
 
