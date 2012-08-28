@@ -6,7 +6,7 @@ namespace CDWKS.BIMXchange.Web.Controllers
 {
     public class DataController : Controller
     {
-        public JsonResult Tree(int id)
+        public JsonResult Tree(string id)
         {
             var root = new TreeViewModel {data = "Root Node", 
                                         metadata = new Dictionary<string, string> 

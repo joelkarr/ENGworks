@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Objects;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using CDWKS.Model.EF.Content;
+using CDWKS.Model.EF.BIMXchange;
 using log4net;
 
 namespace CDWKS.Repository.Content
@@ -22,9 +20,9 @@ namespace CDWKS.Repository.Content
 
     public partial class TreeNodeRepository : ITreeNodeRepository
     {
-        private readonly BXC_ContentModelEntities _context;
+        private readonly BXCModelEntities _context;
         private static readonly ILog Log = LogManager.GetLogger(typeof(ITreeNodeRepository));
-        public TreeNodeRepository(BXC_ContentModelEntities context)
+        public TreeNodeRepository(BXCModelEntities context)
         {
             log4net.Config.XmlConfigurator.Configure();
             _context = context;
@@ -65,7 +63,7 @@ namespace CDWKS.Repository.Content
 
         public List<TreeNode> GetAllByLibrary(string library, string owner)
         {
-            Expression<Func<TreeNode, bool>> expr = t => t.ContentLibrary.Name == library;
+            Expression<Func<TreeNode, bool>> expr = t => t.Library.Name == library;
             return _context.TreeNodes.Where(expr).ToList();
         }
 

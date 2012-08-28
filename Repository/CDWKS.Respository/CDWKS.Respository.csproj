@@ -48,9 +48,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Model\CDWKS.Model.EF.MasterControl\CDWKS.Model.EF.MasterControl.csproj">
-      <Project>{5C1AEC8D-1AAA-4587-8AE0-9CD6A179DFAB}</Project>
-      <Name>CDWKS.Model.EF.MasterControl</Name>
+    <ProjectReference Include="..\..\Model\CDWKS.Model.EF.Content\CDWKS.Model.EF.BIMXchange.csproj">
+      <Project>{386444F8-A1B2-4EFC-83BC-B4316BE870F0}</Project>
+      <Name>CDWKS.Model.EF.BIMXchange</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

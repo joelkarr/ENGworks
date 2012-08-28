@@ -1,19 +1,18 @@
 ﻿using System;
 using System.Linq;
-
-using CDWKS.Model.EF.MasterControl;
+using CDWKS.Model.EF.BIMXchange;
 using CDWKS.Respository.Account;
 
 namespace CDWKS.Business.AccountManager
 {
     public class UserManager : IUserManager
     {
-        #region Mutators/Accessors
+        #region Property
 
         private static IUnitOfWork _context;
         protected static IUnitOfWork DataContext
         {
-            get { return _context ?? (_context = new EFUnitOfWork(new BXC_MasterControlEntities())); }
+            get { return _context ?? (_context = new EFUnitOfWork(new BXCModelEntities())); }
         }
 
         // Track whether Dispose has been called. 

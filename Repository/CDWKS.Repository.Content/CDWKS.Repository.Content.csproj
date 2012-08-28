@@ -52,9 +52,9 @@
     <Compile Include="TreeNodeRepository.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Model\CDWKS.Model.EF.Content\CDWKS.Model.EF.Content.csproj">
+    <ProjectReference Include="..\..\Model\CDWKS.Model.EF.Content\CDWKS.Model.EF.BIMXchange.csproj">
       <Project>{386444F8-A1B2-4EFC-83BC-B4316BE870F0}</Project>
-      <Name>CDWKS.Model.EF.Content</Name>
+      <Name>CDWKS.Model.EF.BIMXchange</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

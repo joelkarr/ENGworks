@@ -13,8 +13,6 @@ namespace CDWKS.BIMXchange.Web.Controllers
     {
         public ActionResult Index()
         {
-
-
             var manage = Construction.StandardKernel.Get<ISearchManager>();
             
             var model = new HomeViewModel 
