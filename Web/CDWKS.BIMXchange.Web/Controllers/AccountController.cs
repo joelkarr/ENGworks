@@ -1,53 +1,61 @@
 ﻿using System.Web.Mvc;
 using System.Web.Security;
 
+using CDWKS.BIMXchange.Web.Constants;
 using CDWKS.BIMXchange.Web.Controllers.Base;
 using CDWKS.BIMXchange.Web.Models;
+using CDWKS.Model.EF.BIMXchange;
+using CDWKS.Business.AccountManager;
 
 namespace CDWKS.BIMXchange.Web.Controllers
 {
-    public class AccountController : BaseController
+    public partial class AccountController : BaseController
     {
         #region Actions
 
         // GET: /Account/LogOn
-        public ActionResult LogOn()
+        public virtual ActionResult LogOn()
         {
             return View();
         }
 
         // POST: /Account/LogOn
         [HttpPost]
-        public ActionResult LogOn(LogOnModel model, string returnUrl)
+        public virtual ActionResult LogOn(LogOnModel model, string returnUrl)
         {
             if (Membership.ValidateUser(model.UserName, model.Password))
             {
-                Session["IsAuthenticated"] = true;
-                return RedirectToAction("Index", "Home");
+                Session[WebConstants.IsAuthenticated] = true;
+                return RedirectToAction(MVC.Home.ActionNames.Index, MVC.Home.Name);
             }
 
             return View(model);
         }
 
         // GET: /Account/LogOff
-        public ActionResult LogOff()
+        public virtual ActionResult LogOff()
         {
             FormsAuthentication.SignOut();
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction(MVC.Home.ActionNames.Index, MVC.Home.Name);
         }
 
         // GET: /Account/Register
 
-        public ActionResult Register()
+        public virtual ActionResult Register()
         {
             return View();
         }
 
         // POST: /Account/Register
         [HttpPost]
-        public ActionResult Register(RegisterModel model)
+        public virtual ActionResult Register(User model)
         {
+            using (var manager = new UserManager())
+            {
+                //manager.InsertUser(new User());
+            }
+
             return View(model);
         }
 

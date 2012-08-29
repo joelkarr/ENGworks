@@ -3,7 +3,6 @@ using System.Linq;
 
 using CDWKS.Model.EF.BIMXchange;
 using CDWKS.Respository.Account;
-using User = CDWKS.BXC.Domain.MasterControl.User;
 
 namespace CDWKS.Business.AccountManager
 {
@@ -26,7 +25,13 @@ namespace CDWKS.Business.AccountManager
 
         public User GetUser(string username)
         {
-            return DataContext.UserRepository.Find(u => string.Equals(u.UserName, username, StringComparison.OrdinalIgnoreCase)).FirstOrDefault();
+            return DataContext.UserRepository.Find(u => string.Equals(u.Username, username, StringComparison.OrdinalIgnoreCase)).FirstOrDefault();
+        }
+
+        public void InsertUser(User user)
+        {
+            DataContext.UserRepository.Add(user);
+            DataContext.Save();
         }
 
         #endregion

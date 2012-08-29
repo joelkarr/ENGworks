@@ -31,13 +31,10 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("BXCModel", "FK_TreeNodeTreeNode", "TreeNodes", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(CDWKS.Model.EF.BIMXchange.TreeNode), "TreeNodes1", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CDWKS.Model.EF.BIMXchange.TreeNode), true)]
 [assembly: EdmRelationshipAttribute("BXCModel", "FK_AutodeskFileRevitVersion", "AutodeskFile", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CDWKS.Model.EF.BIMXchange.AutodeskFile), "RevitVersion", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CDWKS.Model.EF.BIMXchange.RevitVersion), true)]
 [assembly: EdmRelationshipAttribute("BXCModel", "FK_LibraryDownload", "Library", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CDWKS.Model.EF.BIMXchange.Library), "Download", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CDWKS.Model.EF.BIMXchange.Download), true)]
-[assembly: EdmRelationshipAttribute("BXCModel", "FK_UserDownload", "User", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CDWKS.Model.EF.BIMXchange.User), "Download", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CDWKS.Model.EF.BIMXchange.Download), true)]
-[assembly: EdmRelationshipAttribute("BXCModel", "FK_ExtendedPropertyPropertyName", "PropertyName", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CDWKS.Model.EF.BIMXchange.PropertyName), "ExtendedProperty", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CDWKS.Model.EF.BIMXchange.ExtendedProperty), true)]
-[assembly: EdmRelationshipAttribute("BXCModel", "FK_ExtendedPropertyPropertyValue", "PropertyValue", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CDWKS.Model.EF.BIMXchange.PropertyValue), "ExtendedProperty", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CDWKS.Model.EF.BIMXchange.ExtendedProperty), true)]
-[assembly: EdmRelationshipAttribute("BXCModel", "FK_UserExtendedProperty", "User", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CDWKS.Model.EF.BIMXchange.User), "ExtendedProperty", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CDWKS.Model.EF.BIMXchange.ExtendedProperty), true)]
 [assembly: EdmRelationshipAttribute("BXCModel", "FK_LibraryTreeNode", "Library", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CDWKS.Model.EF.BIMXchange.Library), "TreeNode", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CDWKS.Model.EF.BIMXchange.TreeNode), true)]
 [assembly: EdmRelationshipAttribute("BXCModel", "FK_LicenseOwner", "Owner", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CDWKS.Model.EF.BIMXchange.Owner), "License", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CDWKS.Model.EF.BIMXchange.License), true)]
 [assembly: EdmRelationshipAttribute("BXCModel", "LicenseLibrary", "Library", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CDWKS.Model.EF.BIMXchange.Library), "License", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CDWKS.Model.EF.BIMXchange.License))]
+[assembly: EdmRelationshipAttribute("BXCModel", "UserDownload", "User", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CDWKS.Model.EF.BIMXchange.User), "Download", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CDWKS.Model.EF.BIMXchange.Download))]
 
 #endregion
 
@@ -300,22 +297,6 @@ namespace CDWKS.Model.EF.BIMXchange
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<ExtendedProperty> ExtendedProperties
-        {
-            get
-            {
-                if ((_ExtendedProperties == null))
-                {
-                    _ExtendedProperties = base.CreateObjectSet<ExtendedProperty>("ExtendedProperties");
-                }
-                return _ExtendedProperties;
-            }
-        }
-        private ObjectSet<ExtendedProperty> _ExtendedProperties;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         public ObjectSet<Library> Libraries
         {
             get
@@ -360,22 +341,6 @@ namespace CDWKS.Model.EF.BIMXchange
             }
         }
         private ObjectSet<Owner> _Owners;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<PropertyName> PropertyNames
-        {
-            get
-            {
-                if ((_PropertyNames == null))
-                {
-                    _PropertyNames = base.CreateObjectSet<PropertyName>("PropertyNames");
-                }
-                return _PropertyNames;
-            }
-        }
-        private ObjectSet<PropertyName> _PropertyNames;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -534,14 +499,6 @@ namespace CDWKS.Model.EF.BIMXchange
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the ExtendedProperties EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToExtendedProperties(ExtendedProperty extendedProperty)
-        {
-            base.AddObject("ExtendedProperties", extendedProperty);
-        }
-    
-        /// <summary>
         /// Deprecated Method for adding a new object to the Libraries EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddToLibraries(Library library)
@@ -563,14 +520,6 @@ namespace CDWKS.Model.EF.BIMXchange
         public void AddToOwners(Owner owner)
         {
             base.AddObject("Owners", owner);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the PropertyNames EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToPropertyNames(PropertyName propertyName)
-        {
-            base.AddObject("PropertyNames", propertyName);
         }
     
         /// <summary>
@@ -1646,16 +1595,16 @@ namespace CDWKS.Model.EF.BIMXchange
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BXCModel", "FK_UserDownload", "User")]
-        public User User
+        [EdmRelationshipNavigationPropertyAttribute("BXCModel", "UserDownload", "User")]
+        public User Users
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("BXCModel.FK_UserDownload", "User").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("BXCModel.UserDownload", "User").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("BXCModel.FK_UserDownload", "User").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("BXCModel.UserDownload", "User").Value = value;
             }
         }
         /// <summary>
@@ -1663,270 +1612,17 @@ namespace CDWKS.Model.EF.BIMXchange
         /// </summary>
         [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public EntityReference<User> UserReference
+        public EntityReference<User> UsersReference
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("BXCModel.FK_UserDownload", "User");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("BXCModel.UserDownload", "User");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<User>("BXCModel.FK_UserDownload", "User", value);
-                }
-            }
-        }
-
-        #endregion
-
-    }
-    
-    /// <summary>
-    /// No Metadata Documentation available.
-    /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="BXCModel", Name="ExtendedProperty")]
-    [Serializable()]
-    [DataContractAttribute(IsReference=true)]
-    public partial class ExtendedProperty : EntityObject
-    {
-        #region Factory Method
-    
-        /// <summary>
-        /// Create a new ExtendedProperty object.
-        /// </summary>
-        /// <param name="id">Initial value of the Id property.</param>
-        /// <param name="propertyName_Id">Initial value of the PropertyName_Id property.</param>
-        /// <param name="propertyValue_Id">Initial value of the PropertyValue_Id property.</param>
-        /// <param name="user_Id">Initial value of the User_Id property.</param>
-        public static ExtendedProperty CreateExtendedProperty(global::System.Int32 id, global::System.Int32 propertyName_Id, global::System.Int32 propertyValue_Id, global::System.Int32 user_Id)
-        {
-            ExtendedProperty extendedProperty = new ExtendedProperty();
-            extendedProperty.Id = id;
-            extendedProperty.PropertyName_Id = propertyName_Id;
-            extendedProperty.PropertyValue_Id = propertyValue_Id;
-            extendedProperty.User_Id = user_Id;
-            return extendedProperty;
-        }
-
-        #endregion
-
-        #region Primitive Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 Id
-        {
-            get
-            {
-                return _Id;
-            }
-            set
-            {
-                if (_Id != value)
-                {
-                    OnIdChanging(value);
-                    ReportPropertyChanging("Id");
-                    _Id = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("Id");
-                    OnIdChanged();
-                }
-            }
-        }
-        private global::System.Int32 _Id;
-        partial void OnIdChanging(global::System.Int32 value);
-        partial void OnIdChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 PropertyName_Id
-        {
-            get
-            {
-                return _PropertyName_Id;
-            }
-            set
-            {
-                OnPropertyName_IdChanging(value);
-                ReportPropertyChanging("PropertyName_Id");
-                _PropertyName_Id = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("PropertyName_Id");
-                OnPropertyName_IdChanged();
-            }
-        }
-        private global::System.Int32 _PropertyName_Id;
-        partial void OnPropertyName_IdChanging(global::System.Int32 value);
-        partial void OnPropertyName_IdChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 PropertyValue_Id
-        {
-            get
-            {
-                return _PropertyValue_Id;
-            }
-            set
-            {
-                OnPropertyValue_IdChanging(value);
-                ReportPropertyChanging("PropertyValue_Id");
-                _PropertyValue_Id = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("PropertyValue_Id");
-                OnPropertyValue_IdChanged();
-            }
-        }
-        private global::System.Int32 _PropertyValue_Id;
-        partial void OnPropertyValue_IdChanging(global::System.Int32 value);
-        partial void OnPropertyValue_IdChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 User_Id
-        {
-            get
-            {
-                return _User_Id;
-            }
-            set
-            {
-                OnUser_IdChanging(value);
-                ReportPropertyChanging("User_Id");
-                _User_Id = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("User_Id");
-                OnUser_IdChanged();
-            }
-        }
-        private global::System.Int32 _User_Id;
-        partial void OnUser_IdChanging(global::System.Int32 value);
-        partial void OnUser_IdChanged();
-
-        #endregion
-
-    
-        #region Navigation Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BXCModel", "FK_ExtendedPropertyPropertyName", "PropertyName")]
-        public PropertyName PropertyName
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PropertyName>("BXCModel.FK_ExtendedPropertyPropertyName", "PropertyName").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PropertyName>("BXCModel.FK_ExtendedPropertyPropertyName", "PropertyName").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<PropertyName> PropertyNameReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PropertyName>("BXCModel.FK_ExtendedPropertyPropertyName", "PropertyName");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<PropertyName>("BXCModel.FK_ExtendedPropertyPropertyName", "PropertyName", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BXCModel", "FK_ExtendedPropertyPropertyValue", "PropertyValue")]
-        public PropertyValue PropertyValue
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PropertyValue>("BXCModel.FK_ExtendedPropertyPropertyValue", "PropertyValue").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PropertyValue>("BXCModel.FK_ExtendedPropertyPropertyValue", "PropertyValue").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<PropertyValue> PropertyValueReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PropertyValue>("BXCModel.FK_ExtendedPropertyPropertyValue", "PropertyValue");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<PropertyValue>("BXCModel.FK_ExtendedPropertyPropertyValue", "PropertyValue", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BXCModel", "FK_UserExtendedProperty", "User")]
-        public User User
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("BXCModel.FK_UserExtendedProperty", "User").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("BXCModel.FK_UserExtendedProperty", "User").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<User> UserReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("BXCModel.FK_UserExtendedProperty", "User");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<User>("BXCModel.FK_UserExtendedProperty", "User", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<User>("BXCModel.UserDownload", "User", value);
                 }
             }
         }
@@ -3263,115 +2959,6 @@ namespace CDWKS.Model.EF.BIMXchange
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="BXCModel", Name="PropertyName")]
-    [Serializable()]
-    [DataContractAttribute(IsReference=true)]
-    public partial class PropertyName : EntityObject
-    {
-        #region Factory Method
-    
-        /// <summary>
-        /// Create a new PropertyName object.
-        /// </summary>
-        /// <param name="id">Initial value of the Id property.</param>
-        /// <param name="name">Initial value of the Name property.</param>
-        public static PropertyName CreatePropertyName(global::System.Int32 id, global::System.String name)
-        {
-            PropertyName propertyName = new PropertyName();
-            propertyName.Id = id;
-            propertyName.Name = name;
-            return propertyName;
-        }
-
-        #endregion
-
-        #region Primitive Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 Id
-        {
-            get
-            {
-                return _Id;
-            }
-            set
-            {
-                if (_Id != value)
-                {
-                    OnIdChanging(value);
-                    ReportPropertyChanging("Id");
-                    _Id = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("Id");
-                    OnIdChanged();
-                }
-            }
-        }
-        private global::System.Int32 _Id;
-        partial void OnIdChanging(global::System.Int32 value);
-        partial void OnIdChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String Name
-        {
-            get
-            {
-                return _Name;
-            }
-            set
-            {
-                OnNameChanging(value);
-                ReportPropertyChanging("Name");
-                _Name = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("Name");
-                OnNameChanged();
-            }
-        }
-        private global::System.String _Name;
-        partial void OnNameChanging(global::System.String value);
-        partial void OnNameChanged();
-
-        #endregion
-
-    
-        #region Navigation Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BXCModel", "FK_ExtendedPropertyPropertyName", "ExtendedProperty")]
-        public EntityCollection<ExtendedProperty> ExtendedProperties
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ExtendedProperty>("BXCModel.FK_ExtendedPropertyPropertyName", "ExtendedProperty");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ExtendedProperty>("BXCModel.FK_ExtendedPropertyPropertyName", "ExtendedProperty", value);
-                }
-            }
-        }
-
-        #endregion
-
-    }
-    
-    /// <summary>
-    /// No Metadata Documentation available.
-    /// </summary>
     [EdmEntityTypeAttribute(NamespaceName="BXCModel", Name="PropertyValue")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
@@ -3476,32 +3063,6 @@ namespace CDWKS.Model.EF.BIMXchange
         #endregion
 
     
-        #region Navigation Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BXCModel", "FK_ExtendedPropertyPropertyValue", "ExtendedProperty")]
-        public EntityCollection<ExtendedProperty> ExtendedProperties
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ExtendedProperty>("BXCModel.FK_ExtendedPropertyPropertyValue", "ExtendedProperty");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ExtendedProperty>("BXCModel.FK_ExtendedPropertyPropertyValue", "ExtendedProperty", value);
-                }
-            }
-        }
-
-        #endregion
-
     }
     
     /// <summary>
@@ -4144,14 +3705,20 @@ namespace CDWKS.Model.EF.BIMXchange
         /// Create a new User object.
         /// </summary>
         /// <param name="id">Initial value of the Id property.</param>
-        /// <param name="userName">Initial value of the UserName property.</param>
+        /// <param name="username">Initial value of the Username property.</param>
         /// <param name="password">Initial value of the Password property.</param>
-        public static User CreateUser(global::System.Int32 id, global::System.String userName, global::System.String password)
+        /// <param name="firstName">Initial value of the FirstName property.</param>
+        /// <param name="lastName">Initial value of the LastName property.</param>
+        /// <param name="dateCreated">Initial value of the DateCreated property.</param>
+        public static User CreateUser(global::System.Int32 id, global::System.String username, global::System.String password, global::System.String firstName, global::System.String lastName, global::System.DateTime dateCreated)
         {
             User user = new User();
             user.Id = id;
-            user.UserName = userName;
+            user.Username = username;
             user.Password = password;
+            user.FirstName = firstName;
+            user.LastName = lastName;
+            user.DateCreated = dateCreated;
             return user;
         }
 
@@ -4191,24 +3758,24 @@ namespace CDWKS.Model.EF.BIMXchange
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String UserName
+        public global::System.String Username
         {
             get
             {
-                return _UserName;
+                return _Username;
             }
             set
             {
-                OnUserNameChanging(value);
-                ReportPropertyChanging("UserName");
-                _UserName = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("UserName");
-                OnUserNameChanged();
+                OnUsernameChanging(value);
+                ReportPropertyChanging("Username");
+                _Username = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Username");
+                OnUsernameChanged();
             }
         }
-        private global::System.String _UserName;
-        partial void OnUserNameChanging(global::System.String value);
-        partial void OnUserNameChanged();
+        private global::System.String _Username;
+        partial void OnUsernameChanging(global::System.String value);
+        partial void OnUsernameChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -4233,6 +3800,150 @@ namespace CDWKS.Model.EF.BIMXchange
         private global::System.String _Password;
         partial void OnPasswordChanging(global::System.String value);
         partial void OnPasswordChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String FirstName
+        {
+            get
+            {
+                return _FirstName;
+            }
+            set
+            {
+                OnFirstNameChanging(value);
+                ReportPropertyChanging("FirstName");
+                _FirstName = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("FirstName");
+                OnFirstNameChanged();
+            }
+        }
+        private global::System.String _FirstName;
+        partial void OnFirstNameChanging(global::System.String value);
+        partial void OnFirstNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String LastName
+        {
+            get
+            {
+                return _LastName;
+            }
+            set
+            {
+                OnLastNameChanging(value);
+                ReportPropertyChanging("LastName");
+                _LastName = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("LastName");
+                OnLastNameChanged();
+            }
+        }
+        private global::System.String _LastName;
+        partial void OnLastNameChanging(global::System.String value);
+        partial void OnLastNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Alias
+        {
+            get
+            {
+                return _Alias;
+            }
+            set
+            {
+                OnAliasChanging(value);
+                ReportPropertyChanging("Alias");
+                _Alias = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Alias");
+                OnAliasChanged();
+            }
+        }
+        private global::System.String _Alias;
+        partial void OnAliasChanging(global::System.String value);
+        partial void OnAliasChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Company
+        {
+            get
+            {
+                return _Company;
+            }
+            set
+            {
+                OnCompanyChanging(value);
+                ReportPropertyChanging("Company");
+                _Company = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Company");
+                OnCompanyChanged();
+            }
+        }
+        private global::System.String _Company;
+        partial void OnCompanyChanging(global::System.String value);
+        partial void OnCompanyChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Phone
+        {
+            get
+            {
+                return _Phone;
+            }
+            set
+            {
+                OnPhoneChanging(value);
+                ReportPropertyChanging("Phone");
+                _Phone = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Phone");
+                OnPhoneChanged();
+            }
+        }
+        private global::System.String _Phone;
+        partial void OnPhoneChanging(global::System.String value);
+        partial void OnPhoneChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime DateCreated
+        {
+            get
+            {
+                return _DateCreated;
+            }
+            set
+            {
+                OnDateCreatedChanging(value);
+                ReportPropertyChanging("DateCreated");
+                _DateCreated = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("DateCreated");
+                OnDateCreatedChanged();
+            }
+        }
+        private global::System.DateTime _DateCreated;
+        partial void OnDateCreatedChanging(global::System.DateTime value);
+        partial void OnDateCreatedChanged();
 
         #endregion
 
@@ -4245,40 +3956,18 @@ namespace CDWKS.Model.EF.BIMXchange
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BXCModel", "FK_UserDownload", "Download")]
+        [EdmRelationshipNavigationPropertyAttribute("BXCModel", "UserDownload", "Download")]
         public EntityCollection<Download> Downloads
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Download>("BXCModel.FK_UserDownload", "Download");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Download>("BXCModel.UserDownload", "Download");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Download>("BXCModel.FK_UserDownload", "Download", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BXCModel", "FK_UserExtendedProperty", "ExtendedProperty")]
-        public EntityCollection<ExtendedProperty> ExtendedProperties
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ExtendedProperty>("BXCModel.FK_UserExtendedProperty", "ExtendedProperty");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ExtendedProperty>("BXCModel.FK_UserExtendedProperty", "ExtendedProperty", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Download>("BXCModel.UserDownload", "Download", value);
                 }
             }
         }
@@ -4397,6 +4086,4 @@ namespace CDWKS.Model.EF.BIMXchange
     }
 
     #endregion
-
-    
 }

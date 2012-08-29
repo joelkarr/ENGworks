@@ -1,6 +1,6 @@
 ﻿using System.Data.Objects;
-using CDWKS.BXC.Domain.MasterControl;
 
+using CDWKS.Model.EF.BIMXchange;
 
 namespace CDWKS.Respository.Account
 {

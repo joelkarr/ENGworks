@@ -6,11 +6,11 @@ using CDWKS.BIMXchange.Web.Models.Partial;
 
 namespace CDWKS.BIMXchange.Web.Controllers
 {
-    public class DataController : BaseController
+    public partial class DataController : BaseController
     {
         #region Actions
 
-        public JsonResult Tree(string id)
+        public virtual JsonResult Tree(string id)
 
         {
             var root = new TreeViewModel

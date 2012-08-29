@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 08/27/2012 19:01:47
--- Generated from EDMX file: C:\Dev\ENGworks\Model\CDWKS.Model.EF.Content\BXCXchangeEntityModel.edmx
+-- Date Created: 08/28/2012 19:28:44
+-- Generated from EDMX file: C:\CADWorks\ENGworks\Model\CDWKS.Model.EF.Content\BXCEntityModel.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -17,29 +17,26 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
-IF OBJECT_ID(N'[dbo].[FK_AutodeskFileImage]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Images] DROP CONSTRAINT [FK_AutodeskFileImage];
-GO
-IF OBJECT_ID(N'[dbo].[FK_AutodeskFileRevitVersion]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[RevitVersions] DROP CONSTRAINT [FK_AutodeskFileRevitVersion];
-GO
-IF OBJECT_ID(N'[dbo].[FK_AutodeskFileTreeNode_AutodeskFile]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[AutodeskFileTreeNodes] DROP CONSTRAINT [FK_AutodeskFileTreeNode_AutodeskFile];
-GO
 IF OBJECT_ID(N'[dbo].[FK_AutodeskFileTreeNodeAutodeskFileIESFile]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[AutodeskFileIESFiles] DROP CONSTRAINT [FK_AutodeskFileTreeNodeAutodeskFileIESFile];
-GO
-IF OBJECT_ID(N'[dbo].[FK_ExtendedPropertyPropertyName]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[ExtendedProperties] DROP CONSTRAINT [FK_ExtendedPropertyPropertyName];
-GO
-IF OBJECT_ID(N'[dbo].[FK_ExtendedPropertyPropertyValue]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[ExtendedProperties] DROP CONSTRAINT [FK_ExtendedPropertyPropertyValue];
 GO
 IF OBJECT_ID(N'[dbo].[FK_IESFileAutodeskFileIESFile]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[AutodeskFileIESFiles] DROP CONSTRAINT [FK_IESFileAutodeskFileIESFile];
 GO
+IF OBJECT_ID(N'[dbo].[FK_AutodeskFileImage]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Images] DROP CONSTRAINT [FK_AutodeskFileImage];
+GO
+IF OBJECT_ID(N'[dbo].[FK_AutodeskFileTreeNode_AutodeskFile]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[AutodeskFileTreeNodes] DROP CONSTRAINT [FK_AutodeskFileTreeNode_AutodeskFile];
+GO
 IF OBJECT_ID(N'[dbo].[FK_ItemAutodeskFile]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Items] DROP CONSTRAINT [FK_ItemAutodeskFile];
+GO
+IF OBJECT_ID(N'[dbo].[FK_AutodeskFileTreeNode_TreeNode]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[AutodeskFileTreeNodes] DROP CONSTRAINT [FK_AutodeskFileTreeNode_TreeNode];
+GO
+IF OBJECT_ID(N'[dbo].[FK_ParameterItem]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Parameters] DROP CONSTRAINT [FK_ParameterItem];
 GO
 IF OBJECT_ID(N'[dbo].[FK_ItemParameterSearchNames]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Parameters] DROP CONSTRAINT [FK_ItemParameterSearchNames];
@@ -47,32 +44,29 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_ItemParameterSearchValues]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Parameters] DROP CONSTRAINT [FK_ItemParameterSearchValues];
 GO
+IF OBJECT_ID(N'[dbo].[FK_TreeNodeTreeNode]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[TreeNodes] DROP CONSTRAINT [FK_TreeNodeTreeNode];
+GO
+IF OBJECT_ID(N'[dbo].[FK_AutodeskFileRevitVersion]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[RevitVersions] DROP CONSTRAINT [FK_AutodeskFileRevitVersion];
+GO
 IF OBJECT_ID(N'[dbo].[FK_LibraryDownload]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Downloads] DROP CONSTRAINT [FK_LibraryDownload];
 GO
 IF OBJECT_ID(N'[dbo].[FK_LibraryTreeNode]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[TreeNodes] DROP CONSTRAINT [FK_LibraryTreeNode];
 GO
-IF OBJECT_ID(N'[dbo].[FK_LicenseLibrary_Libraries]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[LicenseLibrary] DROP CONSTRAINT [FK_LicenseLibrary_Libraries];
-GO
-IF OBJECT_ID(N'[dbo].[FK_LicenseLibrary_Licenses]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[LicenseLibrary] DROP CONSTRAINT [FK_LicenseLibrary_Licenses];
-GO
 IF OBJECT_ID(N'[dbo].[FK_LicenseOwner]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Licenses] DROP CONSTRAINT [FK_LicenseOwner];
 GO
-IF OBJECT_ID(N'[dbo].[FK_ParameterItem]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Parameters] DROP CONSTRAINT [FK_ParameterItem];
+IF OBJECT_ID(N'[dbo].[FK_LicenseLibrary_Library]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[LicenseLibrary] DROP CONSTRAINT [FK_LicenseLibrary_Library];
 GO
-IF OBJECT_ID(N'[dbo].[FK_TreeNodeTreeNode]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[TreeNodes] DROP CONSTRAINT [FK_TreeNodeTreeNode];
+IF OBJECT_ID(N'[dbo].[FK_LicenseLibrary_License]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[LicenseLibrary] DROP CONSTRAINT [FK_LicenseLibrary_License];
 GO
 IF OBJECT_ID(N'[dbo].[FK_UserDownload]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Downloads] DROP CONSTRAINT [FK_UserDownload];
-GO
-IF OBJECT_ID(N'[dbo].[FK_UserExtendedProperty]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[ExtendedProperties] DROP CONSTRAINT [FK_UserExtendedProperty];
 GO
 
 -- --------------------------------------------------
@@ -91,12 +85,6 @@ GO
 IF OBJECT_ID(N'[dbo].[CDSLinks]', 'U') IS NOT NULL
     DROP TABLE [dbo].[CDSLinks];
 GO
-IF OBJECT_ID(N'[dbo].[Downloads]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Downloads];
-GO
-IF OBJECT_ID(N'[dbo].[ExtendedProperties]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[ExtendedProperties];
-GO
 IF OBJECT_ID(N'[dbo].[IESFiles]', 'U') IS NOT NULL
     DROP TABLE [dbo].[IESFiles];
 GO
@@ -106,29 +94,8 @@ GO
 IF OBJECT_ID(N'[dbo].[Items]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Items];
 GO
-IF OBJECT_ID(N'[dbo].[Libraries]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Libraries];
-GO
-IF OBJECT_ID(N'[dbo].[LicenseLibrary]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[LicenseLibrary];
-GO
-IF OBJECT_ID(N'[dbo].[Licenses]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Licenses];
-GO
-IF OBJECT_ID(N'[dbo].[Owners]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Owners];
-GO
 IF OBJECT_ID(N'[dbo].[Parameters]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Parameters];
-GO
-IF OBJECT_ID(N'[dbo].[PropertyNames]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[PropertyNames];
-GO
-IF OBJECT_ID(N'[dbo].[PropertyValues]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[PropertyValues];
-GO
-IF OBJECT_ID(N'[dbo].[RevitVersions]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[RevitVersions];
 GO
 IF OBJECT_ID(N'[dbo].[SearchNames]', 'U') IS NOT NULL
     DROP TABLE [dbo].[SearchNames];
@@ -139,11 +106,32 @@ GO
 IF OBJECT_ID(N'[dbo].[TreeNodes]', 'U') IS NOT NULL
     DROP TABLE [dbo].[TreeNodes];
 GO
+IF OBJECT_ID(N'[dbo].[RevitVersions]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[RevitVersions];
+GO
+IF OBJECT_ID(N'[dbo].[Downloads]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Downloads];
+GO
+IF OBJECT_ID(N'[dbo].[Libraries]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Libraries];
+GO
+IF OBJECT_ID(N'[dbo].[Licenses]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Licenses];
+GO
+IF OBJECT_ID(N'[dbo].[Owners]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Owners];
+GO
+IF OBJECT_ID(N'[dbo].[PropertyValues]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[PropertyValues];
+GO
 IF OBJECT_ID(N'[dbo].[UserLibraries]', 'U') IS NOT NULL
     DROP TABLE [dbo].[UserLibraries];
 GO
 IF OBJECT_ID(N'[dbo].[Users]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Users];
+GO
+IF OBJECT_ID(N'[dbo].[LicenseLibrary]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[LicenseLibrary];
 GO
 
 -- --------------------------------------------------
@@ -261,16 +249,8 @@ CREATE TABLE [dbo].[Downloads] (
     [Content_Id] nvarchar(max)  NOT NULL,
     [DateTime] datetime  NOT NULL,
     [Library_Id] int  NOT NULL,
-    [User_Id] int  NOT NULL
-);
-GO
-
--- Creating table 'ExtendedProperties'
-CREATE TABLE [dbo].[ExtendedProperties] (
-    [Id] int IDENTITY(1,1) NOT NULL,
-    [PropertyName_Id] int  NOT NULL,
-    [PropertyValue_Id] int  NOT NULL,
-    [User_Id] int  NOT NULL
+    [User_Id] int  NOT NULL,
+    [Users_Id] int  NOT NULL
 );
 GO
 
@@ -299,13 +279,6 @@ CREATE TABLE [dbo].[Owners] (
 );
 GO
 
--- Creating table 'PropertyNames'
-CREATE TABLE [dbo].[PropertyNames] (
-    [Id] int IDENTITY(1,1) NOT NULL,
-    [Name] nvarchar(max)  NOT NULL
-);
-GO
-
 -- Creating table 'PropertyValues'
 CREATE TABLE [dbo].[PropertyValues] (
     [Id] int IDENTITY(1,1) NOT NULL,
@@ -325,8 +298,14 @@ GO
 -- Creating table 'Users'
 CREATE TABLE [dbo].[Users] (
     [Id] int IDENTITY(1,1) NOT NULL,
-    [UserName] nvarchar(max)  NOT NULL,
-    [Password] nvarchar(max)  NOT NULL
+    [Username] nvarchar(100)  NOT NULL,
+    [Password] nvarchar(max)  NOT NULL,
+    [FirstName] nvarchar(100)  NOT NULL,
+    [LastName] nvarchar(100)  NOT NULL,
+    [Alias] nvarchar(max)  NULL,
+    [Company] nvarchar(100)  NULL,
+    [Phone] nvarchar(25)  NULL,
+    [DateCreated] datetime  NOT NULL
 );
 GO
 
@@ -419,12 +398,6 @@ ADD CONSTRAINT [PK_Downloads]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
--- Creating primary key on [Id] in table 'ExtendedProperties'
-ALTER TABLE [dbo].[ExtendedProperties]
-ADD CONSTRAINT [PK_ExtendedProperties]
-    PRIMARY KEY CLUSTERED ([Id] ASC);
-GO
-
 -- Creating primary key on [Id] in table 'Libraries'
 ALTER TABLE [dbo].[Libraries]
 ADD CONSTRAINT [PK_Libraries]
@@ -440,12 +413,6 @@ GO
 -- Creating primary key on [Id] in table 'Owners'
 ALTER TABLE [dbo].[Owners]
 ADD CONSTRAINT [PK_Owners]
-    PRIMARY KEY CLUSTERED ([Id] ASC);
-GO
-
--- Creating primary key on [Id] in table 'PropertyNames'
-ALTER TABLE [dbo].[PropertyNames]
-ADD CONSTRAINT [PK_PropertyNames]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
@@ -645,62 +612,6 @@ ON [dbo].[Downloads]
     ([Library_Id]);
 GO
 
--- Creating foreign key on [User_Id] in table 'Downloads'
-ALTER TABLE [dbo].[Downloads]
-ADD CONSTRAINT [FK_UserDownload]
-    FOREIGN KEY ([User_Id])
-    REFERENCES [dbo].[Users]
-        ([Id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-
--- Creating non-clustered index for FOREIGN KEY 'FK_UserDownload'
-CREATE INDEX [IX_FK_UserDownload]
-ON [dbo].[Downloads]
-    ([User_Id]);
-GO
-
--- Creating foreign key on [PropertyName_Id] in table 'ExtendedProperties'
-ALTER TABLE [dbo].[ExtendedProperties]
-ADD CONSTRAINT [FK_ExtendedPropertyPropertyName]
-    FOREIGN KEY ([PropertyName_Id])
-    REFERENCES [dbo].[PropertyNames]
-        ([Id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-
--- Creating non-clustered index for FOREIGN KEY 'FK_ExtendedPropertyPropertyName'
-CREATE INDEX [IX_FK_ExtendedPropertyPropertyName]
-ON [dbo].[ExtendedProperties]
-    ([PropertyName_Id]);
-GO
-
--- Creating foreign key on [PropertyValue_Id] in table 'ExtendedProperties'
-ALTER TABLE [dbo].[ExtendedProperties]
-ADD CONSTRAINT [FK_ExtendedPropertyPropertyValue]
-    FOREIGN KEY ([PropertyValue_Id])
-    REFERENCES [dbo].[PropertyValues]
-        ([Id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-
--- Creating non-clustered index for FOREIGN KEY 'FK_ExtendedPropertyPropertyValue'
-CREATE INDEX [IX_FK_ExtendedPropertyPropertyValue]
-ON [dbo].[ExtendedProperties]
-    ([PropertyValue_Id]);
-GO
-
--- Creating foreign key on [User_Id] in table 'ExtendedProperties'
-ALTER TABLE [dbo].[ExtendedProperties]
-ADD CONSTRAINT [FK_UserExtendedProperty]
-    FOREIGN KEY ([User_Id])
-    REFERENCES [dbo].[Users]
-        ([Id])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-
--- Creating non-clustered index for FOREIGN KEY 'FK_UserExtendedProperty'
-CREATE INDEX [IX_FK_UserExtendedProperty]
-ON [dbo].[ExtendedProperties]
-    ([User_Id]);
-GO
-
 -- Creating foreign key on [Library_Id] in table 'TreeNodes'
 ALTER TABLE [dbo].[TreeNodes]
 ADD CONSTRAINT [FK_LibraryTreeNode]
@@ -750,6 +661,20 @@ ADD CONSTRAINT [FK_LicenseLibrary_License]
 CREATE INDEX [IX_FK_LicenseLibrary_License]
 ON [dbo].[LicenseLibrary]
     ([Licenses_Id]);
+GO
+
+-- Creating foreign key on [Users_Id] in table 'Downloads'
+ALTER TABLE [dbo].[Downloads]
+ADD CONSTRAINT [FK_UserDownload]
+    FOREIGN KEY ([Users_Id])
+    REFERENCES [dbo].[Users]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_UserDownload'
+CREATE INDEX [IX_FK_UserDownload]
+ON [dbo].[Downloads]
+    ([Users_Id]);
 GO
 
 -- --------------------------------------------------

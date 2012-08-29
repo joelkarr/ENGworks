@@ -13,11 +13,11 @@ using Ninject;
 
 namespace CDWKS.BIMXchange.Web.Controllers
 {
-    public class HomeController : BaseController
+    public partial class HomeController : BaseController
     {
         #region Actions
 
-        public ActionResult Index()
+        public virtual ActionResult Index()
         {
             var manage = Construction.StandardKernel.Get<ISearchManager>();
             var model = new HomeViewModel { CurrentLibrary = "CADworks Electrical", Pagination = new PaginationViewModel() };

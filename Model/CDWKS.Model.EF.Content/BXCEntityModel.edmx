@@ -4,109 +4,95 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="BXC_ContentModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
-  <EntityContainer Name="BXC_ContentModelStoreContainer">
-    <EntitySet Name="AutodeskFileIESFiles" EntityType="BXC_ContentModel.Store.AutodeskFileIESFiles" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="AutodeskFiles" EntityType="BXC_ContentModel.Store.AutodeskFiles" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="AutodeskFileTreeNodes" EntityType="BXC_ContentModel.Store.AutodeskFileTreeNodes" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="CDSLinks" EntityType="BXC_ContentModel.Store.CDSLinks" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="IESFiles" EntityType="BXC_ContentModel.Store.IESFiles" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Images" EntityType="BXC_ContentModel.Store.Images" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Items" EntityType="BXC_ContentModel.Store.Items" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Parameters" EntityType="BXC_ContentModel.Store.Parameters" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="SearchNames" EntityType="BXC_ContentModel.Store.SearchNames" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="SearchValues" EntityType="BXC_ContentModel.Store.SearchValues" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="TreeNodes" EntityType="BXC_ContentModel.Store.TreeNodes" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="RevitVersions" EntityType="BXC_ContentModel.Store.RevitVersions" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Downloads" EntityType="BXC_ContentModel.Store.Downloads" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="ExtendedProperties" EntityType="BXC_ContentModel.Store.ExtendedProperties" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Libraries" EntityType="BXC_ContentModel.Store.Libraries" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Licenses" EntityType="BXC_ContentModel.Store.Licenses" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Owners" EntityType="BXC_ContentModel.Store.Owners" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="PropertyNames" EntityType="BXC_ContentModel.Store.PropertyNames" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="PropertyValues" EntityType="BXC_ContentModel.Store.PropertyValues" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="UserLibraries" EntityType="BXC_ContentModel.Store.UserLibraries" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Users" EntityType="BXC_ContentModel.Store.Users" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="LicenseLibrary" EntityType="BXC_ContentModel.Store.LicenseLibrary" store:Type="Tables" Schema="dbo" />
-    <AssociationSet Name="FK_AutodeskFileTreeNodeAutodeskFileIESFile" Association="BXC_ContentModel.Store.FK_AutodeskFileTreeNodeAutodeskFileIESFile">
+    <Schema Namespace="BXCModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="BXCModelStoreContainer">
+    <EntitySet Name="AutodeskFileIESFiles" EntityType="BXCModel.Store.AutodeskFileIESFiles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AutodeskFiles" EntityType="BXCModel.Store.AutodeskFiles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AutodeskFileTreeNodes" EntityType="BXCModel.Store.AutodeskFileTreeNodes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CDSLinks" EntityType="BXCModel.Store.CDSLinks" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="IESFiles" EntityType="BXCModel.Store.IESFiles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Images" EntityType="BXCModel.Store.Images" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Items" EntityType="BXCModel.Store.Items" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Parameters" EntityType="BXCModel.Store.Parameters" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SearchNames" EntityType="BXCModel.Store.SearchNames" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SearchValues" EntityType="BXCModel.Store.SearchValues" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TreeNodes" EntityType="BXCModel.Store.TreeNodes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RevitVersions" EntityType="BXCModel.Store.RevitVersions" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Downloads" EntityType="BXCModel.Store.Downloads" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Libraries" EntityType="BXCModel.Store.Libraries" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Licenses" EntityType="BXCModel.Store.Licenses" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Owners" EntityType="BXCModel.Store.Owners" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PropertyValues" EntityType="BXCModel.Store.PropertyValues" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserLibraries" EntityType="BXCModel.Store.UserLibraries" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Users" EntityType="BXCModel.Store.Users" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="LicenseLibrary" EntityType="BXCModel.Store.LicenseLibrary" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_AutodeskFileTreeNodeAutodeskFileIESFile" Association="BXCModel.Store.FK_AutodeskFileTreeNodeAutodeskFileIESFile">
       <End Role="AutodeskFileTreeNodes" EntitySet="AutodeskFileTreeNodes" />
       <End Role="AutodeskFileIESFiles" EntitySet="AutodeskFileIESFiles" />
     </AssociationSet>
-    <AssociationSet Name="FK_IESFileAutodeskFileIESFile" Association="BXC_ContentModel.Store.FK_IESFileAutodeskFileIESFile">
+    <AssociationSet Name="FK_IESFileAutodeskFileIESFile" Association="BXCModel.Store.FK_IESFileAutodeskFileIESFile">
       <End Role="IESFiles" EntitySet="IESFiles" />
       <End Role="AutodeskFileIESFiles" EntitySet="AutodeskFileIESFiles" />
     </AssociationSet>
-    <AssociationSet Name="FK_AutodeskFileImage" Association="BXC_ContentModel.Store.FK_AutodeskFileImage">
+    <AssociationSet Name="FK_AutodeskFileImage" Association="BXCModel.Store.FK_AutodeskFileImage">
       <End Role="AutodeskFiles" EntitySet="AutodeskFiles" />
       <End Role="Images" EntitySet="Images" />
     </AssociationSet>
-    <AssociationSet Name="FK_AutodeskFileTreeNode_AutodeskFile" Association="BXC_ContentModel.Store.FK_AutodeskFileTreeNode_AutodeskFile">
+    <AssociationSet Name="FK_AutodeskFileTreeNode_AutodeskFile" Association="BXCModel.Store.FK_AutodeskFileTreeNode_AutodeskFile">
       <End Role="AutodeskFiles" EntitySet="AutodeskFiles" />
       <End Role="AutodeskFileTreeNodes" EntitySet="AutodeskFileTreeNodes" />
     </AssociationSet>
-    <AssociationSet Name="FK_ItemAutodeskFile" Association="BXC_ContentModel.Store.FK_ItemAutodeskFile">
+    <AssociationSet Name="FK_ItemAutodeskFile" Association="BXCModel.Store.FK_ItemAutodeskFile">
       <End Role="AutodeskFiles" EntitySet="AutodeskFiles" />
       <End Role="Items" EntitySet="Items" />
     </AssociationSet>
-    <AssociationSet Name="FK_AutodeskFileTreeNode_TreeNode" Association="BXC_ContentModel.Store.FK_AutodeskFileTreeNode_TreeNode">
+    <AssociationSet Name="FK_AutodeskFileTreeNode_TreeNode" Association="BXCModel.Store.FK_AutodeskFileTreeNode_TreeNode">
       <End Role="TreeNodes" EntitySet="TreeNodes" />
       <End Role="AutodeskFileTreeNodes" EntitySet="AutodeskFileTreeNodes" />
     </AssociationSet>
-    <AssociationSet Name="FK_ParameterItem" Association="BXC_ContentModel.Store.FK_ParameterItem">
+    <AssociationSet Name="FK_ParameterItem" Association="BXCModel.Store.FK_ParameterItem">
       <End Role="Items" EntitySet="Items" />
       <End Role="Parameters" EntitySet="Parameters" />
     </AssociationSet>
-    <AssociationSet Name="FK_ItemParameterSearchNames" Association="BXC_ContentModel.Store.FK_ItemParameterSearchNames">
+    <AssociationSet Name="FK_ItemParameterSearchNames" Association="BXCModel.Store.FK_ItemParameterSearchNames">
       <End Role="SearchNames" EntitySet="SearchNames" />
       <End Role="Parameters" EntitySet="Parameters" />
     </AssociationSet>
-    <AssociationSet Name="FK_ItemParameterSearchValues" Association="BXC_ContentModel.Store.FK_ItemParameterSearchValues">
+    <AssociationSet Name="FK_ItemParameterSearchValues" Association="BXCModel.Store.FK_ItemParameterSearchValues">
       <End Role="SearchValues" EntitySet="SearchValues" />
       <End Role="Parameters" EntitySet="Parameters" />
     </AssociationSet>
-    <AssociationSet Name="FK_TreeNodeTreeNode" Association="BXC_ContentModel.Store.FK_TreeNodeTreeNode">
+    <AssociationSet Name="FK_TreeNodeTreeNode" Association="BXCModel.Store.FK_TreeNodeTreeNode">
       <End Role="TreeNodes" EntitySet="TreeNodes" />
       <End Role="TreeNodes1" EntitySet="TreeNodes" />
     </AssociationSet>
-    <AssociationSet Name="FK_AutodeskFileRevitVersion" Association="BXC_ContentModel.Store.FK_AutodeskFileRevitVersion">
+    <AssociationSet Name="FK_AutodeskFileRevitVersion" Association="BXCModel.Store.FK_AutodeskFileRevitVersion">
       <End Role="AutodeskFile" EntitySet="AutodeskFiles" />
       <End Role="RevitVersion" EntitySet="RevitVersions" />
     </AssociationSet>
-    <AssociationSet Name="FK_LibraryDownload" Association="BXC_ContentModel.Store.FK_LibraryDownload">
+    <AssociationSet Name="FK_LibraryDownload" Association="BXCModel.Store.FK_LibraryDownload">
       <End Role="Library" EntitySet="Libraries" />
       <End Role="Download" EntitySet="Downloads" />
     </AssociationSet>
-    <AssociationSet Name="FK_UserDownload" Association="BXC_ContentModel.Store.FK_UserDownload">
-      <End Role="User" EntitySet="Users" />
-      <End Role="Download" EntitySet="Downloads" />
-    </AssociationSet>
-    <AssociationSet Name="FK_ExtendedPropertyPropertyName" Association="BXC_ContentModel.Store.FK_ExtendedPropertyPropertyName">
-      <End Role="PropertyName" EntitySet="PropertyNames" />
-      <End Role="ExtendedProperty" EntitySet="ExtendedProperties" />
-    </AssociationSet>
-    <AssociationSet Name="FK_ExtendedPropertyPropertyValue" Association="BXC_ContentModel.Store.FK_ExtendedPropertyPropertyValue">
-      <End Role="PropertyValue" EntitySet="PropertyValues" />
-      <End Role="ExtendedProperty" EntitySet="ExtendedProperties" />
-    </AssociationSet>
-    <AssociationSet Name="FK_UserExtendedProperty" Association="BXC_ContentModel.Store.FK_UserExtendedProperty">
-      <End Role="User" EntitySet="Users" />
-      <End Role="ExtendedProperty" EntitySet="ExtendedProperties" />
-    </AssociationSet>
-    <AssociationSet Name="FK_LibraryTreeNode" Association="BXC_ContentModel.Store.FK_LibraryTreeNode">
+    <AssociationSet Name="FK_LibraryTreeNode" Association="BXCModel.Store.FK_LibraryTreeNode">
       <End Role="Library" EntitySet="Libraries" />
       <End Role="TreeNode" EntitySet="TreeNodes" />
     </AssociationSet>
-    <AssociationSet Name="FK_LicenseOwner" Association="BXC_ContentModel.Store.FK_LicenseOwner">
+    <AssociationSet Name="FK_LicenseOwner" Association="BXCModel.Store.FK_LicenseOwner">
       <End Role="Owner" EntitySet="Owners" />
       <End Role="License" EntitySet="Licenses" />
     </AssociationSet>
-    <AssociationSet Name="FK_LicenseLibrary_Library" Association="BXC_ContentModel.Store.FK_LicenseLibrary_Library">
+    <AssociationSet Name="FK_LicenseLibrary_Library" Association="BXCModel.Store.FK_LicenseLibrary_Library">
       <End Role="Library" EntitySet="Libraries" />
       <End Role="LicenseLibrary" EntitySet="LicenseLibrary" />
     </AssociationSet>
-    <AssociationSet Name="FK_LicenseLibrary_License" Association="BXC_ContentModel.Store.FK_LicenseLibrary_License">
+    <AssociationSet Name="FK_LicenseLibrary_License" Association="BXCModel.Store.FK_LicenseLibrary_License">
       <End Role="License" EntitySet="Licenses" />
       <End Role="LicenseLibrary" EntitySet="LicenseLibrary" />
+    </AssociationSet>
+    <AssociationSet Name="UserDownload" Association="BXCModel.Store.UserDownload">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Download" EntitySet="Downloads" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="AutodeskFileIESFiles">
@@ -223,15 +209,7 @@
     <Property Name="DateTime" Type="datetime" Nullable="false" />
     <Property Name="Library_Id" Type="int" Nullable="false" />
     <Property Name="User_Id" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="ExtendedProperties">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="PropertyName_Id" Type="int" Nullable="false" />
-    <Property Name="PropertyValue_Id" Type="int" Nullable="false" />
-    <Property Name="User_Id" Type="int" Nullable="false" />
+    <Property Name="Users_Id" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Libraries">
     <Key>
@@ -258,13 +236,6 @@
     <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
     <Property Name="CreatedDate" Type="datetime" Nullable="false" />
   </EntityType>
-  <EntityType Name="PropertyNames">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
-  </EntityType>
   <EntityType Name="PropertyValues">
     <Key>
       <PropertyRef Name="Id" />
@@ -286,8 +257,14 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="UserName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Username" Type="nvarchar" Nullable="false" MaxLength="100" />
     <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Alias" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Company" Type="nvarchar" Nullable="true" MaxLength="100" />
+    <Property Name="Phone" Type="nvarchar" Nullable="true" MaxLength="25" />
+    <Property Name="DateCreated" Type="datetime" Nullable="false" />
   </EntityType>
   <EntityType Name="LicenseLibrary">
     <Key>
@@ -298,8 +275,8 @@
     <Property Name="Licenses_Id" Type="int" Nullable="false" />
   </EntityType>
   <Association Name="FK_AutodeskFileTreeNodeAutodeskFileIESFile">
-    <End Role="AutodeskFileTreeNodes" Type="BXC_ContentModel.Store.AutodeskFileTreeNodes" Multiplicity="1" />
-    <End Role="AutodeskFileIESFiles" Type="BXC_ContentModel.Store.AutodeskFileIESFiles" Multiplicity="*" />
+    <End Role="AutodeskFileTreeNodes" Type="BXCModel.Store.AutodeskFileTreeNodes" Multiplicity="1" />
+    <End Role="AutodeskFileIESFiles" Type="BXCModel.Store.AutodeskFileIESFiles" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="AutodeskFileTreeNodes">
         <PropertyRef Name="Id" />
@@ -310,8 +287,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_IESFileAutodeskFileIESFile">
-    <End Role="IESFiles" Type="BXC_ContentModel.Store.IESFiles" Multiplicity="1" />
-    <End Role="AutodeskFileIESFiles" Type="BXC_ContentModel.Store.AutodeskFileIESFiles" Multiplicity="*" />
+    <End Role="IESFiles" Type="BXCModel.Store.IESFiles" Multiplicity="1" />
+    <End Role="AutodeskFileIESFiles" Type="BXCModel.Store.AutodeskFileIESFiles" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="IESFiles">
         <PropertyRef Name="Id" />
@@ -322,8 +299,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_AutodeskFileImage">
-    <End Role="AutodeskFiles" Type="BXC_ContentModel.Store.AutodeskFiles" Multiplicity="0..1" />
-    <End Role="Images" Type="BXC_ContentModel.Store.Images" Multiplicity="*" />
+    <End Role="AutodeskFiles" Type="BXCModel.Store.AutodeskFiles" Multiplicity="0..1" />
+    <End Role="Images" Type="BXCModel.Store.Images" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="AutodeskFiles">
         <PropertyRef Name="Id" />
@@ -334,8 +311,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_AutodeskFileTreeNode_AutodeskFile">
-    <End Role="AutodeskFiles" Type="BXC_ContentModel.Store.AutodeskFiles" Multiplicity="1" />
-    <End Role="AutodeskFileTreeNodes" Type="BXC_ContentModel.Store.AutodeskFileTreeNodes" Multiplicity="*" />
+    <End Role="AutodeskFiles" Type="BXCModel.Store.AutodeskFiles" Multiplicity="1" />
+    <End Role="AutodeskFileTreeNodes" Type="BXCModel.Store.AutodeskFileTreeNodes" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="AutodeskFiles">
         <PropertyRef Name="Id" />
@@ -346,8 +323,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_ItemAutodeskFile">
-    <End Role="AutodeskFiles" Type="BXC_ContentModel.Store.AutodeskFiles" Multiplicity="1" />
-    <End Role="Items" Type="BXC_ContentModel.Store.Items" Multiplicity="*" />
+    <End Role="AutodeskFiles" Type="BXCModel.Store.AutodeskFiles" Multiplicity="1" />
+    <End Role="Items" Type="BXCModel.Store.Items" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="AutodeskFiles">
         <PropertyRef Name="Id" />
@@ -358,8 +335,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_AutodeskFileTreeNode_TreeNode">
-    <End Role="TreeNodes" Type="BXC_ContentModel.Store.TreeNodes" Multiplicity="1" />
-    <End Role="AutodeskFileTreeNodes" Type="BXC_ContentModel.Store.AutodeskFileTreeNodes" Multiplicity="*" />
+    <End Role="TreeNodes" Type="BXCModel.Store.TreeNodes" Multiplicity="1" />
+    <End Role="AutodeskFileTreeNodes" Type="BXCModel.Store.AutodeskFileTreeNodes" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="TreeNodes">
         <PropertyRef Name="Id" />
@@ -370,8 +347,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_ParameterItem">
-    <End Role="Items" Type="BXC_ContentModel.Store.Items" Multiplicity="1" />
-    <End Role="Parameters" Type="BXC_ContentModel.Store.Parameters" Multiplicity="*" />
+    <End Role="Items" Type="BXCModel.Store.Items" Multiplicity="1" />
+    <End Role="Parameters" Type="BXCModel.Store.Parameters" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Items">
         <PropertyRef Name="Id" />
@@ -382,8 +359,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_ItemParameterSearchNames">
-    <End Role="SearchNames" Type="BXC_ContentModel.Store.SearchNames" Multiplicity="1" />
-    <End Role="Parameters" Type="BXC_ContentModel.Store.Parameters" Multiplicity="*" />
+    <End Role="SearchNames" Type="BXCModel.Store.SearchNames" Multiplicity="1" />
+    <End Role="Parameters" Type="BXCModel.Store.Parameters" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="SearchNames">
         <PropertyRef Name="Id" />
@@ -394,8 +371,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_ItemParameterSearchValues">
-    <End Role="SearchValues" Type="BXC_ContentModel.Store.SearchValues" Multiplicity="1" />
-    <End Role="Parameters" Type="BXC_ContentModel.Store.Parameters" Multiplicity="*" />
+    <End Role="SearchValues" Type="BXCModel.Store.SearchValues" Multiplicity="1" />
+    <End Role="Parameters" Type="BXCModel.Store.Parameters" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="SearchValues">
         <PropertyRef Name="Id" />
@@ -406,8 +383,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_TreeNodeTreeNode">
-    <End Role="TreeNodes" Type="BXC_ContentModel.Store.TreeNodes" Multiplicity="0..1" />
-    <End Role="TreeNodes1" Type="BXC_ContentModel.Store.TreeNodes" Multiplicity="*" />
+    <End Role="TreeNodes" Type="BXCModel.Store.TreeNodes" Multiplicity="0..1" />
+    <End Role="TreeNodes1" Type="BXCModel.Store.TreeNodes" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="TreeNodes">
         <PropertyRef Name="Id" />
@@ -418,8 +395,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_AutodeskFileRevitVersion">
-    <End Role="AutodeskFile" Type="BXC_ContentModel.Store.AutodeskFiles" Multiplicity="1" />
-    <End Role="RevitVersion" Type="BXC_ContentModel.Store.RevitVersions" Multiplicity="*" />
+    <End Role="AutodeskFile" Type="BXCModel.Store.AutodeskFiles" Multiplicity="1" />
+    <End Role="RevitVersion" Type="BXCModel.Store.RevitVersions" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="AutodeskFile">
         <PropertyRef Name="Id" />
@@ -430,8 +407,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_LibraryDownload">
-    <End Role="Library" Type="BXC_ContentModel.Store.Libraries" Multiplicity="1" />
-    <End Role="Download" Type="BXC_ContentModel.Store.Downloads" Multiplicity="*" />
+    <End Role="Library" Type="BXCModel.Store.Libraries" Multiplicity="1" />
+    <End Role="Download" Type="BXCModel.Store.Downloads" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Library">
         <PropertyRef Name="Id" />
@@ -441,57 +418,9 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_UserDownload">
-    <End Role="User" Type="BXC_ContentModel.Store.Users" Multiplicity="1" />
-    <End Role="Download" Type="BXC_ContentModel.Store.Downloads" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Download">
-        <PropertyRef Name="User_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_ExtendedPropertyPropertyName">
-    <End Role="PropertyName" Type="BXC_ContentModel.Store.PropertyNames" Multiplicity="1" />
-    <End Role="ExtendedProperty" Type="BXC_ContentModel.Store.ExtendedProperties" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="PropertyName">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="ExtendedProperty">
-        <PropertyRef Name="PropertyName_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_ExtendedPropertyPropertyValue">
-    <End Role="PropertyValue" Type="BXC_ContentModel.Store.PropertyValues" Multiplicity="1" />
-    <End Role="ExtendedProperty" Type="BXC_ContentModel.Store.ExtendedProperties" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="PropertyValue">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="ExtendedProperty">
-        <PropertyRef Name="PropertyValue_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_UserExtendedProperty">
-    <End Role="User" Type="BXC_ContentModel.Store.Users" Multiplicity="1" />
-    <End Role="ExtendedProperty" Type="BXC_ContentModel.Store.ExtendedProperties" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="ExtendedProperty">
-        <PropertyRef Name="User_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_LibraryTreeNode">
-    <End Role="Library" Type="BXC_ContentModel.Store.Libraries" Multiplicity="1" />
-    <End Role="TreeNode" Type="BXC_ContentModel.Store.TreeNodes" Multiplicity="*" />
+    <End Role="Library" Type="BXCModel.Store.Libraries" Multiplicity="1" />
+    <End Role="TreeNode" Type="BXCModel.Store.TreeNodes" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Library">
         <PropertyRef Name="Id" />
@@ -502,8 +431,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_LicenseOwner">
-    <End Role="Owner" Type="BXC_ContentModel.Store.Owners" Multiplicity="1" />
-    <End Role="License" Type="BXC_ContentModel.Store.Licenses" Multiplicity="*" />
+    <End Role="Owner" Type="BXCModel.Store.Owners" Multiplicity="1" />
+    <End Role="License" Type="BXCModel.Store.Licenses" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Owner">
         <PropertyRef Name="Id" />
@@ -513,9 +442,21 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="UserDownload">
+    <End Role="User" Type="BXCModel.Store.Users" Multiplicity="1" />
+    <End Role="Download" Type="BXCModel.Store.Downloads" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Download">
+        <PropertyRef Name="Users_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_LicenseLibrary_Library">
-    <End Role="Library" Type="BXC_ContentModel.Store.Libraries" Multiplicity="1" />
-    <End Role="LicenseLibrary" Type="BXC_ContentModel.Store.LicenseLibrary" Multiplicity="*" />
+    <End Role="Library" Type="BXCModel.Store.Libraries" Multiplicity="1" />
+    <End Role="LicenseLibrary" Type="BXCModel.Store.LicenseLibrary" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Library">
         <PropertyRef Name="Id" />
@@ -526,8 +467,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_LicenseLibrary_License">
-    <End Role="LicenseLibrary" Type="BXC_ContentModel.Store.LicenseLibrary" Multiplicity="*" />
-    <End Role="License" Type="BXC_ContentModel.Store.Licenses" Multiplicity="1" />
+    <End Role="LicenseLibrary" Type="BXCModel.Store.LicenseLibrary" Multiplicity="*" />
+    <End Role="License" Type="BXCModel.Store.Licenses" Multiplicity="1" />
     <ReferentialConstraint>
       <Principal Role="License">
         <PropertyRef Name="Id" />
@@ -599,33 +540,14 @@
             <End Role="RevitVersion" EntitySet="RevitVersions" />
           </AssociationSet>
           <EntitySet Name="Downloads" EntityType="BXCModel.Download" />
-          <EntitySet Name="ExtendedProperties" EntityType="BXCModel.ExtendedProperty" />
           <EntitySet Name="Libraries" EntityType="BXCModel.Library" />
           <EntitySet Name="Licenses" EntityType="BXCModel.License" />
           <EntitySet Name="Owners" EntityType="BXCModel.Owner" />
-          <EntitySet Name="PropertyNames" EntityType="BXCModel.PropertyName" />
           <EntitySet Name="PropertyValues" EntityType="BXCModel.PropertyValue" />
           <EntitySet Name="UserLibraries" EntityType="BXCModel.UserLibrary" />
-          <EntitySet Name="Users" EntityType="BXCModel.User" />
           <AssociationSet Name="FK_LibraryDownload" Association="BXCModel.FK_LibraryDownload">
             <End Role="Library" EntitySet="Libraries" />
             <End Role="Download" EntitySet="Downloads" />
-          </AssociationSet>
-          <AssociationSet Name="FK_UserDownload" Association="BXCModel.FK_UserDownload">
-            <End Role="User" EntitySet="Users" />
-            <End Role="Download" EntitySet="Downloads" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ExtendedPropertyPropertyName" Association="BXCModel.FK_ExtendedPropertyPropertyName">
-            <End Role="PropertyName" EntitySet="PropertyNames" />
-            <End Role="ExtendedProperty" EntitySet="ExtendedProperties" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ExtendedPropertyPropertyValue" Association="BXCModel.FK_ExtendedPropertyPropertyValue">
-            <End Role="PropertyValue" EntitySet="PropertyValues" />
-            <End Role="ExtendedProperty" EntitySet="ExtendedProperties" />
-          </AssociationSet>
-          <AssociationSet Name="FK_UserExtendedProperty" Association="BXCModel.FK_UserExtendedProperty">
-            <End Role="User" EntitySet="Users" />
-            <End Role="ExtendedProperty" EntitySet="ExtendedProperties" />
           </AssociationSet>
           <AssociationSet Name="FK_LibraryTreeNode" Association="BXCModel.FK_LibraryTreeNode">
             <End Role="Library" EntitySet="Libraries" />
@@ -638,6 +560,11 @@
           <AssociationSet Name="LicenseLibrary" Association="BXCModel.LicenseLibrary">
             <End Role="Library" EntitySet="Libraries" />
             <End Role="License" EntitySet="Licenses" />
+          </AssociationSet>
+          <EntitySet Name="Users" EntityType="BXCModel.User" />
+          <AssociationSet Name="UserDownload" Association="BXCModel.UserDownload">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Download" EntitySet="Downloads" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="AutodeskFileIESFile">
@@ -910,19 +837,7 @@
           <Property Type="Int32" Name="Library_Id" Nullable="false" />
           <Property Type="Int32" Name="User_Id" Nullable="false" />
           <NavigationProperty Name="Library" Relationship="BXCModel.FK_LibraryDownload" FromRole="Download" ToRole="Library" />
-          <NavigationProperty Name="User" Relationship="BXCModel.FK_UserDownload" FromRole="Download" ToRole="User" />
-        </EntityType>
-        <EntityType Name="ExtendedProperty">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="Int32" Name="PropertyName_Id" Nullable="false" />
-          <Property Type="Int32" Name="PropertyValue_Id" Nullable="false" />
-          <Property Type="Int32" Name="User_Id" Nullable="false" />
-          <NavigationProperty Name="PropertyName" Relationship="BXCModel.FK_ExtendedPropertyPropertyName" FromRole="ExtendedProperty" ToRole="PropertyName" />
-          <NavigationProperty Name="PropertyValue" Relationship="BXCModel.FK_ExtendedPropertyPropertyValue" FromRole="ExtendedProperty" ToRole="PropertyValue" />
-          <NavigationProperty Name="User" Relationship="BXCModel.FK_UserExtendedProperty" FromRole="ExtendedProperty" ToRole="User" />
+          <NavigationProperty Name="Users" Relationship="BXCModel.UserDownload" FromRole="Download" ToRole="User" />
         </EntityType>
         <EntityType Name="Library">
           <Key>
@@ -955,14 +870,6 @@
           <Property Type="DateTime" Name="CreatedDate" Nullable="false" />
           <NavigationProperty Name="Licenses" Relationship="BXCModel.FK_LicenseOwner" FromRole="Owner" ToRole="License" />
         </EntityType>
-        <EntityType Name="PropertyName">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="Name" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="ExtendedProperties" Relationship="BXCModel.FK_ExtendedPropertyPropertyName" FromRole="PropertyName" ToRole="ExtendedProperty" />
-        </EntityType>
         <EntityType Name="PropertyValue">
           <Key>
             <PropertyRef Name="Id" />
@@ -970,7 +877,6 @@
           <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="String" Name="Value" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Type="Int32" Name="ExtendedProperty_Id" Nullable="false" />
-          <NavigationProperty Name="ExtendedProperties" Relationship="BXCModel.FK_ExtendedPropertyPropertyValue" FromRole="PropertyValue" ToRole="ExtendedProperty" />
         </EntityType>
         <EntityType Name="UserLibrary">
           <Key>
@@ -979,16 +885,6 @@
           <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="Int32" Name="UserId" Nullable="false" />
           <Property Type="Int32" Name="LibraryId" Nullable="false" />
-        </EntityType>
-        <EntityType Name="User">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="UserName" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Password" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Downloads" Relationship="BXCModel.FK_UserDownload" FromRole="User" ToRole="Download" />
-          <NavigationProperty Name="ExtendedProperties" Relationship="BXCModel.FK_UserExtendedProperty" FromRole="User" ToRole="ExtendedProperty" />
         </EntityType>
         <Association Name="FK_LibraryDownload">
           <End Type="BXCModel.Library" Role="Library" Multiplicity="1" />
@@ -999,54 +895,6 @@
             </Principal>
             <Dependent Role="Download">
               <PropertyRef Name="Library_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_UserDownload">
-          <End Type="BXCModel.User" Role="User" Multiplicity="1" />
-          <End Type="BXCModel.Download" Role="Download" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Download">
-              <PropertyRef Name="User_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ExtendedPropertyPropertyName">
-          <End Type="BXCModel.PropertyName" Role="PropertyName" Multiplicity="1" />
-          <End Type="BXCModel.ExtendedProperty" Role="ExtendedProperty" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PropertyName">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ExtendedProperty">
-              <PropertyRef Name="PropertyName_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ExtendedPropertyPropertyValue">
-          <End Type="BXCModel.PropertyValue" Role="PropertyValue" Multiplicity="1" />
-          <End Type="BXCModel.ExtendedProperty" Role="ExtendedProperty" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PropertyValue">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ExtendedProperty">
-              <PropertyRef Name="PropertyValue_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_UserExtendedProperty">
-          <End Type="BXCModel.User" Role="User" Multiplicity="1" />
-          <End Type="BXCModel.ExtendedProperty" Role="ExtendedProperty" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ExtendedProperty">
-              <PropertyRef Name="User_Id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1078,12 +926,31 @@
           <End Type="BXCModel.Library" Role="Library" Multiplicity="*" />
           <End Type="BXCModel.License" Role="License" Multiplicity="*" />
         </Association>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Username" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="Password" Nullable="false" />
+          <Property Type="String" Name="FirstName" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="LastName" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="Alias" Nullable="true" />
+          <Property Type="String" Name="Company" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Phone" Nullable="true" MaxLength="25" />
+          <Property Type="DateTime" Name="DateCreated" Nullable="false" />
+          <NavigationProperty Name="Downloads" Relationship="BXCModel.UserDownload" FromRole="User" ToRole="Download" />
+        </EntityType>
+        <Association Name="UserDownload">
+          <End Type="BXCModel.User" Role="User" Multiplicity="1" />
+          <End Type="BXCModel.Download" Role="Download" Multiplicity="*" />
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
     <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="BXC_ContentModelStoreContainer" CdmEntityContainer="BXCModelEntities">
+  <EntityContainerMapping StorageEntityContainer="BXCModelStoreContainer" CdmEntityContainer="BXCModelEntities">
     <EntitySetMapping Name="AutodeskFileIESFiles">
       <EntityTypeMapping TypeName="IsTypeOf(BXCModel.AutodeskFileIESFile)">
         <MappingFragment StoreEntitySet="AutodeskFileIESFiles">
@@ -1212,16 +1079,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="ExtendedProperties">
-      <EntityTypeMapping TypeName="IsTypeOf(BXCModel.ExtendedProperty)">
-        <MappingFragment StoreEntitySet="ExtendedProperties">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="PropertyName_Id" ColumnName="PropertyName_Id" />
-          <ScalarProperty Name="PropertyValue_Id" ColumnName="PropertyValue_Id" />
-          <ScalarProperty Name="User_Id" ColumnName="User_Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Libraries">
       <EntityTypeMapping TypeName="IsTypeOf(BXCModel.Library)">
         <MappingFragment StoreEntitySet="Libraries">
@@ -1250,14 +1107,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="PropertyNames">
-      <EntityTypeMapping TypeName="IsTypeOf(BXCModel.PropertyName)">
-        <MappingFragment StoreEntitySet="PropertyNames">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="PropertyValues">
       <EntityTypeMapping TypeName="IsTypeOf(BXCModel.PropertyValue)">
         <MappingFragment StoreEntitySet="PropertyValues">
@@ -1280,8 +1129,14 @@
       <EntityTypeMapping TypeName="IsTypeOf(BXCModel.User)">
         <MappingFragment StoreEntitySet="Users">
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
           <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Alias" ColumnName="Alias" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -1291,6 +1146,14 @@
       </EndProperty>
       <EndProperty Name="License">
         <ScalarProperty Name="Id" ColumnName="Licenses_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="UserDownload" TypeName="BXCModel.UserDownload" StoreEntitySet="Downloads">
+      <EndProperty Name="User">
+        <ScalarProperty Name="Id" ColumnName="Users_Id" />
+      </EndProperty>
+      <EndProperty Name="Download">
+        <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
     </AssociationSetMapping>
   </EntityContainerMapping>
@@ -1345,10 +1208,10 @@
         </AssociationConnector>
         <AssociationConnector Association="BXCModel.FK_AutodeskFileTreeNode_AutodeskFile" ManuallyRouted="false">
           <ConnectorPoint PointX="3.03125" PointY="5" />
-          <ConnectorPoint PointX="3.03125" PointY="3.0505875358072916" />
-          <ConnectorPoint PointX="4.510416666666667" PointY="3.0505875358072911" />
-          <ConnectorPoint PointX="4.677083333333333" PointY="3.0505875358072916" />
-          <ConnectorPoint PointX="5.25" PointY="3.0505875358072916" />
+          <ConnectorPoint PointX="3.03125" PointY="3.0351122680664062" />
+          <ConnectorPoint PointX="4.510416666666667" PointY="3.0351122680664058" />
+          <ConnectorPoint PointX="4.677083333333333" PointY="3.0351122680664062" />
+          <ConnectorPoint PointX="5.25" PointY="3.0351122680664062" />
         </AssociationConnector>
         <AssociationConnector Association="BXCModel.FK_ItemAutodeskFile" ManuallyRouted="false">
           <ConnectorPoint PointX="4.09790314453125" PointY="7.7494921875" />
@@ -1395,51 +1258,23 @@
           <ConnectorPoint PointX="5.25" PointY="20.393992513020834" />
         </AssociationConnector>
         <EntityTypeShape EntityType="BXCModel.Download" Width="1.5" PointX="12.625" PointY="3.875" Height="2.3648893229166679" />
-        <EntityTypeShape EntityType="BXCModel.ExtendedProperty" Width="1.5" PointX="12.625" PointY="7.125" Height="2.3648893229166683" />
         <EntityTypeShape EntityType="BXCModel.Library" Width="1.5" PointX="0.5" PointY="1" Height="1.9802864583333388" />
         <EntityTypeShape EntityType="BXCModel.License" Width="1.5" PointX="3.125" PointY="0.5" Height="2.3648893229166674" />
         <EntityTypeShape EntityType="BXCModel.Owner" Width="1.5" PointX="0.75" PointY="12.375" Height="1.7879850260416674" />
-        <EntityTypeShape EntityType="BXCModel.PropertyName" Width="1.5" PointX="10.375" PointY="3.25" Height="1.5956835937500031" />
         <EntityTypeShape EntityType="BXCModel.PropertyValue" Width="1.5" PointX="10.375" PointY="9.625" Height="1.7879850260416674" />
         <EntityTypeShape EntityType="BXCModel.UserLibrary" Width="1.5" PointX="7.375" PointY="11.25" Height="1.5956835937500031" />
-        <EntityTypeShape EntityType="BXCModel.User" Width="1.5" PointX="10.375" PointY="6.25" Height="1.9802864583333397" />
         <AssociationConnector Association="BXCModel.FK_LibraryDownload" >
-          <ConnectorPoint PointX="2" PointY="2.2376810364583375" />
-          <ConnectorPoint PointX="2.875" PointY="2.2376810364583375" />
+          <ConnectorPoint PointX="2" PointY="1.9901432291666694" />
+          <ConnectorPoint PointX="2.875" PointY="1.9901432291666694" />
           <ConnectorPoint PointX="2.875" PointY="3.5475878906249996" />
           <ConnectorPoint PointX="2.9479166666666665" PointY="3.5475878906249991" />
           <ConnectorPoint PointX="3.1145833333333335" PointY="3.5475878906249996" />
           <ConnectorPoint PointX="4.510416666666667" PointY="3.5475878906249991" />
           <ConnectorPoint PointX="4.677083333333333" PointY="3.5475878906249996" />
-          <ConnectorPoint PointX="10.125" PointY="3.5475878906249996" />
-          <ConnectorPoint PointX="10.125" PointY="3" />
-          <ConnectorPoint PointX="13.375" PointY="3" />
+          <ConnectorPoint PointX="7.041666666666667" PointY="3.5475878906249991" />
+          <ConnectorPoint PointX="7.208333333333333" PointY="3.5475878906249996" />
+          <ConnectorPoint PointX="13.375" PointY="3.5475878906249996" />
           <ConnectorPoint PointX="13.375" PointY="3.875" />
-        </AssociationConnector>
-        <AssociationConnector Association="BXCModel.FK_UserDownload" >
-          <ConnectorPoint PointX="11.875" PointY="6.25" />
-          <ConnectorPoint PointX="12.25" PointY="5.875" />
-          <ConnectorPoint PointX="12.25" PointY="6.6148893229166674" />
-          <ConnectorPoint PointX="12.37857443490112" PointY="6.4863148880155457" />
-          <ConnectorPoint PointX="12.496425565098878" PointY="6.3684637578177883" />
-          <ConnectorPoint PointX="12.625" PointY="6.2398893229166674" />
-        </AssociationConnector>
-        <AssociationConnector Association="BXCModel.FK_ExtendedPropertyPropertyName" >
-          <ConnectorPoint PointX="11.875" PointY="4.7822210552884643" />
-          <ConnectorPoint PointX="12.4375" PointY="5.3447210552884643" />
-          <ConnectorPoint PointX="12.4375" PointY="8.3074446614583337" />
-          <ConnectorPoint PointX="12.625" PointY="8.3074446614583337" />
-        </AssociationConnector>
-        <AssociationConnector Association="BXCModel.FK_ExtendedPropertyPropertyValue" >
-          <ConnectorPoint PointX="11.875" PointY="10.518992513020834" />
-          <ConnectorPoint PointX="13.375" PointY="10.518992513020834" />
-          <ConnectorPoint PointX="13.375" PointY="9.4898893229166674" />
-        </AssociationConnector>
-        <AssociationConnector Association="BXCModel.FK_UserExtendedProperty" >
-          <ConnectorPoint PointX="11.875" PointY="7.6776432291666694" />
-          <ConnectorPoint PointX="12.354166666666666" PointY="7.6776432291666685" />
-          <ConnectorPoint PointX="12.520833333333334" PointY="7.6776432291666694" />
-          <ConnectorPoint PointX="12.625" PointY="7.6776432291666694" />
         </AssociationConnector>
         <AssociationConnector Association="BXCModel.FK_LibraryTreeNode" >
           <ConnectorPoint PointX="1.5" PointY="2.9802864583333388" />
@@ -1447,14 +1282,19 @@
         </AssociationConnector>
         <AssociationConnector Association="BXCModel.FK_LicenseOwner" >
           <ConnectorPoint PointX="2.25" PointY="13.437139485677083" />
-          <ConnectorPoint PointX="3.2020648111979169" PointY="13.437139485677083" />
-          <ConnectorPoint PointX="3.3687314778645838" PointY="13.437139485677083" />
+          <ConnectorPoint PointX="3.231239488932292" PointY="13.437139485677083" />
+          <ConnectorPoint PointX="3.3979061555989589" PointY="13.437139485677083" />
           <ConnectorPoint PointX="4.59375" PointY="13.437139485677083" />
           <ConnectorPoint PointX="4.59375" PointY="2.8648893229166674" />
         </AssociationConnector>
         <AssociationConnector Association="BXCModel.LicenseLibrary" >
           <ConnectorPoint PointX="2" PointY="1.4325716145833347" />
           <ConnectorPoint PointX="3.125" PointY="1.4325716145833347" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="BXCModel.User" Width="1.5" PointX="10.375" PointY="4.875" Height="2.7494921874999996" />
+        <AssociationConnector Association="BXCModel.UserDownload">
+          <ConnectorPoint PointX="11.875" PointY="5.5574446614583328" />
+          <ConnectorPoint PointX="12.625" PointY="5.5574446614583328" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>
