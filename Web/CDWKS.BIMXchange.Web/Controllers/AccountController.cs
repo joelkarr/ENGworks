@@ -4,8 +4,10 @@ using System.Web.Security;
 using CDWKS.BIMXchange.Web.Constants;
 using CDWKS.BIMXchange.Web.Controllers.Base;
 using CDWKS.BIMXchange.Web.Models;
+using CDWKS.BIMXchange.Web.Providers;
 using CDWKS.Model.EF.BIMXchange;
 using CDWKS.Business.AccountManager;
+using CDWKS.Shared.Extensions;
 
 namespace CDWKS.BIMXchange.Web.Controllers
 {
@@ -16,6 +18,18 @@ namespace CDWKS.BIMXchange.Web.Controllers
         // GET: /Account/LogOn
         public virtual ActionResult LogOn()
         {
+            if (!string.IsNullOrWhiteSpace(Request.QueryString["alias"]))
+            {
+                var provider = new BIMXMembershipProvider();
+                
+                if (provider.ValidateUser(Request.QueryString["alias"]))
+                {
+                    Session[WebConstants.IsAuthenticated] = true;
+
+                    return RedirectToAction(MVC.Home.ActionNames.Index, MVC.Home.Name);
+                }
+            }
+
             return View();
         }
 
@@ -26,6 +40,7 @@ namespace CDWKS.BIMXchange.Web.Controllers
             if (Membership.ValidateUser(model.UserName, model.Password))
             {
                 Session[WebConstants.IsAuthenticated] = true;
+
                 return RedirectToAction(MVC.Home.ActionNames.Index, MVC.Home.Name);
             }
 

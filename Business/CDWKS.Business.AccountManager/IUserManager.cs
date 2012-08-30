@@ -8,6 +8,7 @@ namespace CDWKS.Business.AccountManager
     public interface IUserManager : IDisposable
     {
         User GetUser(string username);
+        User GetUserByAlias(string alias);
         void InsertUser(User user);
     }
 }

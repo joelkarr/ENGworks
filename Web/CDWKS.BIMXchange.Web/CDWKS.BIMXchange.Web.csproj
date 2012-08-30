@@ -225,6 +225,10 @@
       <Project>{049BE1EF-5A91-4F0F-B7CD-F5278F93E220}</Project>
       <Name>CDWKS.Business.SearchManager</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\CDWKS.Shared.Extensions\CDWKS.Shared.Extensions.csproj">
+      <Project>{71B31B43-7764-47EC-BD64-D727C78884D9}</Project>
+      <Name>CDWKS.Shared.Extensions</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Model\CDWKS.Model.EF.Content\CDWKS.Model.EF.BIMXchange.csproj">
       <Project>{386444F8-A1B2-4EFC-83BC-B4316BE870F0}</Project>
       <Name>CDWKS.Model.EF.BIMXchange</Name>

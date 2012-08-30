@@ -5,7 +5,7 @@ using CDWKS.Business.AccountManager;
 
 namespace CDWKS.BIMXchange.Web.Providers
 {
-    public class BXCMembershipProvider : MembershipProvider
+    public class BIMXMembershipProvider : MembershipProvider
     {
         #region Overrides of MembershipProvider
 
@@ -48,6 +48,21 @@ namespace CDWKS.BIMXchange.Web.Providers
                 if (user != null)
                 {
                     return (string.Equals(user.Password, password, StringComparison.Ordinal));
+                }
+            }
+
+            return false;
+        }
+
+        public bool ValidateUser(string alias)
+        {
+            using (var manager = new UserManager())
+            {
+                var user = manager.GetUserByAlias(alias);
+
+                if (user != null)
+                {
+                    return true;
                 }
             }
 

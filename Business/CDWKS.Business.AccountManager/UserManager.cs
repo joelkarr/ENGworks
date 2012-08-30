@@ -28,6 +28,11 @@ namespace CDWKS.Business.AccountManager
             return DataContext.UserRepository.Find(u => string.Equals(u.Username, username, StringComparison.OrdinalIgnoreCase)).FirstOrDefault();
         }
 
+        public User GetUserByAlias(string alias)
+        {
+            return DataContext.UserRepository.Find(u => string.Equals(u.Alias, alias, StringComparison.OrdinalIgnoreCase)).FirstOrDefault();
+        }
+
         public void InsertUser(User user)
         {
             DataContext.UserRepository.Add(user);
